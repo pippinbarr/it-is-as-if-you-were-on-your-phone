@@ -1,0 +1,3 @@
+# Process
+
+- [Journal](./journal.md)
