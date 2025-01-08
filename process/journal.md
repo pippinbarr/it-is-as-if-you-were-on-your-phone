@@ -94,8 +94,8 @@ God, this is actually pretty good? I'm talking myself into this pretty hard righ
 
 ## Early sketching (2025-01-08)
 
-The resolution on this image sucks, but it's still legible I think.
+The resolution on this image sucks, but it's still legible I think. Or not? Maybe click to view? Struggling with just how terrible it is...
 
-![](./images/2025-01-08-sketching.png)
+[![](./images/2025-01-08-sketching.png)](./images/2025-01-08-sketching.png)
 
 Next step is some prototyping, indeed.
