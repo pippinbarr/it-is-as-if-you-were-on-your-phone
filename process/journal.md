@@ -91,3 +91,11 @@ And I suppose that's all. And that's plenty. Could be really juicy, could be res
 There's the component of this that refers back to It is as if you were playing chess, which is guidance on how to compose yourself physically, and most obviously facially (though because I just wrote "physically" I'm realizing that postural changes work pretty well here too). I don't think these need to be connected to the interactions - you can smirk, frown, raise an eyebrow, be dead-faced (the most common note, haha) to anything any content any interaction. But this is an important bit for the "urban camouflage" idea involved in this.
 
 God, this is actually pretty good? I'm talking myself into this pretty hard right now. Ah, young love.
+
+## Early sketching (2025-01-08)
+
+The resolution on this image sucks, but it's still legible I think.
+
+![](./images/2025-01-08-sketching.png)
+
+Next step is some prototyping, indeed.
