@@ -99,3 +99,38 @@ The resolution on this image sucks, but it's still legible I think. Or not? Mayb
 [![](./images/2025-01-08-sketching.png)](./images/2025-01-08-sketching.png)
 
 Next step is some prototyping, indeed.
+
+## First prototype; Feedback; Suite talking; and beyond  (2025-01-10)
+
+Early days still but did produce a simple prototype of randomized circle-tapping yesterday (which would be the build associated with this journal's commit). I was happier than expected with the visual presentation on my phone, though need to discourage/rule out landscape because it just doesn't work and isn't part of the way you generally think of/see people doing stuff on their phones. But yeah the opening salvo worked pretty well. The commit included a couple of things to think about:
+
+> - Consideration: the amount of time between taps
+> - Consideration: The size of the icon, the size of the hitbox(circle)
+> - Consideration: OOP versus functional programming as this scales up?
+> - Consideration: Juice (or lack therein) around the act of tapping (sound, animation, something else?)
+
+> ([44c547a](https://github.com/pippinbarr/it-is-as-if-you-were-on-your-phone/commit/44c547afb4af6a57eff8ae8847537674d4b96466))
+
+### Feedback
+
+That's all mostly technical stuff but it's true especially I need some kind of philosophical position especially on the feedback element (juice or not juice?). There clearly needs to be feedback but my inclination as of right now is to lean into the kind of "Zen" conceit involved here and to make the sounds simple chimes or other zenny sounds (gongs?). Some way of continuing the emotional tone of calm, sort of trying to catch onto the seeming calm of this kind of phone use, but making it actually calm, but making it still engaging? So prototyping some sound formats makes sense, starting with Zenning. The other more obvious would be like a "pop" and the satisfaction around that, but I think that may lead to a more brainless experience?
+
+Some simple animation for the circles appearing and disappearing makes sense too - maybe a combo fade+size in, and then just a size-out? Will try something today as I want to prototype a bit.
+
+Then there's the expressions thing... how to communicate body posture, emotion, thoughts, faces. Where to put it. I can just copy the chess game but worth revisting. Spoke with Rilla this morning around using emoticons (as in ASCII emoji) as a way to suggest things, but I think I probably still prefer the austerity of texts for this element... there's this balancing act/trick around trying to hit the engagement/dissociation/peace target. Which I like as a core challenge for this one actually. And for the whole potential suite.
+
+### Suite talking?
+
+One of the things that has been rising in my mind through thinking about it, talkng to Femke (about matching apps), and talking to Csongor via the *growing stuff* repo, is this sense of a larger and more specialized *suite* of apps based on this core concept. *It is as if you were on your phone* is the generalized idea, but it's clear that an interesting and worthwile thing to make would be *replacement* apps for all the classics (WhatsApp, Messages, TikTok, Instagram, Facebook, etc.). Each one is a minimalist set of interactions that replicate what it looks like to be on those apps, but subtracts the content. And you could have all of them to create this phone environment that's purely about the (soothing?) motions of social media etc., but is really about calm and inner peace because you get the advantages of the Wall of your phone (nobody should bother you, you're entitled to this space) without the anxieties/pressures of the actual content.
+
+Making this a much bigger project is pretty interesting. I *think* it still makes sense to start with the general case, though, and then perhaps to expand from there. Because I suspect the larger/broken down Suite would have to be a little more professional, maybe even on the App store instead of "just" a website. Though maybe the website works for sheer accessibility as the browser really isn't bad in terms of the screen real estate available and you could make a little fake home screen and so on for it.
+
+Anyway, I think this is the right starting approach for right now.
+
+### And beyond
+
+Rilla asked the question "when are you going to make *It is as if you were being a person*?" and that's genuinely pretty inspiring. I can imagine an album or a podcast (which? podcast is funnier) which has tracks/episodes that are literally vocal instructions for "how to be" in a specific context. Could consult with Jorge and Jadé about language, pacing, etc. Maybe make background music in the PO or something fun, and just put them out there. Like 20 minute tracks (akin to meditations) where you don't have to deal with the pressure of figuring out how to be normal/unobtrusive.
+
+Plays into neurodiversity stuff in pretty obvious ways, but I also think it can play strangely into entry points to meditation, freedom from ourselves. Could also imagine a novel where all these things exist, but let's not go there please. PLEASE.
+
+So that's something else to consider building up some experitise and scripts for, but it's a totally separate project, but might be fun to think about an episode/track for A MAZE. A general purpose track would be really funny too. Just "around the house" would be funny. There's a sort of bizarre "life coaching" angle in it too. It's definitely funny.
