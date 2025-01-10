@@ -11,9 +11,19 @@
 
 "use strict";
 
+const TAP_WIDTH_RATIO = 0.1;
+const TAP_TWEEN_IN_SPEED = 0.05;
+const TAP_TWEEN_OUT_SPEED = 0.15;
+
+const tapStates = {
+    TWEEN_IN: "Tweening in",
+    ACTIVE: "Actively in place",
+    TWEEN_OUT: "Tweening out"
+};
+
 const colors = {
-    fg: "#ffffff",
-    bg: "#333333"
+    fg: undefined,
+    bg: undefined,
 };
 
 const sounds = {
@@ -40,8 +50,11 @@ function preload() {
 function setup() {
     createCanvas(windowWidth, windowHeight);
 
-    // Create a taps
-    addTap();
+    colors.fg = color("#fff");
+    colors.bg = color("#333");
+
+    // Create a tap
+    scheduleTap();
 }
 
 /**
@@ -58,7 +71,32 @@ function draw() {
  */
 function handleTaps() {
     for (let tap of taps) {
+        updateTap(tap);
         drawTap(tap);
+    }
+}
+
+/**
+ * Animate tap
+ */
+function updateTap(tap) {
+    switch (tap.state) {
+        case tapStates.TWEEN_IN:
+            tap.tween += TAP_TWEEN_IN_SPEED;
+            if (tap.tween >= 1) {
+                tap.tween = 1;
+                tap.state = tapStates.ACTIVE;
+            }
+            break;
+        case tapStates.ACTIVE:
+            break;
+        case tapStates.TWEEN_OUT:
+            tap.tween -= TAP_TWEEN_OUT_SPEED;
+            if (tap.tween <= 0) {
+                removeTap(tap);
+                scheduleTap();
+            }
+            break;
     }
 }
 
@@ -68,8 +106,10 @@ function handleTaps() {
 function drawTap(tap) {
     push();
     noStroke();
-    fill(colors.fg);
-    ellipse(tap.x, tap.y, tap.size);
+    const toFill = colors.fg;
+    toFill.setAlpha(tap.tween * 255);
+    fill(toFill);
+    ellipse(tap.x, tap.y, tap.size * tap.tween);
     pop();
 }
 
@@ -77,13 +117,34 @@ function drawTap(tap) {
  * Adds a tap to the screen
  */
 function addTap() {
-    const tapSize = width * 0.1;
+    const tapSize = width * TAP_WIDTH_RATIO;
     const tap = {
         x: random(0 + tapSize / 2, width - tapSize / 2),
         y: random(0 + tapSize / 2, height - tapSize / 2),
-        size: tapSize
+        size: tapSize,
+        tween: 0,
+        state: tapStates.TWEEN_IN,
     };
     taps.push(tap);
+}
+
+/**
+ * Remove the provided tap from the list
+ */
+function removeTap(tap) {
+    // Remove the icon
+    const index = taps.indexOf(tap);
+    taps.splice(index, 1);
+}
+
+/**
+ * Schedule tap
+ */
+function scheduleTap() {
+    // Schedule the next one
+    setTimeout(() => {
+        addTap();
+    }, random(500, 4000));
 }
 
 /**
@@ -104,20 +165,16 @@ function mousePressed(event) {
  * Check if any of the taps were pressed
  */
 function checkTapPressed(x, y) {
-    for (let tap of taps) {
+    const tapables = taps.filter(a => a.state !== tapStates.TWEEN_OUT);
+    for (let tap of tapables) {
         const d = dist(x, y, tap.x, tap.y);
         if (d < tap.size / 1.5) {
             // Tap achieved!
             // Play a random gong
             const gong = random(sounds.gongs);
             gong.play();
-            // Remove the icon
-            const index = taps.indexOf(tap);
-            taps.splice(index, 1);
-            // Schedule the next one
-            setTimeout(() => {
-                addTap();
-            }, random(500, 4000));
+            // Get it fading out
+            tap.state = tapStates.TWEEN_OUT;
         }
     }
 }
