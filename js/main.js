@@ -14,10 +14,25 @@
 const colors = {
     fg: "#ffffff",
     bg: "#333333"
-}
+};
+
+const sounds = {
+    gongs: []
+};
 
 // Store the current set of tap locations to tap
 const taps = [];
+
+/**
+ * Load media (sounds)
+ */
+function preload() {
+    // Load our three (for now) gong sounds
+    for (let i = 1; i <= 3; i++) {
+        const sound = loadSound(`assets/sounds/gong-${i}.wav`);
+        sounds.gongs.push(sound);
+    }
+}
 
 /**
  * Gets us ready
@@ -92,8 +107,14 @@ function checkTapPressed(x, y) {
     for (let tap of taps) {
         const d = dist(x, y, tap.x, tap.y);
         if (d < tap.size / 1.5) {
+            // Tap achieved!
+            // Play a random gong
+            const gong = random(sounds.gongs);
+            gong.play();
+            // Remove the icon
             const index = taps.indexOf(tap);
             taps.splice(index, 1);
+            // Schedule the next one
             setTimeout(() => {
                 addTap();
             }, random(500, 4000));

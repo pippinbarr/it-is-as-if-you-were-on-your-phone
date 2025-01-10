@@ -10,7 +10,9 @@
 
 ## Prototyping
 
-- Checking on proportional positioning and sizing and a resizing canvas
-- Checking on basic feel of random-location bubble popping (plus points?)
-- Checking on the feel of "keyboard input" idea
+- ~~Checking on proportional positioning and sizing and a resizing canvas~~
+- ~~Checking on basic feel of random-location bubble popping (plus points?)~~
 - Exploration of swipe (and "throw"?)
+- Explore Zen sound effects
+- Explore simple animations for feedback
+- Checking on the feel of "keyboard input" idea
