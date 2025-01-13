@@ -5,8 +5,17 @@ it buddy.
 
 **********************************************/
 
+main {
+  overflow: hidden;
+  user-select: none;
+}
+
 body {
   padding: 0;
   margin: 0;
   overflow: hidden;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }

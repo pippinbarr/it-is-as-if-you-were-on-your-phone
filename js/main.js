@@ -48,7 +48,7 @@ function preload() {
  * Gets us ready
 */
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(window.innerWidth, window.innerHeight);
 
     colors.fg = color("#fff");
     colors.bg = color("#333");
@@ -151,7 +151,7 @@ function scheduleTap() {
  * Respond to window resizing so we're always full bleed
  */
 function canvasResized() {
-    resizeCanvas(windowWidth, windowHeight);
+    resizeCanvas(window.innerWidth, window.innerHeight);
 }
 
 /**
@@ -165,16 +165,22 @@ function mousePressed(event) {
  * Check if any of the taps were pressed
  */
 function checkTapPressed(x, y) {
-    const tapables = taps.filter(a => a.state !== tapStates.TWEEN_OUT);
-    for (let tap of tapables) {
+    const tappables = taps.filter(a => a.state !== tapStates.TWEEN_OUT);
+    for (let tap of tappables) {
         const d = dist(x, y, tap.x, tap.y);
-        if (d < tap.size / 1.5) {
+        if (d < tap.size * 0.75) {
             // Tap achieved!
             // Play a random gong
-            const gong = random(sounds.gongs);
-            gong.play();
+            bangAGong();
             // Get it fading out
             tap.state = tapStates.TWEEN_OUT;
+            // Just one
+            break;
         }
     }
+}
+
+function bangAGong() {
+    const gong = random(sounds.gongs);
+    gong.play();
 }
