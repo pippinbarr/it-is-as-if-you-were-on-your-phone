@@ -155,10 +155,13 @@ function canvasResized() {
 }
 
 /**
- * Using mousePressed as a proxy for tap - is this okay?
+ * touchStarted and making sure we ignore the p5 call to mousedown
  */
-function mousePressed(event) {
-    checkTapPressed(event.clientX, event.clientY);
+function touchStarted(event) {
+    if (event.type === "mousedown") return;
+    console.log(event);
+    const touch = event.touches.item(0);
+    checkTapPressed(touch.clientX, touch.clientY);
 }
 
 /**
