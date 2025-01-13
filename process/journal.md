@@ -134,3 +134,63 @@ Rilla asked the question "when are you going to make *It is as if you were being
 Plays into neurodiversity stuff in pretty obvious ways, but I also think it can play strangely into entry points to meditation, freedom from ourselves. Could also imagine a novel where all these things exist, but let's not go there please. PLEASE.
 
 So that's something else to consider building up some experitise and scripts for, but it's a totally separate project, but might be fun to think about an episode/track for A MAZE. A general purpose track would be really funny too. Just "around the house" would be funny. There's a sort of bizarre "life coaching" angle in it too. It's definitely funny.
+
+## To p5 or not to p5? Thumb radius? The real thing? Zen? (2025-01-13)
+
+### To p5 or not to p5?
+
+The most boring thing first. In running tests it seems like at least in the ways I've been able to investigate, p5 is giving me a pretty massive lag on touch events, enough that it feels bad. I can't seem to find a way to make this not happen - mostly it seems like any touch fires *two* events, and the *second* one is actually the one that takes effect and is delayed enough that it feels laggy. It would be great if I could figure this out as I'm pretty comfortable in p5, but if I can't?
+
+I played around a teeny bit with PixiJS to write this little thing
+
+```js
+// Create our application instance
+(async () => {
+    const app = new PIXI.Application();
+    await app.init({
+        width: window.innerWidth,
+        height: window.innerHeight,
+        backgroundColor: 0x2c3e50,
+        antialias: true
+    })
+    document.body.appendChild(app.canvas);
+
+   const gr  = new PIXI.Graphics()
+    .circle(200, 200, 30)
+    .fill(0xffffff)
+    .on("pointerdown", (event) => {
+        app.stage.removeChild(gr);
+    });
+
+    gr.eventMode = "static";
+    
+    app.stage.addChild(gr)
+   
+})();
+```
+
+I ran this in their sandbox and learned a few basic Pixi things to get a circle you can tap and it goes away. It goes away instantly. *However*, it's also true that I can get "instant" performance in p5 so long as there's no conditional checking if the circle is clicked... which obviously I need, but... why the fuck would a very minimal if-statement cause a substantial delay in processing exactly?
+
+Well okay while I was writing that and becoming so incredulous that this kind of problem could conceivably exist I dug further into the double-event problem and wrote code to ignore the "mousedown" event that's triggered (LATE) on a touch, listening only to the "touchstart". That turns out to work it seems - I get a responsive feel for the taps (though I need to test directly on my phone).
+
+So for now I suppose I won't abandon p5 just to keep prototyping in a world that I know, but there are probably a bunch of other questions that are going to arrive around potential physics and feel that I dunno if I can solve. Swipes are a huge one (though I can use the swiping library I think to address some of this stuff? Hammer was it? Something else? Swipe.js?). Still really unclear on how to handle specifically the "swipe right" kind of feeling most of all in terms of symbols... could I have literally an arrow that says... swipe right? swipe left? scroll down? scroll up? stop? etc... more directed, less zen? Maybe that's the thing that gets me to a less zen place which I think might have been a distraction? (Though I quite like the zen version of this? As opposed to the "fitting in as a human" version... hmm it's still unclear...)
+
+Maybe you could even incorporate the instruction iself into the text about what you do with your face? "Swipe right and wince"?
+
+### Thumb radius?
+
+Exciting I know but as I was interacting with the early prototype on the metro I found that the circles were spawning too high sometimes for me to reach them with solo thumb, which I think it's a pretty default design issue that you are not supposed to have in all these apps? So I should probably think about a spawn zone that's lowed down to deal with that so that this thing can be successfully one handed.
+
+And thinking of that made me think of
+
+### The real thing?
+
+What if I approve the design of this game in terms of "secretly" switching between modes which reflect the interaction patterns of different apps, e.g. a TikTok mode, a YouTube mode, an Instagram mode, a Messages mode, a reading the news/website mode? That would help sustain more "sensible" patterns. I wouldn't even need to tell the user this is happening up top, and it would then feed more or less directly into work on the App Suite version of this project, for which this thing is in some ways a prototype/general case?
+
+That would allow me to tackle the whole thing mode by mode rather than as a whole mega thing.
+
+So that's the next kind of plan; break it into modes, have the modes switch at random points of time, but don't tell the user so they don't need to worry as much about being "in character" for the mode. This is sort of the "least stressful" version?
+
+### Zen?
+
+I need to think more about the Zen thing. Versus "just" the social camouflage thing.

@@ -1,8 +1,13 @@
 # To-do
 
+## Big questions
+- Zen versus Social Camouflage?
+
 ## Presearch
 
 - ~~Spend some time on my phone just trying to see typical interactions and interaction clusters and interaction sequences~~
+
+- Spend time in one or more specific apps and take notes on typical interaction
 
 ## Visual design
 
@@ -17,13 +22,16 @@
 - Explore simple animations for feedback
 - Exploration of swipe (and "throw"?)
 - Checking on the feel of "keyboard input" idea
+- Esablish "modes"
+- How to indicate "swipe" and "scroll"
 
 ## Issues
 
 - **I think so anyway?** ~~Remove text selection on the page~~
+- ~~Think about "modes" that correspond to specific UIs, this could build toward the bigger "ecosystem" idea~~
+- ~~Think about thumb radius (most of the time UIs don't require interactions further than a thumb away?)~~
 
 - Lag on press on mobile (same as the debug view, so testable)
     - This remains a problem after some initial testing
     - Further testing makes me think this is a series issue, at least in p5 seems to come down to whether a conditional is evaluated or not which... seems insane to me
-- Think about thumb radius (most of the time UIs don't require interactions further than a thumb away?)
-- Think about "modes" that correspond to specific UIs, this could build toward the bigger "ecosystem" idea
+    - Even further reflection has me wondering about using a different library (PixiJS?)
