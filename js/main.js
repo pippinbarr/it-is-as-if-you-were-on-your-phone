@@ -15,10 +15,15 @@ const TAP_WIDTH_RATIO = 0.1;
 const TAP_TWEEN_IN_SPEED = 0.05;
 const TAP_TWEEN_OUT_SPEED = 0.15;
 
-const tapStates = {
+const TapStates = {
     TWEEN_IN: "Tweening in",
     ACTIVE: "Actively in place",
     TWEEN_OUT: "Tweening out"
+};
+
+const Mode = {
+    RANDOM_TAPPING: "Random tapping",
+    RANDOM_SWIPING: "Random swiping"
 };
 
 const colors = {
@@ -32,6 +37,25 @@ const sounds = {
 
 // Store the current set of tap locations to tap
 const taps = [];
+
+// Testing the idea of a swipe instruction
+let swipe = undefined;
+const swipes = [
+    {
+        text: "Swipe down",
+        hammer: Hammer.DIRECTION_DOWN
+    },
+    {
+        text: "Swipe up",
+        hammer: Hammer.DIRECTION_UP
+    },
+];
+
+// Going to be using hammer
+let hammer = undefined;
+
+// Current mode
+let mode = Mode.RANDOM_SWIPING;
 
 /**
  * Load media (sounds)
@@ -53,8 +77,31 @@ function setup() {
     colors.fg = color("#fff");
     colors.bg = color("#333");
 
-    // Create a tap
-    scheduleTap();
+    // Setup swipes
+    hammer = new Hammer(document, {});
+
+    hammer.get('tap').set({ enable: false });
+    hammer.on('tap', (e) => {
+        handleTap(e);
+    });
+
+    hammer.get('swipe').set({ enable: false, direction: Hammer.DIRECTION_ALL });
+    hammer.on('swipe', (e) => {
+        handleSwipe(e);
+    });
+
+    switch (mode) {
+        case Mode.RANDOM_TAPPING:
+            hammer.get('tap').set({ enable: true });
+            // Create a tap
+            scheduleTap();
+            break;
+
+        case Mode.RANDOM_SWIPING:
+            swipe = random(swipes);
+            hammer.get('swipe').set({ enable: true });
+            break;
+    }
 }
 
 /**
@@ -63,7 +110,15 @@ function setup() {
 function draw() {
     background(colors.bg);
 
-    handleTaps();
+    switch (mode) {
+        case Mode.RANDOM_TAPPING:
+            handleTaps();
+            break;
+
+        case Mode.RANDOM_SWIPING:
+            handleSwipes();
+            break;
+    }
 }
 
 /**
@@ -81,16 +136,16 @@ function handleTaps() {
  */
 function updateTap(tap) {
     switch (tap.state) {
-        case tapStates.TWEEN_IN:
+        case TapStates.TWEEN_IN:
             tap.tween += TAP_TWEEN_IN_SPEED;
             if (tap.tween >= 1) {
                 tap.tween = 1;
-                tap.state = tapStates.ACTIVE;
+                tap.state = TapStates.ACTIVE;
             }
             break;
-        case tapStates.ACTIVE:
+        case TapStates.ACTIVE:
             break;
-        case tapStates.TWEEN_OUT:
+        case TapStates.TWEEN_OUT:
             tap.tween -= TAP_TWEEN_OUT_SPEED;
             if (tap.tween <= 0) {
                 removeTap(tap);
@@ -123,7 +178,7 @@ function addTap() {
         y: random(0 + tapSize / 2, height - tapSize / 2),
         size: tapSize,
         tween: 0,
-        state: tapStates.TWEEN_IN,
+        state: TapStates.TWEEN_IN,
     };
     taps.push(tap);
 }
@@ -148,6 +203,18 @@ function scheduleTap() {
 }
 
 /**
+ * Handle swipes (draw it)
+ */
+function handleSwipes() {
+    push();
+    textSize(64);
+    textAlign(CENTER, CENTER);
+    fill(colors.fg);
+    text(swipe.text, width / 2, height / 2);
+    pop();
+}
+
+/**
  * Respond to window resizing so we're always full bleed
  */
 function canvasResized() {
@@ -155,20 +222,10 @@ function canvasResized() {
 }
 
 /**
- * touchStarted and making sure we ignore the p5 call to mousedown
- */
-function touchStarted(event) {
-    if (event.type === "mousedown") return;
-    console.log(event);
-    const touch = event.touches.item(0);
-    checkTapPressed(touch.clientX, touch.clientY);
-}
-
-/**
  * Check if any of the taps were pressed
  */
 function checkTapPressed(x, y) {
-    const tappables = taps.filter(a => a.state !== tapStates.TWEEN_OUT);
+    const tappables = taps.filter(a => a.state !== TapStates.TWEEN_OUT);
     for (let tap of tappables) {
         const d = dist(x, y, tap.x, tap.y);
         if (d < tap.size * 0.75) {
@@ -176,7 +233,7 @@ function checkTapPressed(x, y) {
             // Play a random gong
             bangAGong();
             // Get it fading out
-            tap.state = tapStates.TWEEN_OUT;
+            tap.state = TapStates.TWEEN_OUT;
             // Just one
             break;
         }
@@ -186,4 +243,23 @@ function checkTapPressed(x, y) {
 function bangAGong() {
     const gong = random(sounds.gongs);
     gong.play();
+}
+
+function handleTap(event) {
+    checkTapPressed(event.center.x, event.center.y);
+}
+
+/**
+ * For now just ask for a new swipe 
+ */
+function handleSwipe(event) {
+    if (swipe.hammer === event.direction) {
+        swipe = {
+            text: " ",
+            hammer: 0
+        };
+        setTimeout(() => {
+            swipe = random(swipes);
+        }, 2000);
+    }
 }
