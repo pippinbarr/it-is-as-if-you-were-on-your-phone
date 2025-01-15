@@ -3,8 +3,10 @@
 ## Big questions
 - Zen versus Social Camouflage?
     - What about "Zen Mode" as a thing; it makes total sense
+- Words versus Icons for communicating tasks?
+    - I'd assumed icons were better (more attractive), but is there a power to the blankness and clarity of words? A lack of glamour?
 
-## Presearch
+## Research
 
 - ~~Spend some time on my phone just trying to see typical interactions and interaction clusters and interaction sequences~~
 
@@ -25,6 +27,8 @@
 
 - Checking on the feel of "keyboard input" idea
 - How to indicate "swipe" and "scroll"
+- Try to solve the pan/swipe versions of scrolling (allowing either...)
+    - I assume all things start life as a pan and become a swipe pending velocity...
 
 ## Issues
 

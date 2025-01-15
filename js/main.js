@@ -41,14 +41,24 @@ const taps = [];
 // Testing the idea of a swipe instruction
 let swipe = undefined;
 const swipes = [
-    {
-        text: "Swipe down",
-        hammer: Hammer.DIRECTION_DOWN
-    },
-    {
-        text: "Swipe up",
-        hammer: Hammer.DIRECTION_UP
-    },
+    () => ({
+        text: "Swipe left",
+        emoji: "←",
+        hammer: Hammer.DIRECTION_LEFT,
+        start: 1,
+        end: 0,
+        direction: -1,
+        progress: 0
+    }),
+    () => ({
+        text: "Swipe right",
+        emoji: "→",
+        hammer: Hammer.DIRECTION_RIGHT,
+        start: 0,
+        end: 1,
+        direction: 1,
+        progress: 0
+    }),
 ];
 
 // Going to be using hammer
@@ -98,7 +108,7 @@ function setup() {
             break;
 
         case Mode.RANDOM_SWIPING:
-            swipe = random(swipes);
+            swipe = random(swipes)();
             hammer.get('swipe').set({ enable: true });
             break;
     }
@@ -206,12 +216,41 @@ function scheduleTap() {
  * Handle swipes (draw it)
  */
 function handleSwipes() {
+
     push();
-    textSize(64);
+    textSize(128);
     textAlign(CENTER, CENTER);
     fill(colors.fg);
-    text(swipe.text, width / 2, height / 2);
+    text(swipe.emoji, width / 2, height / 2);
     pop();
+
+    push();
+    noFill();
+    stroke(colors.fg);
+    strokeWeight(2);
+    rectMode(CENTER);
+    const barX = width / 2;
+    const barY = height / 2 - height / 8;
+    const barWidth = width * 0.5;
+    const barHeight = width * 0.05;
+    const barBevel = width * 0.05;
+    rect(barX, barY, barWidth, barHeight, barBevel);
+    pop();
+
+    push();
+    noStroke();
+    fill(colors.fg);
+    const size = width * 0.05;
+    const pipX = barX + size / 2 + (lerp(0, (barWidth - size * 2), swipe.progress));
+    ellipse(barX - barWidth / 2 + size / 2, barY, size);
+    pop();
+
+    // push();
+    // textSize(64);
+    // textAlign(CENTER, CENTER);
+    // fill(colors.fg);
+    // text(swipe.text, width / 2, height / 2);
+    // pop();
 }
 
 /**
