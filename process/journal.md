@@ -194,3 +194,45 @@ So that's the next kind of plan; break it into modes, have the modes switch at r
 ### Zen?
 
 I need to think more about the Zen thing. Versus "just" the social camouflage thing.
+
+## Swipe prototyping; visual prototyping; the main thing (2025-01-16)
+
+### Swipe prototyping
+
+I did get a basic swiping thing going with a visual indicator today. Just a little pip that runs along inside a bar based on swipe velocity. It's not much, but it's felt helpful to have something a bit more clearly responsive and it felt like it got a bit at the question of what kind of visual representation to have... which in turn led to doing some visual prototyping because I'm still not really sold on the approach...
+
+### Visual prototyping
+
+![Visual designs for swiping in the game](./images/2025-01-16-it-is-as-if-you-were-on-your-phone-visual-prototyping.001.png)
+
+![Visual designs for typing in the game](./images/2025-01-16-it-is-as-if-you-were-on-your-phone-visual-prototyping.002.png)
+
+![Visual designs for scrolling in the game](./images/2025-01-16-it-is-as-if-you-were-on-your-phone-visual-prototyping.003.png)
+
+### The main thing
+
+In putting together the above visual prototypes (which I did not labour over, but which were helpful as a way to break free from the code) I kept running up against the classic stupid question: what is this thing about. As with any portion of the project, it's really hard to make serious decisions about *anything* without having the underlying principles in place.
+
+There are a few competing ideas going on here, not all necessarily on the same axes...
+
+- Is this about **social camouflage**? Like the speculative design idea of a near future (present present?) where people just want to *look* like they're nice normal folks using their phones, but they're exhausted by the actual act of absorbing all the information, dealing with their brand, keeping up with the online world
+- Is this about a **zen experience** with your phone, leveraging the familiar (soothing?) motions of using a phone, but reframing them to be about abstract ritualistic movements that can be meditative and freeing?
+- To what extent is this about **fidelity to specific applications**? As in, should this recognizably feel like "I'm on TikTok" or "I'm browsing Pinterest", or should it be a layer of abstraction away from that, more at the level of "I'm scrolling, I'm swiping, I'm tapping" in various combinations?
+- How **precise are the interactions** in the experience? Is it "scrolling" or is it "scrolling to exactly this position"? Is it "typing" or is it "typing this word"?
+- How **gamified** is the experience? I've thought in terms of points initially, how does this fit in with the ideas I'm listing out here? What do points say about the experience? Am I still interested in the idea you can *lose* by not interacting often enough? (Would this be something than Zen mode turns off?) Does the gamified part of this (points, losing on time) end up being a "commentary" on social media in a stupid way or a good way?
+
+I've thought about the Social Camouflage thing as primary - helping people fit in while avoiding social media exhaustion- What about **passive experiences of a cellphone**? When people are watching YouTube, they're just watching YouTube; do we have a "Watch this rectangle" activity? I mean, that's very funny, but goes against the idea you can "lose" I had earlier. Or does the timer not expire for watching the rectangle? Watch this progress bar, with no timer for losing.
+ - but it seems like Zen can be in there too "just" by adding a Zen Mode to the experience either at the beginning or even as a toggle always at the top of the screen?
+
+In writing this out I think a more *abstract* understanding is better. So no need in this version to think hard about what the interaction sequences (and specific screen locations) are for, say, TikTok.
+
+I'm concerned by the tension between relief/social camouflage and the gamified version where it seems like it would be very stressful. Why would you play this as a *game* specifically? There's some way in which that ends up feeling too close to the real experience? Am I just concerned that without some gamified element people won't see the point in interacting longer term? But if it's an application, then it's not really intended to be played in that way - it's a tool not a game?
+
+This is making me think we kill the game-y elements.
+
+So we'd be landing on something like:
+
+- **Social camouflage** is the main perspective. You can look like you're on your phone without being on your phone, while actually being on your phone.
+- There is a **Zen Mode**, where everything just makes gong sounds. Kind of a joke, and kind of not a joke. Could include some "wisdom" in the instructions.
+- It is **abstract**, so just a sequence of classic interactions (maybe grouped into things like scrolling and tapping, scrolling and scrolling, swiping and scrolling, but maybe not even that); not intended to mimic specific apps (but there's a whole separate project where we do exactly that)
+- It is **not a game** so there are no points, it's just there as an app when you need it.

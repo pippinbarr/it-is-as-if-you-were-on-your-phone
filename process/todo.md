@@ -15,8 +15,9 @@
 ## Visual design
 
 - ~~Do some sketches of how this could look in terms of the actual screens and most especially the interaction indicators~~
+- ~~Make some visual prototypes in Keynote or similar~~
 
-- Make some visual prototypes in Keynote or similar
+- Make more visual prototypes
 
 ## Prototyping
 
