@@ -16,6 +16,8 @@
 
 - ~~Do some sketches of how this could look in terms of the actual screens and most especially the interaction indicators~~
 
+- Make some visual prototypes in Keynote or similar
+
 ## Prototyping
 
 - ~~Checking on proportional positioning and sizing and a resizing canvas~~
