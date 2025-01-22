@@ -27,11 +27,13 @@
 - ~~Explore simple animations for feedback~~
 - ~~Exploration of swipe~~
 - ~~Esablish "modes"~~
+- **Calling them "acts" for now** ~~Add instructions for face etc.~~
 
 - Checking on the feel of "keyboard input" idea
 - How to indicate "swipe" and "scroll"
 - Try to solve the pan/swipe versions of scrolling (allowing either...)
     - I assume all things start life as a pan and become a swipe pending velocity...
+
 
 ## Issues
 
