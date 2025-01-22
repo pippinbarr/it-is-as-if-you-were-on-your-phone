@@ -18,12 +18,14 @@ const TAP_TWEEN_OUT_SPEED = 0.15;
 const TapStates = {
     TWEEN_IN: "Tweening in",
     ACTIVE: "Actively in place",
-    TWEEN_OUT: "Tweening out"
+    TWEEN_OUT: "Tweening out",
+    INACTIVE: "Not active"
 };
 
 const Mode = {
     RANDOM_TAPPING: "Random tapping",
-    RANDOM_SWIPING: "Random swiping"
+    RANDOM_SWIPING: "Random swiping",
+    RANDOM_TYPING: "Random typing"
 };
 
 const colors = {
@@ -51,6 +53,12 @@ let act = undefined;
 
 // Store the current set of tap locations to tap
 const taps = [];
+
+// For now I'm separating the keyboard, but it's likely the exact some thing?
+// A 40 element array because we need to be able to look at specific positions
+const keyboardColumns = 10;
+const keyboardRows = 4;
+let keyboard = [];
 
 // Testing the idea of a swipe instruction
 let swipe = undefined;
@@ -81,7 +89,7 @@ const swipes = [
 let hammer = undefined;
 
 // Current mode
-let mode = Mode.RANDOM_SWIPING;
+let mode = Mode.RANDOM_TYPING;
 
 /**
  * Load media (sounds)
@@ -127,9 +135,29 @@ function setup() {
             swipe = random(swipes)();
             hammer.get('swipe').set({ enable: true });
             break;
+
+        case Mode.RANDOM_TYPING:
+            addStartingKeyboardKeys();
+            hammer.get('tap').set({ enable: true });
+            break;
     }
 
     scheduleAct();
+}
+
+function addStartingKeyboardKeys() {
+    keyboard = [];
+    for (let r = 0; r < keyboardRows; r++) {
+        for (let c = 0; c < keyboardColumns; c++) {
+            const x = width * TAP_WIDTH_RATIO * 0.5 + c * width * TAP_WIDTH_RATIO;
+            const y = height - width * TAP_WIDTH_RATIO - r * width * TAP_WIDTH_RATIO;
+            keyboard.push(createTap(x, y, TapStates.INACTIVE));
+        }
+    }
+    const numKeys = random(5, 8);
+    for (let i = 0; i < numKeys; i++) {
+        addKeyboardTap();
+    }
 }
 
 function scheduleAct() {
@@ -157,6 +185,10 @@ function draw() {
 
         case Mode.RANDOM_SWIPING:
             handleSwipes();
+            break;
+
+        case Mode.RANDOM_TYPING:
+            handleTyping();
             break;
     }
 }
@@ -199,6 +231,7 @@ function updateTap(tap) {
         case TapStates.TWEEN_OUT:
             tap.tween -= TAP_TWEEN_OUT_SPEED;
             if (tap.tween <= 0) {
+                tap.state = TapStates.INACTIVE;
                 removeTap(tap);
                 scheduleTap();
             }
@@ -223,15 +256,42 @@ function drawTap(tap) {
  * Adds a tap to the screen
  */
 function addTap() {
+    const x = random(0 + tapSize / 2, width - tapSize / 2);
+    const y = random(0 + tapSize / 2, height - tapSize / 2);
+    const tap = createTap(x, y);
+    taps.push(tap);
+}
+
+function createTap(x, y, state = TapStates.TWEEN_IN) {
     const tapSize = width * TAP_WIDTH_RATIO;
     const tap = {
-        x: random(0 + tapSize / 2, width - tapSize / 2),
-        y: random(0 + tapSize / 2, height - tapSize / 2),
+        x: x,
+        y: y,
         size: tapSize,
         tween: 0,
-        state: TapStates.TWEEN_IN,
+        state: state,
     };
-    taps.push(tap);
+    return tap;
+}
+
+function addKeyboardTap() {
+    let placed = false;
+    while (!placed) {
+        let index = floor(random(0, keyboard.length));
+        if (keyboard[index].state === TapStates.INACTIVE) {
+            keyboard[index].state = TapStates.TWEEN_IN;
+            placed = true;
+        }
+    }
+}
+
+function handleTyping() {
+    const taps = keyboard.filter(a => a !== undefined);
+    for (let tap of taps) {
+        updateTap(tap);
+        drawTap(tap);
+        console.log("Tapp...")
+    }
 }
 
 /**
@@ -240,17 +300,27 @@ function addTap() {
 function removeTap(tap) {
     // Remove the icon
     const index = taps.indexOf(tap);
-    taps.splice(index, 1);
+    if (index !== -1) {
+        taps.splice(index, 1);
+    }
 }
 
 /**
  * Schedule tap
  */
 function scheduleTap() {
-    // Schedule the next one
-    setTimeout(() => {
-        addTap();
-    }, random(500, 4000));
+    switch (mode) {
+        case Mode.RANDOM_TAPPING:
+            setTimeout(() => {
+                addTap();
+            }, random(500, 4000));
+            break;
+
+        case Mode.RANDOM_TYPING:
+            setTimeout(() => {
+                addKeyboardTap();
+            }, random(500, 750));
+    }
 }
 
 /**
@@ -320,7 +390,14 @@ function canvasResized() {
  * Check if any of the taps were pressed
  */
 function checkTapPressed(x, y) {
-    const tappables = taps.filter(a => a.state !== TapStates.TWEEN_OUT);
+    let tappables = undefined;
+    if (mode === Mode.RANDOM_TYPING) {
+        tappables = keyboard.filter(a => a !== undefined && a.state !== TapStates.TWEEN_OUT && a.state !== TapStates.INACTIVE);
+    }
+    else if (mode === Mode.RANDOM_TAPPING) {
+        tappables = taps.filter(a => a.state !== TapStates.TWEEN_OUT && a.state !== TapStates.INACTIVE);
+    }
+
     for (let tap of tappables) {
         const d = dist(x, y, tap.x, tap.y);
         if (d < tap.size * 0.75) {
