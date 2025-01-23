@@ -236,3 +236,14 @@ So we'd be landing on something like:
 - There is a **Zen Mode**, where everything just makes gong sounds. Kind of a joke, and kind of not a joke. Could include some "wisdom" in the instructions.
 - It is **abstract**, so just a sequence of classic interactions (maybe grouped into things like scrolling and tapping, scrolling and scrolling, swiping and scrolling, but maybe not even that); not intended to mimic specific apps (but there's a whole separate project where we do exactly that)
 - It is **not a game** so there are no points, it's just there as an app when you need it.
+
+## Nexts (2025-01-23)
+
+I've done more prototyping at this point such that we've got passably okay version of generally tapping locations, swiping left or right, keyboard input.
+
+The big interactions missing are *double tap* (maybe I seek to solve that today in the abstract) and *scrolling* (which introduces the fear of working with swipes and pans somehow, but maybe it'll be fiiiine)
+
+Once I get *some kind of version* of those two things it would be time to think more structurally about how all this works in terms of a flow through the game, notably changing modes, how I'm going to deal with the question of visual representations, how I'm going to deal with colour (or not), how I'm going to deal with sound, ...
+
+Uh quite a lot of stuff. My main feeling, though, is that the project is on a good trajectory that I can handle. And that it remains a pretty fun feeling idea.
+

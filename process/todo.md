@@ -10,7 +10,14 @@
 
 - ~~Spend some time on my phone just trying to see typical interactions and interaction clusters and interaction sequences~~
 
-- Spend time in one or more specific apps and take notes on typical interaction
+- Spend time in specific apps and take notes on typical interaction
+    - Instagram
+    - Browser
+    - TikTok
+    - Facebook
+    - Messages
+    - BlueSky/generic social media?
+    - Discord/Slack
 
 ## Visual design
 
@@ -18,6 +25,8 @@
 - ~~Make some visual prototypes in Keynote or similar~~
 
 - Make more visual prototypes
+- How to indicate "swipe" and "scroll" 
+- The bigger question of language and/or symbols
 
 ## Prototyping
 
@@ -28,12 +37,11 @@
 - ~~Exploration of swipe~~
 - ~~Esablish "modes"~~
 - **Calling them "acts" for now** ~~Add instructions for face etc.~~
+- **Feels good, though can be tweaked** ~~Checking on the feel of "keyboard input" idea~~
 
-- Checking on the feel of "keyboard input" idea
-- How to indicate "swipe" and "scroll"
-- Try to solve the pan/swipe versions of scrolling (allowing either...)
-    - I assume all things start life as a pan and become a swipe pending velocity...
-
+- Double-tap
+- Scrolling (think about the relationship of pan and swipe)
+- Switching activities
 
 ## Issues
 
