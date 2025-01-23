@@ -18,6 +18,7 @@ const TAP_TWEEN_OUT_SPEED = 0.15;
 const TapStates = {
     TWEEN_IN: "Tweening in",
     ACTIVE: "Actively in place",
+    TAPPED_ONCE: "Tapped one",
     TWEEN_OUT: "Tweening out",
     INACTIVE: "Not active"
 };
@@ -36,54 +37,6 @@ const colors = {
 const sounds = {
     gongs: []
 };
-
-// A starting point for telling the player how to act
-const acts = [
-    "Scratch your left eyebrow at the outside corner",
-    "Breathe in deeply through your nose",
-    "Shake your head briefly",
-    "Nod slowly for at least three nods",
-    "Sigh, then run a hand over the top of your head",
-    "Narrow your eyes for two seconds",
-    "Shift the weight of your body from one side to the other",
-    "Compress your lips"
-];
-// The current act
-let act = undefined;
-
-// Store the current set of tap locations to tap
-const taps = [];
-
-// For now I'm separating the keyboard, but it's likely the exact some thing?
-// A 40 element array because we need to be able to look at specific positions
-const keyboardColumns = 10;
-const keyboardRows = 4;
-let keyboard = [];
-
-// Testing the idea of a swipe instruction
-let swipe = undefined;
-const swipes = [
-    () => ({
-        text: "Swipe left",
-        emoji: "←",
-        hammer: Hammer.DIRECTION_LEFT,
-        start: 1,
-        end: 0,
-        progress: 0,
-        active: true,
-        velocity: 0
-    }),
-    () => ({
-        text: "Swipe right",
-        emoji: "→",
-        hammer: Hammer.DIRECTION_RIGHT,
-        start: 0,
-        end: 1,
-        progress: 0,
-        active: true,
-        velocity: 0
-    }),
-];
 
 // Going to be using hammer
 let hammer = undefined;
@@ -126,49 +79,22 @@ function setup() {
 
     switch (mode) {
         case Mode.RANDOM_TAPPING:
-            hammer.get('tap').set({ enable: true });
-            // Create a tap
-            scheduleTap();
+            setupTapping();
             break;
 
         case Mode.RANDOM_SWIPING:
-            swipe = random(swipes)();
-            hammer.get('swipe').set({ enable: true });
+            setupSwiping();
             break;
 
         case Mode.RANDOM_TYPING:
-            addStartingKeyboardKeys();
-            hammer.get('tap').set({ enable: true });
+            setupTyping();
             break;
     }
 
     scheduleAct();
 }
 
-function addStartingKeyboardKeys() {
-    keyboard = [];
-    for (let r = 0; r < keyboardRows; r++) {
-        for (let c = 0; c < keyboardColumns; c++) {
-            const x = width * TAP_WIDTH_RATIO * 0.5 + c * width * TAP_WIDTH_RATIO;
-            const y = height - width * TAP_WIDTH_RATIO - r * width * TAP_WIDTH_RATIO;
-            keyboard.push(createTap(x, y, TapStates.INACTIVE));
-        }
-    }
-    const numKeys = random(5, 8);
-    for (let i = 0; i < numKeys; i++) {
-        addKeyboardTap();
-    }
-}
 
-function scheduleAct() {
-    setTimeout(() => {
-        act = random(acts);
-        setTimeout(() => {
-            act = undefined;
-            scheduleAct();
-        }, act.length * 150);
-    }, random(1000, 2000));
-}
 
 /**
  * Frame ticker
@@ -193,16 +119,7 @@ function draw() {
     }
 }
 
-function drawAct() {
-    if (act) {
-        push();
-        textSize(width * 0.05);
-        fill(255);
-        textAlign(LEFT, TOP);
-        text(act, 0.1 * width, 0.1 * width, 0.8 * width, height - 0.2 * width);
-        pop();
-    }
-}
+
 
 /**
  * Handle taps
@@ -252,16 +169,6 @@ function drawTap(tap) {
     pop();
 }
 
-/**
- * Adds a tap to the screen
- */
-function addTap() {
-    const x = random(0 + tapSize / 2, width - tapSize / 2);
-    const y = random(0 + tapSize / 2, height - tapSize / 2);
-    const tap = createTap(x, y);
-    taps.push(tap);
-}
-
 function createTap(x, y, state = TapStates.TWEEN_IN) {
     const tapSize = width * TAP_WIDTH_RATIO;
     const tap = {
@@ -272,26 +179,6 @@ function createTap(x, y, state = TapStates.TWEEN_IN) {
         state: state,
     };
     return tap;
-}
-
-function addKeyboardTap() {
-    let placed = false;
-    while (!placed) {
-        let index = floor(random(0, keyboard.length));
-        if (keyboard[index].state === TapStates.INACTIVE) {
-            keyboard[index].state = TapStates.TWEEN_IN;
-            placed = true;
-        }
-    }
-}
-
-function handleTyping() {
-    const taps = keyboard.filter(a => a !== undefined);
-    for (let tap of taps) {
-        updateTap(tap);
-        drawTap(tap);
-        console.log("Tapp...")
-    }
 }
 
 /**
@@ -321,62 +208,6 @@ function scheduleTap() {
                 addKeyboardTap();
             }, random(500, 750));
     }
-}
-
-/**
- * Handle swipes (draw it)
- */
-function handleSwipes() {
-
-    // Move the indicator based on velocity
-    if (swipe.active) {
-        swipe.progress += abs(swipe.velocity);
-    }
-
-    if (swipe.progress >= 1 && swipe.active) {
-        swipe.progress = 1;
-        swipe.active = false;
-        scheduleNewSwipe();
-    }
-
-    // Display the guiding arrow
-    push();
-    textSize(128);
-    textAlign(CENTER, CENTER);
-    fill(colors.fg);
-    text(swipe.emoji, width / 2, height / 2);
-    pop();
-
-    // Display the bar
-    push();
-    noFill();
-    stroke(colors.fg);
-    strokeWeight(2);
-    rectMode(CENTER);
-    const barX = width / 2;
-    const barY = height / 2 - height / 8;
-    const barWidth = width * 0.5;
-    const barHeight = width * 0.05;
-    const barBevel = width * 0.05;
-    rect(barX, barY, barWidth, barHeight, barBevel);
-    pop();
-
-    // Display the pip
-    push();
-    noStroke();
-    fill(colors.fg);
-    const size = width * 0.05;
-    const ratio = lerp(swipe.start, swipe.end, swipe.progress);
-    const pipX = barX - barWidth / 2 + size / 2 + (ratio * (barWidth - size));
-    ellipse(pipX, barY, size);
-    pop();
-
-    // push();
-    // textSize(64);
-    // textAlign(CENTER, CENTER);
-    // fill(colors.fg);
-    // text(swipe.text, width / 2, height / 2);
-    // pop();
 }
 
 /**
@@ -421,21 +252,5 @@ function handleTap(event) {
     checkTapPressed(event.center.x, event.center.y);
 }
 
-/**
- * For now just ask for a new swipe 
- */
-function handleSwipe(event) {
-    if (swipe.hammer === event.direction && swipe.progress === 0) {
-        // If it's the right swipe, use its velocity on the indicator
-        swipe.velocity = event.velocityX * 0.25;
-    }
-}
 
-/**
- * Schedules a new swipe
- */
-function scheduleNewSwipe() {
-    setTimeout(() => {
-        swipe = random(swipes)();
-    }, 2000);
-}
+
