@@ -247,3 +247,41 @@ Once I get *some kind of version* of those two things it would be time to think 
 
 Uh quite a lot of stuff. My main feeling, though, is that the project is on a good trajectory that I can handle. And that it remains a pretty fun feeling idea.
 
+## Refactor? Visuals (2025-01-23)
+
+### Refactor?
+
+As I started trying to "easily" "breezily" implement double taps it felt like the moment that everything would break apart (mostly my mind) in terms of the structures at play. It spiralled me out into thinking (fantasizing??) about OOP and inheritance and a beautiful clean cool implementation of All This. So I stopped what I was doing and turned to visuals as a way to do something a bit less dizzying.
+
+But the point remains. At some stage I either need to move to a "better framework" for this project (plain JS? Pixi? Phaser??) or I need to build some of that better framework myself. Neither option is super appealing in this exact moment, but the stage to do it is probably closer to now than to later.
+
+Ugh. But also, kind of fun once you get into it? I feel like I'm oscillating on it, but *probably* it's "easy" (ahahahahaha) to work with p5 and OOP/inheritance. Plus I've just kind of wanted to build something out entirely in p5 and I guess this could be it?
+
+### Visuals
+
+Anyway I also did some more visual stuff to think about the front end of this thing.
+
+More ideas about scrolling. The main preoccupations here are going to be:
+
+- The question of whether there's a target and whether you can overshoot it with a too-vigorous swipe-scroll
+- The question of confusion around the scoll down/up relative to actual swipe motion and how you indicate/don't indicate that thing
+
+![](./images/2025-01-23-it-is-as-if-you-were-on-your-phone-visual-prototyping.001.png)
+
+Doublt tapping seem relatively fine. If we're going symbols then I think the double circle makes plenty of sense in terms of a target and a simple indication of whether the double is complete.
+
+![](./images/2025-01-23-it-is-as-if-you-were-on-your-phone-visual-prototyping.002.png)
+
+New on the scene, and plausible with the current plan to remove the "game" stuff around scoring and passivity. The idea that one of your tasks is just to look at something for a set amount of time. (Note that this isn't actually incompatible with points now that I think about it, if we explicitly introduce the timer for how long to be passive for.)
+
+![](./images/2025-01-23-it-is-as-if-you-were-on-your-phone-visual-prototyping.003.png)
+
+The question of what the instructions should look like. Pretty trivial tbh but I thought I should do it. Probably a black background lends them more credibility. What about a white box outline? Probably too confusing if we have a "watch this square" setup somewhere in there. Putting them at the top, where we're less likely to have interactions (because of thumb radius) seems smart.
+
+![](./images/2025-01-23-it-is-as-if-you-were-on-your-phone-visual-prototyping.004.png)
+
+And then two kind of vomit-inducing colour palettes. I don't like either of them but I thought I should at least gesture toward it. The muted greyscale that references/is from the Chess edition makes sense to me. Abstraction, not fun, not unfun, just there. Dark mode/light mode? Perhaps yes.
+
+![](./images/2025-01-23-it-is-as-if-you-were-on-your-phone-visual-prototyping.005.png)
+
+![](./images/2025-01-23-it-is-as-if-you-were-on-your-phone-visual-prototyping.006.png)
