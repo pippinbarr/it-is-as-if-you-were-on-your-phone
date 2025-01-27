@@ -1,0 +1,72 @@
+const TAP_WIDTH_RATIO = 0.1;
+const TAP_TWEEN_IN_SPEED = 0.05;
+const TAP_TWEEN_OUT_SPEED = 0.15;
+
+const TapStates = {
+    TWEEN_IN: "Tweening in",
+    ACTIVE: "Actively in place",
+    TAPPED_ONCE: "Tapped one",
+    TWEEN_OUT: "Tweening out",
+    INACTIVE: "Not active"
+};
+
+class Tap extends Interaction {
+    constructor() {
+        super();
+
+        this.x = random(0, width);
+        this.y = random(0, height);
+        this.size = width * TAP_WIDTH_RATIO;
+        this.state = TapStates.TWEEN_IN;
+        this.tween = 0;
+        this.complete = false;
+    }
+
+    update() {
+        super.update();
+
+        switch (this.state) {
+            case TapStates.TWEEN_IN:
+                this.tween += TAP_TWEEN_IN_SPEED;
+                if (this.tween >= 1) {
+                    this.tween = 1;
+                    this.state = TapStates.ACTIVE;
+                }
+                break;
+            case TapStates.ACTIVE:
+                break;
+            case TapStates.TWEEN_OUT:
+                this.tween -= TAP_TWEEN_OUT_SPEED;
+                if (this.tween <= 0) {
+                    this.state = TapStates.INACTIVE;
+                    this.complete = true;
+                }
+                break;
+        }
+    }
+
+    display() {
+        push();
+        noStroke();
+        const toFill = colors.fg;
+        toFill.setAlpha(this.tween * 255);
+        fill(toFill);
+        ellipse(this.x, this.y, this.size * this.tween);
+        pop();
+    }
+
+    handleTap(event) {
+        const d = dist(event.center.x, event.center.y, this.x, this.y);
+        if (d < this.size * 0.75 && !this.complete) {
+            // Tap achieved!
+            // Play a random gong
+            bangAGong();
+            // Get it fading out
+            this.state = TapStates.TWEEN_OUT;
+        }
+    }
+
+    isComplete() {
+        return this.complete;
+    }
+}

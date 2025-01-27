@@ -43,6 +43,10 @@
 - Scrolling (think about the relationship of pan and swipe)
 - Switching activities
 
+## Actually building
+
+- Make the whole thing responsive in the OOP model
+
 ## Issues
 
 - **I think so anyway?** ~~Remove text selection on the page~~
