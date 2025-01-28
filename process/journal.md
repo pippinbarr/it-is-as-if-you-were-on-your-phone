@@ -285,3 +285,28 @@ And then two kind of vomit-inducing colour palettes. I don't like either of them
 ![](./images/2025-01-23-it-is-as-if-you-were-on-your-phone-visual-prototyping.005.png)
 
 ![](./images/2025-01-23-it-is-as-if-you-were-on-your-phone-visual-prototyping.006.png)
+
+## I OOPed in the code pool; I wanna be an FSM (2025-01-28)
+
+### I OOPed in the code pool
+
+Wow, Pippin. Just wow.
+
+Well I did convert the "code base" to OOP over the last couple of sessions and it was predictably pretty satisfying. 
+
+The unsurprising result is that it makes the project feel kind of manageable in a way it wasn't feeling before when I was kludging away at the functions level. It no longer seems like I'll go further and further insane as I try to add additional ideas into the code because the place to intervene is much clearer and I can rely on inheritance to keep things (relatively) calm.
+
+### I wanna be an FSM
+
+The more surprising result, which I mentioned in commit [4d55b31](https://github.com/pippinbarr/it-is-as-if-you-were-on-your-phone/commit/4d55b31fbd94b2523cf78070797c022b2e00ae90) is that it feels much more like there's an alignment between implementation and the spirit of the project. Some of that is probably ultra ultra inside baseball in the sense that it's just something I care about... the idea that the code reflects the result in some fun way, whether metaphorical or literal or whateveral.
+
+But I think there could be more to it. The code is now broken down mostly into
+
+- States, which are activities like "Web Browsing" or "Messaging", say
+- Interactions, which are atomic actions taken like "Tapping in a random location" or "Swiping left"
+
+With the idea that a State is just a particular kind of sequencing (statistical? more calculated than that? a pattern? a grammer? Tracery?) of a specific set of interactions. A finite state machine OR WHATEVER. Amirite? But probably I am right and that is it and I should actually look at FSM implementation ideas.
+
+But the appealing thing here is the connections I think get drawn between (let's say I'm right and it's) FSMs and the human desire to know what to do. It kind of explicitly is an answer to the very human cry "I want to be a Finite State Machine"? Input to output baby.
+
+So I'm saying that in switching programming paradigms I'm finding a better way of thinking about/expressing a part of what this whole thing is *about*, which is the desire we maybe have (sometimes?) to be more like computers doing computer things in computer ways. (And perhaps to some extent a ton of videogames *are exactly that* in a more obfuscated way?). Anyway, I'd like to pursue this further as I go, but here's at least a marker of something found.
