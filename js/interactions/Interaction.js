@@ -1,6 +1,6 @@
 class Interaction {
     constructor() {
-
+        this.name = "Interaction";
     }
 
     update() {

@@ -14,6 +14,8 @@ class Tap extends Interaction {
     constructor() {
         super();
 
+        this.name = "Tap";
+
         this.x = random(0, width);
         this.y = random(0, height);
         this.size = width * TAP_WIDTH_RATIO;
@@ -48,9 +50,7 @@ class Tap extends Interaction {
     display() {
         push();
         noStroke();
-        const toFill = colors.fg;
-        toFill.setAlpha(this.tween * 255);
-        fill(toFill);
+        fill(colors.fg);
         ellipse(this.x, this.y, this.size * this.tween);
         pop();
     }

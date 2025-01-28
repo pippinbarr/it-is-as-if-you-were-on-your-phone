@@ -162,9 +162,9 @@ function updateTap(tap) {
 function drawTap(tap) {
     push();
     noStroke();
-    const toFill = colors.fg;
-    toFill.setAlpha(tap.tween * 255);
-    fill(toFill);
+    // const toFill = colors.fg;
+    // toFill.setAlpha(tap.tween * 255);
+    fill(colors.fg);
     ellipse(tap.x, tap.y, tap.size * tap.tween);
     pop();
 }

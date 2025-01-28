@@ -43,21 +43,17 @@ function preload() {
 function setup() {
     createCanvas(window.innerWidth, window.innerHeight);
 
-    colors.fg = color("#fff");
-    colors.bg = color("#333");
+    colors.fg = color("#ffffff");
+    colors.bg = color("#333333");
 
     // Setup swipes
     hammer = new Hammer(document, {});
 
     hammer.get('tap').set({ enable: false });
-    hammer.on('tap', (e) => {
-        handleTap(e);
-    });
+    hammer.on('tap', handleTap);
 
     hammer.get('swipe').set({ enable: false, direction: Hammer.DIRECTION_ALL });
-    hammer.on('swipe', (e) => {
-        handleSwipe(e);
-    });
+    hammer.on('swipe', handleSwipe);
 
     state = new Browsing();
 }
@@ -85,6 +81,10 @@ function bangAGong() {
 
 function handleTap(event) {
     state.handleTap(event);
+}
+
+function handleSwipe(event) {
+    state.handleSwipe(event);
 }
 
 
