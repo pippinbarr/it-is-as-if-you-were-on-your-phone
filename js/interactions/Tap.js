@@ -1,4 +1,3 @@
-const TAP_WIDTH_RATIO = 0.1;
 const TAP_TWEEN_IN_SPEED = 0.05;
 const TAP_TWEEN_OUT_SPEED = 0.15;
 
@@ -18,7 +17,7 @@ class Tap extends Interaction {
 
         this.x = random(0, width);
         this.y = random(0, height);
-        this.size = width * TAP_WIDTH_RATIO;
+        this.size = 0.1;
         this.state = TapStates.TWEEN_IN;
         this.tween = 0;
         this.complete = false;
@@ -51,13 +50,13 @@ class Tap extends Interaction {
         push();
         noStroke();
         fill(colors.fg);
-        ellipse(this.x, this.y, this.size * this.tween);
+        ellipse(this.x, this.y, this.size * width * this.tween);
         pop();
     }
 
     handleTap(event) {
         const d = dist(event.center.x, event.center.y, this.x, this.y);
-        if (d < this.size * 0.75 && !this.complete) {
+        if (d < this.size * width && !this.complete) {
             // Tap achieved!
             // Play a random gong
             bangAGong();

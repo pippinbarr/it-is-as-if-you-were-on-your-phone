@@ -38,6 +38,7 @@
 - ~~Esablish "modes"~~
 - **Calling them "acts" for now** ~~Add instructions for face etc.~~
 - **Feels good, though can be tweaked** ~~Checking on the feel of "keyboard input" idea~~
+- ~~Activities and a general state/modular model~~
 
 - Double-tap
 - Scrolling (think about the relationship of pan and swipe)
@@ -45,7 +46,7 @@
 
 ## Actually building
 
-- Make the whole thing responsive in the OOP model
+- ~~Make the whole thing responsive in the OOP model~~
 
 ## Issues
 
