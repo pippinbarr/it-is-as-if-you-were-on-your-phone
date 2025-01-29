@@ -10,6 +10,9 @@ const TapStates = {
 };
 
 class Tap extends Interaction {
+
+    static events = ["tap"];
+
     constructor() {
         super();
 

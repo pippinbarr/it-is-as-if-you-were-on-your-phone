@@ -1,27 +1,42 @@
 
+
+
 class Scroll extends Interaction {
+
+    static events = ["swipe", "pan", "press"];
+
     constructor() {
         super();
 
         this.name = "Scroll";
         this.scroll = undefined;
+        this.velocityDamper = 0.05;
     }
 
     update() {
         super.update();
 
+        if (!this.scroll.active) return;
+
         if (this.scroll.active) {
-            this.scroll.progress += abs(this.scroll.velocity);
+            this.scroll.progress += this.scroll.velocity;
+            this.scroll.progress = constrain(this.scroll.progress, 0, 1);
         }
 
-        if (this.scroll.progress >= 1 && this.scroll.active) {
+        if (this.scroll.progress === 1) {
             this.scroll.progress = 1;
+            this.scroll.velocity = 0;
             this.scroll.active = false;
-            this.complete = true;
+
+            setTimeout(() => {
+                this.complete = true;
+            }, 500);
         }
     }
 
     display() {
+        super.display();
+
         // Display the guiding arrow
         push();
         textSize(128);
@@ -56,13 +71,44 @@ class Scroll extends Interaction {
     }
 
     handleSwipe(event) {
-        if (this.scroll.direction === event.direction && this.scroll.progress === 0) {
-            // If it's the right swipe, use its velocity on the indicator
-            this.scroll.velocity = event.velocityY * 0.05;
+        if (!this.scroll.active) return;
+
+        if (this.scroll.direction.includes(event.direction)) {
+            // If it's the correct swipe, use the appropriate velocity on the indicator
+            if (this.scroll.type === Hammer.DIRECTION_VERTICAL) {
+                this.scroll.velocity = event.velocityY * this.velocityDamper;
+            }
+            else if (this.scroll.type === Hammer.DIRECTION_HORIZONTAL) {
+                this.scroll.velocity = event.velocityX * this.velocityDamper;
+            }
+            this.scroll.swiping = true;
         }
     }
 
     handlePan(event) {
+        if (!this.scroll.active) return;
 
+        if (this.scroll.swiping) {
+            return;
+        }
+
+        if (this.scroll.direction.includes(event.direction)) {
+            // If it's the correct swipe, use the appropriate velocity on the indicator
+            if (this.scroll.type === Hammer.DIRECTION_HORIZONTAL) {
+                this.scroll.progress += event.deltaX * this.scroll.panDamper;
+            }
+            else if (this.scroll.type === Hammer.DIRECTION_VERTICAL) {
+                this.scroll.progress += event.deltaY * this.scroll.panDamper;
+            }
+        }
+    }
+
+    handlePress(event) {
+        if (!this.scroll.active) return;
+
+        if (this.scroll.swiping) {
+            this.scroll.swiping = false;
+            this.scroll.velocity = 0;
+        }
     }
 }

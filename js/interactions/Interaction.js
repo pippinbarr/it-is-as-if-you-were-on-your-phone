@@ -18,4 +18,12 @@ class Interaction {
     handleSwipe(event) {
 
     }
+
+    handlePan(event) {
+
+    }
+
+    handlePress(event) {
+
+    }
 }

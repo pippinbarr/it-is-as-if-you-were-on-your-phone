@@ -2,7 +2,9 @@ class Browsing extends State {
     constructor() {
         super();
 
-        this.hammerEvents = ["tap", "swipe"];
+        // Get our events list based on the interactions
+        this.hammerEvents = [...Tap.events, ...ScrollDown.events];
+
         for (let e of this.hammerEvents) {
             hammer.get(e).set({ enable: true });
         }
@@ -39,7 +41,21 @@ class Browsing extends State {
     }
 
     handleSwipe(event) {
+        super.handleSwipe(event);
+
         this.interaction.handleSwipe(event);
+    }
+
+    handlePan(event) {
+        super.handlePan(event);
+
+        this.interaction.handlePan(event);
+    }
+
+    handlePress(event) {
+        super.handlePress(event);
+
+        this.interaction.handlePress(event);
     }
 
     /**

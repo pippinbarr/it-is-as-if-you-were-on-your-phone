@@ -55,16 +55,21 @@ function setup() {
     hammer.get('swipe').set({ enable: false, direction: Hammer.DIRECTION_ALL });
     hammer.on('swipe', handleSwipe);
 
+    hammer.get('pan').set({ enable: false, direction: Hammer.DIRECTION_ALL });
+    hammer.on('pan', handlePan);
+
+    hammer.get('press').set({ enable: false, time: 10 });
+    hammer.on('press', handlePress);
+
     state = new Browsing();
 }
-
-
 
 /**
  * Frame ticker
 */
 function draw() {
     state.update();
+    state.display();
 }
 
 /**
@@ -87,5 +92,12 @@ function handleSwipe(event) {
     state.handleSwipe(event);
 }
 
+function handlePan(event) {
+    state.handlePan(event);
+}
+
+function handlePress(event) {
+    state.handlePress(event);
+}
 
 

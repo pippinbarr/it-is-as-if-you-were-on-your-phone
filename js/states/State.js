@@ -4,7 +4,7 @@ class State {
     }
 
     update() {
-        this.display();
+
     }
 
     display() {
@@ -20,7 +20,18 @@ class State {
     }
 
     handleSwipe(event) {
+        // console.log(`==== Swipe event`);
+        // console.log(event);
+    }
 
+    handlePan(event) {
+        // console.log(`==== Pan event`);
+        // console.log(event);
+    }
+
+    handlePress(event) {
+        // console.log(`==== Press event`);
+        // console.log(event);
     }
 
     isComplete() {
