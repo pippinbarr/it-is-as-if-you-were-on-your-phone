@@ -20,17 +20,22 @@ class State {
     }
 
     update() {
+        if (!this.interaction) return;
+
         this.interaction.update();
 
         if (this.interaction.complete) {
-            this.chooseNewInteraction();
+            this.interaction = undefined;
+            setTimeout(() => {
+                this.chooseNewInteraction();
+            }, random(500, 1000));
         }
     }
 
     display() {
         background(colors.bg);
 
-        this.interaction.display();
+        if (this.interaction) this.interaction.display();
     }
 
     deconstruct() {
