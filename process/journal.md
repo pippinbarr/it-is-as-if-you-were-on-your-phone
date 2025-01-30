@@ -310,3 +310,51 @@ With the idea that a State is just a particular kind of sequencing (statistical?
 But the appealing thing here is the connections I think get drawn between (let's say I'm right and it's) FSMs and the human desire to know what to do. It kind of explicitly is an answer to the very human cry "I want to be a Finite State Machine"? Input to output baby.
 
 So I'm saying that in switching programming paradigms I'm finding a better way of thinking about/expressing a part of what this whole thing is *about*, which is the desire we maybe have (sometimes?) to be more like computers doing computer things in computer ways. (And perhaps to some extent a ton of videogames *are exactly that* in a more obfuscated way?). Anyway, I'd like to pursue this further as I go, but here's at least a marker of something found.
+
+## Reimplementing the wheel?; Structures; A pause explodes my brain (2025-01-30)
+
+### Reimplementing the wheel?
+
+Yesterday I spent time making the scrolling interaction more like what I think of when I do it on my phone, which is crucially that I will semi often flick scroll (swipe into a scroll) and then catch the page to stop it (a press). I felt like that scrolling behaviour needed to be in there, so I made the effort to do so. And as part of all that introduced the pan/drag based scrolling as well.
+
+So I've ended up with a kind of complete representation of scrolling at this point. Including different "length" scrollbars (visually the same but different relative scrolling speed - needs work). All of which does for sure have me wondering if I'm just reimplementing stuff that already exists if I just used some framework? 
+
+In a way, too, I think my intuitions here are related to the sense that you could implement a lot of (all of?) the features I have so far by literally having... you guessed it, a scrollable HTML element. That you would... scroll... in the way that things scroll... on mobile... i.e. get all the behaviours for "free".
+
+Why not do that? I don't have an incredible argument, but I feel cautious that approaching this as a sort of "weirdly implemented webpage" might lead to gaps in my ability to control how things look and flow into each other... that it might turn out to be secretly awkward to do well (god knows the way I'm doing it may too of course). I think there's maybe some philosophy involved in this too; like if I had a truly scrolling element then it's somehow against the principle that the player only performs the "act" and doesn't actually get the result. But I don't know if that truly holds up or not, given I have a UI element that shows scrolling and, for all intents and purposes, *is* scrolling? So I dunno. I dunno.
+
+Anyway, for now the point is to use p5 to make a project and I'm happy to use the canvas and have a sort of app-y feel to the whole thing, rather than tangle with HTML which, let's face it, is a nightmare much of the time... positioning and all that.. ughhhhhhhh. Just give me a rectangle baby.
+
+### Structures
+
+Continuing with pretty meta stuff, I did some refactoring that meant that my Browsing state went from controlling stuff to just being a configuration object specifying the touch events (e.g. swipe, tap, pan) and interactions (e.g. scroll, tap) that the state should run through. Which felt really liberating in that moment - the vision of all the specific states/use-cases/activities as configuration of an underlying structure.
+
+But does that have significant implications for how things unfold down the line? Does it design/engineer me into a corner? Or a channel? Or whatever? Does it close off design space at the code level?
+
+There are various things where I'd want flexibility per activity, but as I'm writing this I feel like it's mostly data driven at that point? That *any* activity is just a sequence of interactions fundamentally? So maybe it's fine? I DON'T KNOW.
+
+### A pause explodes my brain
+
+The other very tiny thing I did today was add a pause between interactions. So you finish a scroll. It disappears. There's a beat. Then the next thing shows up - another scroll or a tap depending RNG. That was fundamentally just a needed thing and I implemented the dumbest version (a delay with a small random variance in timing) just to have it there because it felt badly off without it.
+
+But in doing so it felt like it highlighted/invited other elements I now need to address.
+
+#### Acknowledgement
+
+The interaction seemed to want some kind of UI acknowledgement of task completion, I guess in a way that previews and justifies the element disappearing. So maybe the element turns green, or flashes, or whatever smiles at you. Maybe there's a sound. Maybe a check-mark shows up. The specifics of this depend a bit on the personality of the overall project actually. There's a big difference between "turns green" and "Clippy shows up and congratulates you" for instance. So it's a thinker.
+
+#### Does this look right?
+
+And then of course there's the question of *how long* these delays should be. Because those delays are in part about staging out the user's interactions. You don't want them just scrolling non stop every 500 milliseconds because that wouldn't "look right" right? 
+
+(Although I think there's a big question floating around that I haven't tackled which is the question of HOW RIGHT this should look - is someone glancing your way? Are they studying you to make sure you're REALLY ON YOUR PHONE? Or is the metric that the player should feel like they are REALLY ON THEIR PHONE? That they can imagine some kind of task flow where they would be doing what they are doing?)
+
+#### Acts, actions, and interactions
+
+And ALSO in adding the pause I found myself wondering about the place in the flow of all this of the "acting" (the instructions for facial expressions and other stuff, breathing patterns). I wondered in the commit whether there was a case to be made for having those Acts be part of the larger flow, so not on screen at the same time as the interaction but rather as an action of their own.
+
+There are ways that makes a kind of very soothing sense to me... a flow of actual interactions and more emotional/psychological/postural actions. There's a part of me that things that having actions and interactions on screen at the same time would be a kind of cognitive overload risk when I'm trying to keep it as simple and robotic as possible.
+
+The counterargument to that is that there might be a case for performing an interaction WITH a specific affect, and if they're sequential I don't see how that would work. Something like "perform the next interaction with an exasperated face"? Oh... actually I really kind of like that. "React to the previous interaction with disbelief"? Hmmm... that versus "Perform this interaction with an exasperated face" ...
+
+Hmm I'm convincing myself of the serial flow. I will at the very least try it out next time.

@@ -45,6 +45,7 @@
 - Double-tap
 - Switching activities
 - Bring back acting
+    - Try it out with a serial mode (e.g. an act is another interaction - will need to change the overall structure of that system to have an "action" base class with acts and interactions subclassed?)
 - Inter-interaction delay system
 
 ## Actually building
