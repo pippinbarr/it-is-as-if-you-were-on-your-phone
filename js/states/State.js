@@ -1,14 +1,36 @@
 class State {
-    constructor() {
+    constructor(config) {
+        this.hammerEvents = config.hammerEvents;
+        this.interactions = config.interactions;
+
+        // Enable events (set by subclass)
+        for (let e of this.hammerEvents) {
+            hammer.get(e).set({ enable: true });
+        }
+        // Set our first interaction
+        this.interaction = undefined;
+        this.chooseNewInteraction();
+        // Not done yet (when are we?)
         this.complete = false;
     }
 
-    update() {
+    chooseNewInteraction() {
+        const NewInteraction = random(this.interactions);
+        this.interaction = new NewInteraction();
+    }
 
+    update() {
+        this.interaction.update();
+
+        if (this.interaction.complete) {
+            this.chooseNewInteraction();
+        }
     }
 
     display() {
         background(colors.bg);
+
+        this.interaction.display();
     }
 
     deconstruct() {
@@ -16,25 +38,28 @@ class State {
     }
 
     handleTap(event) {
-
+        this.interaction.handleTap(event);
     }
 
     handleSwipe(event) {
-        // console.log(`==== Swipe event`);
-        // console.log(event);
+        this.interaction.handleSwipe(event);
     }
 
     handlePan(event) {
-        // console.log(`==== Pan event`);
-        // console.log(event);
+        this.interaction.handlePan(event);
     }
 
     handlePress(event) {
-        // console.log(`==== Press event`);
-        // console.log(event);
+        this.interaction.handlePress(event);
     }
 
     isComplete() {
         return this.complete;
+    }
+
+    deconstruct() {
+        for (let e of this.hammerEvents) {
+            hammer.get(e).set({ enable: false });
+        }
     }
 }

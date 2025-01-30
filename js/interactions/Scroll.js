@@ -37,36 +37,53 @@ class Scroll extends Interaction {
     display() {
         super.display();
 
+        const arrow = {
+            x: width / 2 - width / 10,
+            y: height / 2,
+            size: 128,
+            text: this.scroll.emoji,
+            fill: colors.fg
+        };
+        const bar = {
+            x: width / 2,
+            y: height / 2,
+            width: width * 0.05,
+            height: width * 0.5,
+            bevel: width * 0.05,
+            weight: 2,
+            fill: colors.fg
+        };
+        const pipSize = width * 0.05;
+        const ratio = lerp(this.scroll.start, this.scroll.end, this.scroll.progress);
+        const pip = {
+            x: bar.x,
+            y: bar.y - bar.height / 2 + pipSize / 2 + (ratio * (bar.height - pipSize)),
+            size: pipSize,
+            fill: colors.fg
+        };
+
         // Display the guiding arrow
         push();
-        textSize(128);
+        textSize(arrow.size);
         textAlign(CENTER, CENTER);
-        fill(colors.fg);
-        text(this.scroll.emoji, width / 2 - width / 10, height / 2);
+        fill(arrow.fill);
+        text(arrow.text, arrow.x, arrow.y);
         pop();
 
         // Display the bar
         push();
         noFill();
-        stroke(colors.fg);
-        strokeWeight(2);
+        stroke(bar.fill);
+        strokeWeight(bar.weight);
         rectMode(CENTER);
-        const barX = width / 2;
-        const barY = height / 2;
-        const barWidth = width * 0.05;
-        const barHeight = width * 0.5;
-        const barBevel = width * 0.05;
-        rect(barX, barY, barWidth, barHeight, barBevel);
+        rect(bar.x, bar.y, bar.width, bar.height, bar.bevel);
         pop();
 
         // Display the pip
         push();
         noStroke();
         fill(colors.fg);
-        const size = width * 0.05;
-        const ratio = lerp(this.scroll.start, this.scroll.end, this.scroll.progress);
-        const pipY = barY - barHeight / 2 + size / 2 + (ratio * (barHeight - size));
-        ellipse(barX, pipY, size);
+        ellipse(pip.x, pip.y, pip.size);
         pop();
     }
 

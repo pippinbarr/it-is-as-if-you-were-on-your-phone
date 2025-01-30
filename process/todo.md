@@ -26,6 +26,7 @@
 
 - Make more visual prototypes
 - How to indicate "swipe" and "scroll" 
+    - Is this sort of "fixed for now" with the arrow plus scrollbar?
 - The bigger question of language and/or symbols
 
 ## Prototyping
@@ -39,10 +40,12 @@
 - **Calling them "acts" for now** ~~Add instructions for face etc.~~
 - **Feels good, though can be tweaked** ~~Checking on the feel of "keyboard input" idea~~
 - ~~Activities and a general state/modular model~~
+- ~~Scrolling (think about the relationship of pan and swipe)~~
 
 - Double-tap
-- Scrolling (think about the relationship of pan and swipe)
 - Switching activities
+- Bring back acting
+- Inter-interaction delay system
 
 ## Actually building
 
