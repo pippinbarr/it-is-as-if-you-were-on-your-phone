@@ -8,26 +8,32 @@ class State {
             hammer.get(e).set({ enable: true });
         }
         // Set our first interaction
-        this.interaction = undefined;
-        this.chooseNewInteraction();
+        this.action = undefined;
+        this.chooseNewAction();
         // Not done yet (when are we?)
         this.complete = false;
     }
 
-    chooseNewInteraction() {
-        const NewInteraction = random(this.interactions);
-        this.interaction = new NewInteraction();
+    chooseNewAction() {
+        let NewAction;
+        if (random() < 0.3) {
+            NewAction = Act;
+        }
+        else {
+            NewAction = random(this.interactions);
+        }
+        this.action = new NewAction();
     }
 
     update() {
-        if (!this.interaction) return;
+        if (!this.action) return;
 
-        this.interaction.update();
+        this.action.update();
 
-        if (this.interaction.complete) {
-            this.interaction = undefined;
+        if (this.action.complete) {
+            this.action = undefined;
             setTimeout(() => {
-                this.chooseNewInteraction();
+                this.chooseNewAction();
             }, random(500, 1000));
         }
     }
@@ -35,32 +41,32 @@ class State {
     display() {
         background(colors.bg);
 
-        if (this.interaction) {
-            this.interaction.display();
+        if (this.action) {
+            this.action.display();
         }
     }
 
     handleTap(event) {
-        if (this.interaction) {
-            this.interaction.handleTap(event);
+        if (this.action && this.action.interactive) {
+            this.action.handleTap(event);
         }
     }
 
     handleSwipe(event) {
-        if (this.interaction) {
-            this.interaction.handleSwipe(event);
+        if (this.action && this.action.interactive) {
+            this.action.handleSwipe(event);
         }
     }
 
     handlePan(event) {
-        if (this.interaction) {
-            this.interaction.handlePan(event);
+        if (this.action && this.action.interactive) {
+            this.action.handlePan(event);
         }
     }
 
     handlePress(event) {
-        if (this.interaction) {
-            this.interaction.handlePress(event);
+        if (this.action && this.action.interactive) {
+            this.action.handlePress(event);
         }
     }
 

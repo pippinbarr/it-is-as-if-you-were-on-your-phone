@@ -43,12 +43,12 @@
 - ~~Scrolling (think about the relationship of pan and swipe)~~
 - ~~Bring in a second activity (Dating?)~~
 - ~~Inter-interaction delay system~~
+- ~~Bring back acting~~
+    - ~~Try it out with a serial mode (e.g. an act is another interaction - will need to change the overall structure of that system to have an "action" base class with acts and interactions subclassed?)~~
 
 - Double-tap
 - Bring in typing?
 - Switching activities
-- Bring back acting
-    - Try it out with a serial mode (e.g. an act is another interaction - will need to change the overall structure of that system to have an "action" base class with acts and interactions subclassed?)
 
 ## Actually building
 
