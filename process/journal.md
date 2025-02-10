@@ -358,3 +358,53 @@ There are ways that makes a kind of very soothing sense to me... a flow of actua
 The counterargument to that is that there might be a case for performing an interaction WITH a specific affect, and if they're sequential I don't see how that would work. Something like "perform the next interaction with an exasperated face"? Oh... actually I really kind of like that. "React to the previous interaction with disbelief"? Hmmm... that versus "Perform this interaction with an exasperated face" ...
 
 Hmm I'm convincing myself of the serial flow. I will at the very least try it out next time.
+
+## Dating; acting; testing (2025-01-10)
+
+Well I "missed" a week of development there because I was preparing a talk I gave on Thursday at the ARTSLab at the University of New Mexico for the Gale Memorial Lecture Series. Fancy me. I did talk about, or at least mention, this game so there was a teeny tiny sense in which I did stuff. The idea of this game got some good laughs and some interest from one audience member about helping people with addiction to phones etc. which was kind of interesting - I told them about the zen gongs version and how that had made me think about it as a potential meditation aid. But that's ended up feeling more like a "fork" of the overall project. But funny to think about forking it.
+
+### Dating
+
+I've already marvelled about it in the commit messages today, but it was really pleasing to implement a Dating activity with a minimum of confusion and difficulty thanks to the framework I'd set up for the Browsing activity. I was able to just add a set of classes that represented the approapriate swipes and then it kind of just worked without too much difficulty - it was working within say 20 minutes of starting in on it I think.
+
+As of now the Dating activity is "just" swiping left or right or up with different weightings. So it's mostly left (no match, 20 of them in the array), a bit of right (match, 3 in the array) and a tiny bit up (super match, 1 in the array). That is a breakdown of 83%/12.5%/4.5%. Probably too weighted on a superlike.
+
+This has done the usual thing of opening up questions, particularly around:
+
+- representing weightings/probabilities (the current approach of proportional representation in an array feels more and more clunky and I probably need something more tuned to specifying probabilities directly?)
+- the question of how specific to the activity I actually want to be: does it *matter* how many lefts/rights/ups there are? I mean, yes it does, but to what extent
+- and continuing from that, what about reading someone's profile which is a little sub-action sequence... does that matter? It would matter in the version where I'm "replacing the app" in a later iteration of this project; but does it matter for this first one, or are we just trying roughly to get the rough ideas of the interactions rather than have them seem accurately simulated in terms of sequencing etc.?
+
+### Acting
+
+I added acting back in. It's currently serial, and it's currently that you have some probability of getting an Act versus an Interaction. It works in the sense that it shows up and so on, but I need to start taking a closer look at how it feels, building to...
+
+### Testing
+
+How do I test this thing? Most obviously I just test it on my own for as long as I'm able to identify things that aren't satisfying, but at some point I probably need to show it to someone else.
+
+There's the question of framing too, which may come out of any testing I do.
+
+Let me pick up my phone now and do some "dating"...
+
+...
+
+It felt... pretty great at a base level? I continue to feel like the core project here makes sense. I don't even totally know why, but just being told to take the actions associated with a more specific kind of real world activity and having them be recognized is in itself satisfying.
+
+In doing it there are some questions/notes though...
+
+- The timing between acts and interactions felt completely janky... the acts felt very divorced from the flow of the whole thing, there was for sure an argument/feeling for them to be visible at the same time, maybe as two independent systems, maybe actually connected to one another
+- The question of the relevance of the text was more important than I would have predicted... the things I had in there like eyebrow scratches and three nods didn't feel all that well adapted to the activity of swiping for dates...
+- But that in turn raises the weird question of just how specific you want to get there... the weird question I suppose of just how tuned to specific use contexts our body language is with our phones, which I did NOT expect
+- But to the extent the Acts are meant to support that broader feeling of "being on your phone" successfully there's an odd balance involved in how much you do or don't understand/know "what you're doing" on your phone... 
+- Maybe some of it is "just" the specificity of dating as an activity though? it's not a potentially generic as browsing the web or text messaging...
+- The strong emotional valence involved almost feels kind of tricky and that bleeds out into questions about the emotions involved in the other things... texting about the death of your dog versus texting about which showing of a movie to go to... different expressions and you wouldn't(?) just immediately shift one one state to the next and back again emotionally?
+
+Hmmm, so there's some kind of challenging stuff in there. 
+
+- Specialist acts for different activities or even drilling down to iterations?
+- Pairing acts and interactions?
+- Grammars of acts and interactions?
+
+😮‍💨
+
