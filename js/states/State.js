@@ -35,27 +35,33 @@ class State {
     display() {
         background(colors.bg);
 
-        if (this.interaction) this.interaction.display();
-    }
-
-    deconstruct() {
-
+        if (this.interaction) {
+            this.interaction.display();
+        }
     }
 
     handleTap(event) {
-        this.interaction.handleTap(event);
+        if (this.interaction) {
+            this.interaction.handleTap(event);
+        }
     }
 
     handleSwipe(event) {
-        this.interaction.handleSwipe(event);
+        if (this.interaction) {
+            this.interaction.handleSwipe(event);
+        }
     }
 
     handlePan(event) {
-        this.interaction.handlePan(event);
+        if (this.interaction) {
+            this.interaction.handlePan(event);
+        }
     }
 
     handlePress(event) {
-        this.interaction.handlePress(event);
+        if (this.interaction) {
+            this.interaction.handlePress(event);
+        }
     }
 
     isComplete() {

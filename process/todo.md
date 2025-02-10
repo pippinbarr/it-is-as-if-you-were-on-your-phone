@@ -41,12 +41,14 @@
 - **Feels good, though can be tweaked** ~~Checking on the feel of "keyboard input" idea~~
 - ~~Activities and a general state/modular model~~
 - ~~Scrolling (think about the relationship of pan and swipe)~~
+- ~~Bring in a second activity (Dating?)~~
+- ~~Inter-interaction delay system~~
 
 - Double-tap
+- Bring in typing?
 - Switching activities
 - Bring back acting
     - Try it out with a serial mode (e.g. an act is another interaction - will need to change the overall structure of that system to have an "action" base class with acts and interactions subclassed?)
-- Inter-interaction delay system
 
 ## Actually building
 
@@ -61,3 +63,7 @@
     - ~~This remains a problem after some initial testing~~
     - ~~Further testing makes me think this is a series issue, at least in p5 seems to come down to whether a conditional is evaluated or not which... seems insane to me~~
     - ~~Even further reflection has me wondering about using a different library (PixiJS?)~~
+- Was being caused by the interaction being cleared but the pan still triggering ~~Crash on holding a pan at the bottom of a scroll?~~
+
+- If you hold a pan it seems to hold over to the next interaction which feels a bit wrong? Like we need to require a touch up first? 
+- Also if you hold a pan it seems to manage to scroll up sometimes when you mean down or..?
