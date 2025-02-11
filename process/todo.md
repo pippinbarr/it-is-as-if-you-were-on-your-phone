@@ -4,7 +4,7 @@
 
 - Zen versus Social Camouflage?
     - What about "Zen Mode" as a thing; it makes total sense
-    - Gongs and no Acts?
+    - Gongs and Acts that are meditative and more spaced out
 - Words versus Icons for communicating tasks?
     - I'd assumed icons were better (more attractive), but is there a power to the blankness and clarity of words? A lack of glamour?
 
@@ -47,10 +47,10 @@
 - ~~Inter-interaction delay system~~
 - ~~Bring back acting~~
     - ~~Try it out with a serial mode (e.g. an act is another interaction - will need to change the overall structure of that system to have an "action" base class with acts and interactions subclassed?)~~
+- ~~Bring in typing~~
 
-- Bring in typing
 - Switching activities
-- Double-tap? What is it even for? I guess instagram
+- Bring in Instagram (incl. double tap)
 
 ## Actually building
 
@@ -69,3 +69,4 @@
 
 - If you hold a pan it seems to hold over to the next interaction which feels a bit wrong? Like we need to require a touch up first? 
 - Also if you hold a pan it seems to manage to scroll up sometimes when you mean down or..?
+- Need better control over where taps (and all elements generate), e.g. x y

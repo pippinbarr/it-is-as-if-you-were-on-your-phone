@@ -16,5 +16,15 @@ function tapData() {
         size: 0.1,
         state: TapStates.TWEEN_IN,
         tween: 0
-    }
+    };
+}
+
+function typeData({ x, y }) {
+    return {
+        x: x,
+        y: y,
+        size: 0.1,
+        state: TapStates.TWEEN_IN,
+        tween: 0
+    };
 }

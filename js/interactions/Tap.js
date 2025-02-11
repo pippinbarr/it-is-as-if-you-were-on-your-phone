@@ -2,11 +2,11 @@ class Tap extends Interaction {
 
     static events = ["tap"];
 
-    constructor(generator) {
+    constructor(generator, config = {}) {
         super();
 
         this.name = "Tap";
-        this.tap = generator();
+        this.tap = generator(config);
 
         this.complete = false;
     }

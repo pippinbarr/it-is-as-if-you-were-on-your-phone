@@ -55,7 +55,7 @@ class Activity {
     }
 
     update() {
-        if (!this.interaction) return;
+        if (this.interactions.length === 0) return;
 
         this.interaction.update();
 

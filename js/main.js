@@ -61,7 +61,7 @@ function setup() {
     hammer.get('press').set({ enable: false, time: 10 });
     hammer.on('press', handlePress);
 
-    state = new Dating();
+    state = new Typing();
 }
 
 /**
