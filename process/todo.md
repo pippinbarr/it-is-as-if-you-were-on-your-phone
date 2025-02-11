@@ -1,8 +1,10 @@
 # To-do
 
 ## Big questions
+
 - Zen versus Social Camouflage?
     - What about "Zen Mode" as a thing; it makes total sense
+    - Gongs and no Acts?
 - Words versus Icons for communicating tasks?
     - I'd assumed icons were better (more attractive), but is there a power to the blankness and clarity of words? A lack of glamour?
 
@@ -23,10 +25,10 @@
 
 - ~~Do some sketches of how this could look in terms of the actual screens and most especially the interaction indicators~~
 - ~~Make some visual prototypes in Keynote or similar~~
+- ~~How to indicate "swipe" and "scroll" ~~
+    - **Yes but only for now** ~~Is this sort of "fixed for now" with the arrow plus scrollbar?~~
 
 - Make more visual prototypes
-- How to indicate "swipe" and "scroll" 
-    - Is this sort of "fixed for now" with the arrow plus scrollbar?
 - The bigger question of language and/or symbols
 
 ## Prototyping
@@ -46,9 +48,9 @@
 - ~~Bring back acting~~
     - ~~Try it out with a serial mode (e.g. an act is another interaction - will need to change the overall structure of that system to have an "action" base class with acts and interactions subclassed?)~~
 
-- Double-tap
-- Bring in typing?
+- Bring in typing
 - Switching activities
+- Double-tap? What is it even for? I guess instagram
 
 ## Actually building
 

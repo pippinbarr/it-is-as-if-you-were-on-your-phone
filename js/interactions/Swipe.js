@@ -5,11 +5,10 @@ class Swipe extends Interaction {
 
     static events = ["swipe"];
 
-    constructor() {
+    constructor(generator) {
         super();
 
-        this.name = "Swipe";
-        this.swipe = undefined;
+        this.swipe = generator();
     }
 
     update() {

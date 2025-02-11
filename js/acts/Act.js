@@ -18,7 +18,7 @@ class Act extends Action {
 
         setTimeout(() => {
             this.complete = true;
-        }, 5000);
+        }, random(2000, 3000));
     }
 
     update() {
@@ -26,11 +26,12 @@ class Act extends Action {
     }
 
     display() {
+        // Text of the act
         push();
-        textSize(width * 0.025);
+        textSize(width * 0.05);
         fill(255);
-        textAlign(LEFT, CENTER);
-        text(this.text, 0.1 * width, 0.5 * height, width * 0.8);
+        textAlign(LEFT, TOP);
+        text(this.text, 0.1 * width, 0.05 * height, width * 0.8);
         pop();
     }
 }

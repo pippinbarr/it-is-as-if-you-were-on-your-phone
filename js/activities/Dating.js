@@ -7,18 +7,27 @@
  * - And maybe tap (low down) and then scroll for profile?
  *   (Or is this a bit much?)
  */
-class Dating extends State {
+class Dating extends Activity {
     constructor() {
-        // Should this just be a configuration object at this point??
-
         // Set our events list based on the interactions
-        const interactions = Array(20).fill(SwipeLeft);
-        interactions.push(SwipeRight, SwipeRight, SwipeRight);
-        interactions.push(SwipeUp);
         const config = {
             hammerEvents: [...Swipe.events],
-            interactions: interactions
-        }
+            interactions: [{
+                class: Swipe,
+                probability: 0.7,
+                generator: swipeLeftData
+            },
+            {
+                class: Swipe,
+                probability: 0.2,
+                generator: swipeRightData
+            },
+            {
+                class: Swipe,
+                probability: 0.1,
+                generator: swipeUpData
+            }]
+        };
 
         // Let the super class do the setup
         super(config);

@@ -5,11 +5,11 @@ class Scroll extends Interaction {
 
     static events = ["swipe", "pan", "press"];
 
-    constructor() {
+    constructor(generator) {
         super();
 
         this.name = "Scroll";
-        this.scroll = undefined;
+        this.scroll = generator();
         this.velocityDamper = 0.05;
     }
 
