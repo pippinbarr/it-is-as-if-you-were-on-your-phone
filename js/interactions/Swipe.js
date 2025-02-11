@@ -41,7 +41,7 @@ class Swipe extends Interaction {
 
         if (this.swipe.direction.includes(event.direction)) {
             // If it's the correct swipe, use the appropriate velocity on the indicator
-            this.complete = true;
+            this.state = InteractionStates.COMPLETE;
         }
     }
 }

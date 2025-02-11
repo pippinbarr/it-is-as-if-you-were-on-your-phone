@@ -20,6 +20,7 @@
     - Messages
     - BlueSky/generic social media?
     - Discord/Slack
+    - This is likely more important for when I'm working on the suite?
 
 ## Visual design
 
@@ -48,8 +49,8 @@
 - ~~Bring back acting~~
     - ~~Try it out with a serial mode (e.g. an act is another interaction - will need to change the overall structure of that system to have an "action" base class with acts and interactions subclassed?)~~
 - ~~Bring in typing~~
+- ~~Switching activities~~
 
-- Switching activities
 - Bring in Instagram (incl. double tap)
 
 ## Actually building

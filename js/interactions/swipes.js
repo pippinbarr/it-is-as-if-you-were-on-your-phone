@@ -28,7 +28,7 @@ function swipeHorizontalData() {
     return swipe;
 }
 
-function swipeHorizontalData() {
+function swipeVerticalData() {
     const swipe = swipeData();
     swipe.type = Hammer.DIRECTION_VERTICAL;
     return swipe;

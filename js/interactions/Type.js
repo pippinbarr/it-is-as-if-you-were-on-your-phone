@@ -13,9 +13,6 @@ class Type extends Interaction {
         this.createKeyboard();
 
         this.addTaps();
-
-
-        this.complete = false;
     }
 
     createKeyboard() {
@@ -56,17 +53,24 @@ class Type extends Interaction {
     update() {
         super.update();
 
+        let activeTaps = 0;
         for (let key of this.keyboard) {
             if (key.tap) {
+                activeTaps++;
                 key.tap.update();
                 key.tap.display();
-                if (key.tap.complete) {
+                if (key.tap.isComplete()) {
                     key.tap = undefined;
                     setTimeout(() => {
-                        this.addKeyboardTap();
+                        if (this.state === InteractionStates.ACTIVE) {
+                            this.addKeyboardTap();
+                        }
                     }, 200);
                 }
             }
+        }
+        if (activeTaps === 0 && this.state === InteractionStates.ENDING) {
+            this.state = InteractionStates.COMPLETE;
         }
     }
 
@@ -83,6 +87,6 @@ class Type extends Interaction {
     }
 
     isComplete() {
-        return this.complete;
+        return this.state === InteractionStates.COMPLETE;
     }
 }

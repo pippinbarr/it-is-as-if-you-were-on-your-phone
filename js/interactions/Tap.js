@@ -7,8 +7,6 @@ class Tap extends Interaction {
 
         this.name = "Tap";
         this.tap = generator(config);
-
-        this.complete = false;
     }
 
     update() {
@@ -28,7 +26,7 @@ class Tap extends Interaction {
                 this.tap.tween -= TAP_TWEEN_OUT_SPEED;
                 if (this.tap.tween <= 0) {
                     this.tap.state = TapStates.INACTIVE;
-                    this.complete = true;
+                    this.state = InteractionStates.COMPLETE;
                 }
                 break;
         }
@@ -43,17 +41,15 @@ class Tap extends Interaction {
     }
 
     handleTap(event) {
+        if (this.state !== InteractionStates.ACTIVE) return;
+
         const d = dist(event.center.x, event.center.y, this.tap.x, this.tap.y);
-        if (d < this.tap.size * width && !this.complete) {
+        if (d < this.tap.size * width) {
             // Tap achieved!
             // Play a random gong
             bangAGong();
             // Get it fading out
             this.tap.state = TapStates.TWEEN_OUT;
         }
-    }
-
-    isComplete() {
-        return this.complete;
     }
 }

@@ -1,3 +1,9 @@
+const ActStates = {
+    ACTIVE: "Active",
+    ENDING: "Ending",
+    COMPLETE: "Complete"
+}
+
 class Act extends Action {
     constructor() {
         super();
@@ -17,7 +23,7 @@ class Act extends Action {
         this.text = random(this.acts);
 
         setTimeout(() => {
-            this.complete = true;
+            this.state = ActStates.COMPLETE;
         }, random(2000, 3000));
     }
 
@@ -33,5 +39,13 @@ class Act extends Action {
         textAlign(LEFT, TOP);
         text(this.text, 0.1 * width, 0.05 * height, width * 0.8);
         pop();
+    }
+
+    end() {
+        this.state = ActStates.ENDING;
+    }
+
+    isComplete() {
+        return this.state === ActStates.COMPLETE;
     }
 }

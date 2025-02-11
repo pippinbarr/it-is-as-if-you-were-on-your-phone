@@ -16,6 +16,8 @@ class Scroll extends Interaction {
     update() {
         super.update();
 
+        if (this.state !== InteractionStates.ACTIVE) return;
+
         if (!this.scroll.active) return;
 
         if (this.scroll.active) {
@@ -29,7 +31,7 @@ class Scroll extends Interaction {
             this.scroll.active = false;
 
             setTimeout(() => {
-                this.complete = true;
+                this.state = InteractionStates.COMPLETE;
             }, 500);
         }
     }

@@ -23,8 +23,11 @@ const sounds = {
 // Going to be using hammer
 let hammer = undefined;
 
+// Possible activities
+const activities = [Typing, Dating, Browsing];
+
 // Current mode
-let state;
+let activity;
 
 /**
  * Load media (sounds)
@@ -61,15 +64,25 @@ function setup() {
     hammer.get('press').set({ enable: false, time: 10 });
     hammer.on('press', handlePress);
 
-    state = new Typing();
+    startNewActivity();
+}
+
+function startNewActivity() {
+    const NextActivity = random(activities);
+    activity = new NextActivity();
 }
 
 /**
  * Frame ticker
 */
 function draw() {
-    state.update();
-    state.display();
+    activity.update();
+    activity.display();
+
+    if (activity.isComplete()) {
+        activity.deconstruct();
+        startNewActivity();
+    }
 }
 
 /**
@@ -85,19 +98,19 @@ function bangAGong() {
 }
 
 function handleTap(event) {
-    state.handleTap(event);
+    activity.handleTap(event);
 }
 
 function handleSwipe(event) {
-    state.handleSwipe(event);
+    activity.handleSwipe(event);
 }
 
 function handlePan(event) {
-    state.handlePan(event);
+    activity.handlePan(event);
 }
 
 function handlePress(event) {
-    state.handlePress(event);
+    activity.handlePress(event);
 }
 
 

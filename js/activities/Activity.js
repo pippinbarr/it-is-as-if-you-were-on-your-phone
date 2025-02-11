@@ -1,3 +1,9 @@
+const ActivityStates = {
+    ACTIVE: "Active",
+    COMPLETE: "Complete",
+    ENDING: "Ending"
+};
+
 class Activity {
     constructor(config) {
         this.hammerEvents = config.hammerEvents;
@@ -16,8 +22,14 @@ class Activity {
         this.chooseNewInteraction();
         this.chooseNewAct();
 
-        // Not done yet (when are we? maybe just a timer)
-        this.complete = false;
+        this.state = ActivityStates.ACTIVE;
+
+        // End the state at a set time
+        setTimeout(() => {
+            this.state = ActivityStates.ENDING;
+            if (this.interaction) this.interaction.end();
+            if (this.act) this.act.end();
+        }, 5000);
     }
 
     /**
@@ -51,25 +63,37 @@ class Activity {
     }
 
     chooseNewAct() {
-        this.act = new Act();
+        if (this.state === ActivityStates.ACTIVE) {
+            this.act = new Act();
+        }
     }
 
     update() {
-        if (this.interactions.length === 0) return;
+        if (this.state === ActivityStates.COMPLETE || !this.interaction) return;
 
         this.interaction.update();
 
-        if (this.interaction && this.interaction.complete) {
+        if (this.interaction && this.interaction.isComplete()) {
             this.interaction = undefined;
             setTimeout(() => {
-                this.chooseNewInteraction();
+                if (this.state === ActivityStates.ENDING) {
+                    this.act = undefined;
+                    this.state = ActivityStates.COMPLETE;
+                }
+                else {
+                    this.chooseNewInteraction();
+                }
             }, random(500, 1000));
         }
 
-        if (this.act && this.act.complete) {
+        if (this.act && this.act.isComplete()) {
             this.act = undefined;
             setTimeout(() => {
-                this.chooseNewAct();
+                if (this.state === ActivityStates.ENDING) {
+                }
+                else {
+                    this.chooseNewAct();
+                }
             }, random(1000, 10000));
         }
     }
@@ -117,7 +141,7 @@ class Activity {
     }
 
     isComplete() {
-        return this.complete;
+        return this.state === ActivityStates.COMPLETE;
     }
 
     deconstruct() {
