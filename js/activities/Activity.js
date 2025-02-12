@@ -29,7 +29,7 @@ class Activity {
             this.state = ActivityStates.ENDING;
             if (this.interaction) this.interaction.end();
             if (this.act) this.act.end();
-        }, 5000);
+        }, random(10000, 20000));
     }
 
     /**

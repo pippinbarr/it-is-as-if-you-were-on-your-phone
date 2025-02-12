@@ -1,12 +1,13 @@
-class Tap extends Interaction {
+class DoubleTap extends Tap {
 
     static events = ["tap"];
 
     constructor(generator, config = {}) {
-        super();
+        super(generator, config);
 
-        this.name = "Tap";
-        this.tap = generator(config);
+        this.tap.taps = 0;
+
+        this.name = "DoubleTap";
     }
 
     update() {
@@ -33,11 +34,18 @@ class Tap extends Interaction {
     }
 
     display() {
-        push();
-        noStroke();
-        fill(colors.fg);
-        ellipse(this.tap.x, this.tap.y, this.tap.size * width * this.tap.tween);
-        pop();
+        // Inner tap
+        super.display();
+
+        if (this.tap.taps === 0) {
+            // Outer tap
+            push();
+            stroke(colors.fg);
+            strokeWeight(5);
+            noFill();
+            ellipse(this.tap.x, this.tap.y, this.tap.size * 1.2 * width * this.tap.tween);
+            pop();
+        }
     }
 
     handleTap(event) {
@@ -45,11 +53,16 @@ class Tap extends Interaction {
 
         const d = dist(event.center.x, event.center.y, this.tap.x, this.tap.y);
         if (d < this.tap.size * width) {
-            // Tap achieved!
-            // Play a random gong
-            bangAGong();
-            // Get it fading out
-            this.tap.state = TapStates.TWEEN_OUT;
+            if (this.tap.taps === 0) {
+                this.tap.taps++;
+                this.doubleTapTimeout = setTimeout(() => {
+                    this.tap.taps = 0;
+                }, 300);
+            }
+            else {
+                if (this.doubleTapTimeout) clearTimeout(this.doubleTapTimeout);
+                super.handleTap(event);
+            }
         }
     }
 }

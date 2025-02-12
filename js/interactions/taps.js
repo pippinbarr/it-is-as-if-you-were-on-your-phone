@@ -19,6 +19,10 @@ function tapData() {
     };
 }
 
+function doubleTapData() {
+    return tapData();
+}
+
 function typeData({ x, y }) {
     return {
         x: x,

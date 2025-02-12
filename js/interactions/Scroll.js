@@ -95,7 +95,7 @@ class Scroll extends Interaction {
         if (this.scroll.direction.includes(event.direction)) {
             // If it's the correct swipe, use the appropriate velocity on the indicator
             if (this.scroll.type === Hammer.DIRECTION_VERTICAL) {
-                this.scroll.velocity = event.velocityY * this.velocityDamper;
+                this.scroll.velocity = -event.velocityY * this.velocityDamper;
             }
             else if (this.scroll.type === Hammer.DIRECTION_HORIZONTAL) {
                 this.scroll.velocity = event.velocityX * this.velocityDamper;
@@ -117,7 +117,7 @@ class Scroll extends Interaction {
                 this.scroll.progress += event.deltaX * this.scroll.panDamper;
             }
             else if (this.scroll.type === Hammer.DIRECTION_VERTICAL) {
-                this.scroll.progress += event.deltaY * this.scroll.panDamper;
+                this.scroll.progress += -event.deltaY * this.scroll.panDamper;
             }
         }
     }

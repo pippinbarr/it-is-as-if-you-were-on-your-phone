@@ -50,8 +50,7 @@
     - ~~Try it out with a serial mode (e.g. an act is another interaction - will need to change the overall structure of that system to have an "action" base class with acts and interactions subclassed?)~~
 - ~~Bring in typing~~
 - ~~Switching activities~~
-
-- Bring in Instagram (incl. double tap)
+- ~~Bring in Instagram (incl. double tap)~~
 
 ## Actually building
 

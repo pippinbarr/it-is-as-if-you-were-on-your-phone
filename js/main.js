@@ -24,7 +24,7 @@ const sounds = {
 let hammer = undefined;
 
 // Possible activities
-const activities = [Typing, Dating, Browsing];
+const activities = [Photos, Typing, Dating, Browsing];
 
 // Current mode
 let activity;
