@@ -1,3 +1,12 @@
+function randomVerticalScrollData() {
+    if (random() < 0.5) {
+        return scrollUpData();
+    }
+    else {
+        return scrollDownData();
+    }
+}
+
 function verticalScrollData() {
     return {
         text: "Scroll",
@@ -27,7 +36,7 @@ function scrollUpData() {
     const scroll = verticalScrollData();
     scroll.text = "Scroll up";
     scroll.emoji = "⬆️";
-    scroll.start = 0;
-    scroll.end = 1;
+    scroll.start = 1;
+    scroll.end = 0;
     return scroll;
 }

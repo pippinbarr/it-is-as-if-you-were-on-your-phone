@@ -25,7 +25,7 @@ class Activity {
         this.state = ActivityStates.ACTIVE;
 
         // End the state at a set time
-        setTimeout(() => {
+        this.activityTimeout = setTimeout(() => {
             this.state = ActivityStates.ENDING;
             if (this.interaction) this.interaction.end();
             if (this.act) this.act.end();

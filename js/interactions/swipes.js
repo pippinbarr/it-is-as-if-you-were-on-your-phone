@@ -1,3 +1,8 @@
+function randomSwipeData() {
+    const generator = random([swipeLeftData, swipeRightData, swipeUpData, swipeDownData]);
+    return generator();
+}
+
 function swipeLeftData() {
     const swipe = swipeHorizontalData();
     swipe.emoji = "⬅️";
@@ -19,6 +24,14 @@ function swipeUpData() {
     swipe.emoji = "⬆️";
     swipe.name = "Swipe up";
     swipe.direction = [Hammer.DIRECTION_UP];
+    return swipe;
+}
+
+function swipeDownData() {
+    const swipe = swipeVerticalData();
+    swipe.emoji = "⬇️";
+    swipe.name = "Swipe down";
+    swipe.direction = [Hammer.DIRECTION_DOWN];
     return swipe;
 }
 

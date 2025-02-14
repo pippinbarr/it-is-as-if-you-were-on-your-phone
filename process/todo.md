@@ -11,16 +11,7 @@
 ## Research
 
 - ~~Spend some time on my phone just trying to see typical interactions and interaction clusters and interaction sequences~~
-
-- Spend time in specific apps and take notes on typical interaction
-    - Instagram
-    - Browser
-    - TikTok
-    - Facebook
-    - Messages
-    - BlueSky/generic social media?
-    - Discord/Slack
-    - This is likely more important for when I'm working on the suite?
+- **This is likely more important for when I'm working on the suite?** ~~Spend time in specific apps and take notes on typical interaction~~
 
 ## Visual design
 
