@@ -359,7 +359,7 @@ The counterargument to that is that there might be a case for performing an inte
 
 Hmm I'm convincing myself of the serial flow. I will at the very least try it out next time.
 
-## Dating; acting; testing (2025-01-10)
+## Dating; acting; testing (2025-02-10)
 
 Well I "missed" a week of development there because I was preparing a talk I gave on Thursday at the ARTSLab at the University of New Mexico for the Gale Memorial Lecture Series. Fancy me. I did talk about, or at least mention, this game so there was a teeny tiny sense in which I did stuff. The idea of this game got some good laughs and some interest from one audience member about helping people with addiction to phones etc. which was kind of interesting - I told them about the zen gongs version and how that had made me think about it as a potential meditation aid. But that's ended up feeling more like a "fork" of the overall project. But funny to think about forking it.
 
@@ -408,3 +408,33 @@ Hmmm, so there's some kind of challenging stuff in there.
 
 😮‍💨
 
+## What would it take for this game to be done? (2025-02-14)
+
+Not that it's "taking too long" but it might be a good time to consolidate what the different arms of this are that require more work. Obviously it's not ready *now*, but what does it need? In no particular order...
+
+- **Zen Mode** - in or out? I think it's pretty funny so probably in; would need to UI design for that, which means it needs to go somewhere (top menu I suppose?) and it could go there with an info button too I suppose
+- **How many activities is enough?** - well that's a good question, Jim. At least a sweep of the most obvious phone activities? So I'd be missing Video Watching most obviously right now? Browsing, photo stuff, video, dating, messaging... seems like enough. So let's say "**add video and see**" (TikTok versus YouTube though?)
+- **How often do you switch activities?** - I suppose just often enough for it not to be excruciating? Some of that is about the support the Acts do/don't offer to things. It's clearly not as engaging as Work or Love because it's taking away the sense of progress. How much weight can the Acts carry, how much should they do?
+- **Writing Acts, Targeted Acts?** - Right now the list of acts is incredibly short and not even very appropriate; these need to be written; should they be written with Tracery in hand?; should they be more concrete/specific to emotional circumstances?; should they be tuned into specific activities? (As I write this I think "probably")
+- **Interaction Sequencing** - Right now interactions have probabilities of showing up but they're not actually sequenced in a way that would build a sense of a well-known interaction (e.g. scrolling Instragram is like: look look doubletap scroll down look scroll down look look look scroll down scroll down look doubletap -- or something); having a kind of "grammar" of interactions sounds pretty cool but also really tiring, but also maybe what I should be doing... at worst could just be selecting from an array of atomic interactions that deal with "one media unit" or something? Regular expressions? How deep does one go into this exactly?
+- **Symbols, words, content** - As of right now I've leant toward a kind of symbolic UI idea where a scroll is indicated by an arrow and a scroll bar. One could also imagine a purely language oriented one "tap" "swipe left" etc. (though you would lose some positional specifics?). One could also imagine a kind of simulated low level UI where scrolling actually scrolls stuff. Though then how do you tell someone to scroll in the first place? Scrolling is confusing because of the up/down direction versus movement thing. It's the main thing that makes me annoyed by the symbols I have. But if I imagine an actual "here's instagram" thing I wonder just how legible that is and how to issue instructions and indicate stopping points etc.?
+- **That is, abstraction** - A lot of this is circling around levels of abstraction. How abstract *should* this be to get at its core idea? Do I *want* the person to visualize what they "would be doing" or not? *Should* there even be legible activities in this one, or just a gigantic mish-mash or interactions? Should I be separating out the ideas of a generic "on my phone" from the more specific "on TikTok" setup I've also been imagining? Are these ideas kind of colliding here when they shouldn't be?
+
+Pippin lies down on a sofa and holds his head in his hands.
+
+...
+
+As I lie here, I think that it might have been overstepping for *this* project to think so closely into activities. And you know, I was happy about it at the time, but I think I even made a note that this would be useful for later, rather than for this exact project? I think it's more important for the "on your phone" project that it's just... "on your phone"ness rather than looking like you're doing something specific. That there's maybe even a value to it being kind of inscrutibly just "on your phone" and not "oh he's on tiktok, oh he's on instagram". To which end you'd actually just want a totally randomized set of actions you go through, and some kind of pretty generic Acts that you act out at the same time that match up with someone who is just "on their phone"...
+
+I think I buy that? I still want to make the Suit version where it's all a more specific exploration of specific interaction sets, but I don't think I want to confused them right now.
+
+So if I revisit what needs doing it's more like:
+
+- Are there any other interactions needed to "complete the set"?
+    - Possibly just the "look at this box" interaction, I think that one is valuable because looking at your screen while inactive is a thing we do.
+- Write proper Acts that convey "I'm on my phone", think about what that means
+    - Kind of blankness mostly? I can look at people on public transport on the way home today and reflect on what I look like too. Half smiles, silent laughs, blinking, raise eyebrows, pressed lips, subtle stuff...
+- Write a much simpler chaining together of different interactions; just any interactions in any order (see what it's like)
+- Consider abstracting the swipe/pan a bit more? Pan as just a "drag this to here" and that can also be achieved by a swipe? (Is there a separate swiping motion we would want?)
+- Deciding on the place of language for saying "swipe" versus just an image of an arrow, versus a pip that shows it to you?
+    - Hmm so there's still just a little visual design hitch here to think through

@@ -28,9 +28,10 @@
 - ~~Make some visual prototypes in Keynote or similar~~
 - ~~How to indicate "swipe" and "scroll" ~~
     - **Yes but only for now** ~~Is this sort of "fixed for now" with the arrow plus scrollbar?~~
+- ~~Make more visual prototypes~~
+    - **I think this was misleading for this project, may bring it back for the Suite** ~~Specifically explore more iconic representation? "Text" that is just lines across the screen, images as boxes, ... very different universe but perhaps it would work... in a way even more pleasingly abstract? (At what point would it make more sense to implement it as a webpage though... hmmmmmmmmm)~~
 
-- Make more visual prototypes
-- The bigger question of language and/or symbols
+- Spend more time on the representation (swipe vs. pan is a big one)
 
 ## Prototyping
 
@@ -51,6 +52,14 @@
 - ~~Bring in typing~~
 - ~~Switching activities~~
 - ~~Bring in Instagram (incl. double tap)~~
+
+- Add Look at this box interaction
+- Set up a more generic activity of "Being on your phone" that mixes and matches everything randomly
+
+## Writing
+
+- Work on the Acts, build up a big set
+- Contemplate Tracery?
 
 ## Actually building
 
