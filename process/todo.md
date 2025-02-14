@@ -30,8 +30,7 @@
     - **Yes but only for now** ~~Is this sort of "fixed for now" with the arrow plus scrollbar?~~
 - ~~Make more visual prototypes~~
     - **I think this was misleading for this project, may bring it back for the Suite** ~~Specifically explore more iconic representation? "Text" that is just lines across the screen, images as boxes, ... very different universe but perhaps it would work... in a way even more pleasingly abstract? (At what point would it make more sense to implement it as a webpage though... hmmmmmmmmm)~~
-
-- Spend more time on the representation (swipe vs. pan is a big one)
+- ~~Spend more time on the representation (swipe vs. pan is a big one)~~
 
 ## Prototyping
 
@@ -64,6 +63,8 @@
 ## Actually building
 
 - ~~Make the whole thing responsive in the OOP model~~
+
+- Add Zen Mode (what is "actually building"???)
 
 ## Issues
 

@@ -438,3 +438,23 @@ So if I revisit what needs doing it's more like:
 - Consider abstracting the swipe/pan a bit more? Pan as just a "drag this to here" and that can also be achieved by a swipe? (Is there a separate swiping motion we would want?)
 - Deciding on the place of language for saying "swipe" versus just an image of an arrow, versus a pip that shows it to you?
     - Hmm so there's still just a little visual design hitch here to think through
+    
+## More visual design (2025-02-14)
+
+Spent a bit of time in response to the issues identified doing some more visual prodding to see where I could get to and I think I like the direction. The tutorial thing is reassuring - can make it disappear, but initially having the language to set the behaviour is helpful I think.
+
+![Mockups of the game's potential interactions, swipe, pan and "look in this box"](./images/2025-02-14-it-is-as-if-you-were-on-your-phone-visual-prototyping.001.png)
+
+![Mocksup of the game's potential interactions, type, tap, and look here](./images/2025-02-14-it-is-as-if-you-were-on-your-phone-visual-prototyping.002.png)
+
+And then there's the idea of how to position any other UI elements, like a Zen Mode toggle and an info button?
+
+![Mockups of UI arrangements for accessing zen mode and information or a menu](./images/2025-02-14-it-is-as-if-you-were-on-your-phone-visual-prototyping.003.png)
+
+Leading to the idea of just dealing with that on a title page to keep the play screen relative clean?
+
+![Mockups of title screen](./images/2025-02-14-it-is-as-if-you-were-on-your-phone-visual-prototyping.004.png)
+
+As I do all this, that red arrow in the mockups is making me want a splash of colour in amongst it. Maybe the interaction areas/items could be pink or something?
+
+Anyway, it was pretty soothing to do this because I feel like I'm creeping back to something simpler and less directly connected to actual UI. More abstraction, not less.
