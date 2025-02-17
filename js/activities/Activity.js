@@ -82,15 +82,23 @@ class Activity {
     display() {
         background(colors.bg);
 
-        // Line separating out the Act and Interaction sections
-        push();
-        stroke(colors.fg);
-        line(0, 0.2 * height, width, 0.2 * height);
-        pop();
+
 
         if (this.interaction) {
             this.interaction.display();
         }
+
+        // Act area
+        push();
+        noStroke();
+        fill(colors.bg);
+        rect(0, 0, width, 0.2 * height);
+        pop();
+
+        push();
+        stroke(colors.fg);
+        line(0, 0.2 * height, width, 0.2 * height);
+        pop();
 
         if (this.act) {
             this.act.display();

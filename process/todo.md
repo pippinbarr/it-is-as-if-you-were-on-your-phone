@@ -45,10 +45,10 @@
 - ~~Set up a more generic activity of "Being on your phone" that mixes and matches everything randomly~~
 - ~~Add Look at this box interaction~~
 - ~~Add Look Here locational interaction~~
+- ~~Add splash of colour~~
 
 - Animate swipes
 - Fix scroll representation which is now a "drag"
-- Add splash of colour
 
 ## Writing
 

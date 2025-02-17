@@ -32,6 +32,8 @@ class Act extends Action {
     }
 
     display() {
+
+
         // Text of the act
         push();
         textSize(width * 0.05);
