@@ -43,9 +43,8 @@
 - ~~Switching activities~~
 - ~~Bring in Instagram (incl. double tap)~~
 - ~~Set up a more generic activity of "Being on your phone" that mixes and matches everything randomly~~
-
-- Add Look at this box interaction
-- Add Look Here locational interaction
+- ~~Add Look at this box interaction~~
+- ~~Add Look Here locational interaction~~
 
 ## Writing
 

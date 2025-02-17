@@ -35,31 +35,12 @@ class Activity {
     /**
      * Selects and configures a new interaction object from
      * the available set
+     * 
+     * (This used to be probabilistic but is now pure random)
      */
     chooseNewInteraction() {
-        // Random number for probability
-        const p = random();
-        // Our current threshold for choosing an interaction starts
-        // at 0 and we will add the probability of each interaction reviewed
-        let threshold = 0;
-        // Go through all possible interactions
-        for (let interaction of this.interactions) {
-            // Add their probability to the threshold
-            threshold += interaction.probability;
-            // Check if our random number falls within this range
-            if (p < threshold) {
-                // If so, create the appropriate class with the
-                // appropriate data generator
-                this.interaction = new interaction.class(interaction.generator);
-                break;
-            }
-        }
-        // Fallback? If I fuck up the probabilities it would be possible
-        // to fail, so may want a fallback that's a tap or something?
-        if (!this.interaction) {
-            console.warn("Did not select a new interaction, generating tap.");
-            this.interaction = new Tap(tapData);
-        }
+        const interaction = random(this.interactions);
+        this.interaction = new interaction.class(interaction.generator);
     }
 
     chooseNewAct() {

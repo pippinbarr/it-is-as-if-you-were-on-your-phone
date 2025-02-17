@@ -3,31 +3,35 @@ class Phoning extends Activity {
         // Set our events list based on the interactions
         const config = {
             hammerEvents: [...Tap.events, ...Scroll.events, ...Swipe.events],
-            interactions: [{
-                class: Tap,
-                probability: 0.2,
-                generator: tapData
-            },
-            {
-                class: Scroll,
-                probability: 0.2,
-                generator: randomVerticalScrollData
-            },
-            {
-                class: Swipe,
-                probability: 0.2,
-                generator: randomSwipeData
-            },
-            {
-                class: Type,
-                probability: 0.2,
-                generator: typeData
-            },
-            {
-                class: DoubleTap,
-                probability: 0.2,
-                generator: doubleTapData
-            }
+            interactions: [
+                {
+                    class: Tap,
+                    generator: tapData
+                },
+                {
+                    class: Scroll,
+                    generator: randomVerticalScrollData
+                },
+                {
+                    class: Swipe,
+                    generator: randomSwipeData
+                },
+                {
+                    class: Type,
+                    generator: typeData
+                },
+                {
+                    class: DoubleTap,
+                    generator: doubleTapData
+                },
+                {
+                    class: LookHere,
+                    generator: lookHereData
+                },
+                {
+                    class: LookBox,
+                    generator: lookBoxData
+                },
             ]
         };
 
