@@ -24,7 +24,7 @@ class LookHere extends Interaction {
         const size = this.data.size * width;
 
         push();
-        stroke(colors.fg);
+        stroke(colors.ui);
         strokeWeight(this.data.weight * width);
         line(x - size / 2, y - size / 2, x + size / 2, y + size / 2);
         line(x + size / 2, y - size / 2, x - size / 2, y + size / 2);

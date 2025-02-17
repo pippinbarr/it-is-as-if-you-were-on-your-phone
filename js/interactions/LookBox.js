@@ -25,7 +25,7 @@ class LookBox extends Interaction {
 
         push();
         noFill();
-        stroke(colors.fg);
+        stroke(colors.ui);
         strokeWeight(0.01 * width);
         rectMode(CENTER);
         drawingContext.setLineDash([this.data.dashSize]);

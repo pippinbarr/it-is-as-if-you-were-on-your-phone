@@ -44,7 +44,7 @@ class Scroll extends Interaction {
             y: height / 2,
             size: 128,
             text: this.scroll.emoji,
-            fill: colors.fg
+            fill: colors.ui
         };
         const bar = {
             x: width / 2,
@@ -53,7 +53,7 @@ class Scroll extends Interaction {
             height: width * 0.5,
             bevel: width * 0.05,
             weight: 2,
-            fill: colors.fg
+            fill: colors.ui
         };
         const pipSize = width * 0.05;
         const ratio = lerp(this.scroll.start, this.scroll.end, this.scroll.progress);
@@ -61,7 +61,7 @@ class Scroll extends Interaction {
             x: bar.x,
             y: bar.y - bar.height / 2 + pipSize / 2 + (ratio * (bar.height - pipSize)),
             size: pipSize,
-            fill: colors.fg
+            fill: colors.ui
         };
 
         // Display the guiding arrow
@@ -84,7 +84,7 @@ class Scroll extends Interaction {
         // Display the pip
         push();
         noStroke();
-        fill(colors.fg);
+        fill(colors.ui);
         ellipse(pip.x, pip.y, pip.size);
         pop();
     }

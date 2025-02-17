@@ -40,7 +40,7 @@ class DoubleTap extends Tap {
         if (this.tap.taps === 0) {
             // Outer tap
             push();
-            stroke(colors.fg);
+            stroke(colors.ui);
             strokeWeight(5);
             noFill();
             ellipse(this.tap.x, this.tap.y, this.tap.size * 1.2 * width * this.tap.tween);

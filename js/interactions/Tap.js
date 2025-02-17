@@ -35,7 +35,7 @@ class Tap extends Interaction {
     display() {
         push();
         noStroke();
-        fill(colors.fg);
+        fill(colors.ui);
         ellipse(this.tap.x, this.tap.y, this.tap.size * width * this.tap.tween);
         pop();
     }

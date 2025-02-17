@@ -2,11 +2,11 @@
 
 ## Big questions
 
-- Zen versus Social Camouflage?
-    - What about "Zen Mode" as a thing; it makes total sense
-    - Gongs and Acts that are meditative and more spaced out
-- Words versus Icons for communicating tasks?
-    - I'd assumed icons were better (more attractive), but is there a power to the blankness and clarity of words? A lack of glamour?
+- **We're doing it, don't worry** ~~Zen versus Social Camouflage?~~
+    - ~~What about "Zen Mode" as a thing; it makes total sense~~
+    - ~~Gongs and Acts that are meditative and more spaced out~~
+- **I think it's the happy marriage of "both" - words and icons to start with, then just icons ~~Words versus Icons for communicating tasks?~~
+    - ~~I'd assumed icons were better (more attractive), but is there a power to the blankness and clarity of words? A lack of glamour?~~
 
 ## Research
 
@@ -45,6 +45,10 @@
 - ~~Set up a more generic activity of "Being on your phone" that mixes and matches everything randomly~~
 - ~~Add Look at this box interaction~~
 - ~~Add Look Here locational interaction~~
+
+- Animate swipes
+- Fix scroll representation which is now a "drag"
+- Add splash of colour
 
 ## Writing
 

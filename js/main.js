@@ -14,6 +14,7 @@
 const colors = {
     fg: undefined,
     bg: undefined,
+    ui: undefined,
 };
 
 const sounds = {
@@ -48,6 +49,7 @@ function setup() {
 
     colors.fg = color("#ffffff");
     colors.bg = color("#333333");
+    colors.ui = color("#fc6c85");
 
     // Setup swipes
     hammer = new Hammer(document, {});
