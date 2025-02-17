@@ -34,6 +34,6 @@ class Phoning extends Activity {
         // Let the super class do the setup
         super(config);
 
-        // clearTimeout(this.activityTimeout);
+        clearTimeout(this.activityTimeout);
     }
 }

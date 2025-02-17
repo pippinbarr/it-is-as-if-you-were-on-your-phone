@@ -42,9 +42,10 @@
 - ~~Bring in typing~~
 - ~~Switching activities~~
 - ~~Bring in Instagram (incl. double tap)~~
+- ~~Set up a more generic activity of "Being on your phone" that mixes and matches everything randomly~~
 
 - Add Look at this box interaction
-- Set up a more generic activity of "Being on your phone" that mixes and matches everything randomly
+- Add Look Here locational interaction
 
 ## Writing
 
@@ -71,3 +72,4 @@
 - If you hold a pan it seems to hold over to the next interaction which feels a bit wrong? Like we need to require a touch up first? 
 - Also if you hold a pan it seems to manage to scroll up sometimes when you mean down or..?
 - Need better control over where taps (and all elements generate), e.g. x y
+- Sometimes on mobile it gets to a state where the page scrolls instead of the ui element...

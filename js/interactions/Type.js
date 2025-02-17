@@ -13,6 +13,10 @@ class Type extends Interaction {
         this.createKeyboard();
 
         this.addTaps();
+
+        setTimeout(() => {
+            this.state = InteractionStates.ENDING;
+        }, random(10000, 15000));
     }
 
     createKeyboard() {
