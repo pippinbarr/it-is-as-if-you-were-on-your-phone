@@ -129,6 +129,12 @@ class Activity {
         }
     }
 
+    handleTouchEnd(event) {
+        if (this.interaction && this.interaction.interactive) {
+            this.interaction.handleTouchEnd(event);
+        }
+    }
+
     isComplete() {
         return this.state === ActivityStates.COMPLETE;
     }

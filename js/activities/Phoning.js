@@ -2,20 +2,20 @@ class Phoning extends Activity {
     constructor() {
         // Set our events list based on the interactions
         const config = {
-            hammerEvents: [...Tap.events, ...Scroll.events, ...Swipe.events],
+            hammerEvents: [...Tap.events, ...Drag.events, ...Swipe.events],
             interactions: [
                 // {
                 //     class: Tap,
                 //     generator: tapData
                 // },
-                // {
-                //     class: Scroll,
-                //     generator: randomVerticalScrollData
-                // },
                 {
-                    class: Swipe,
-                    generator: randomSwipeData
+                    class: Drag,
+                    generator: dragData
                 },
+                // {
+                //     class: Swipe,
+                //     generator: randomSwipeData
+                // },
                 // {
                 //     class: Type,
                 //     generator: typeData

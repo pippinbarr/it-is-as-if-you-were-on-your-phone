@@ -45,7 +45,10 @@ function preload() {
  * Gets us ready
 */
 function setup() {
-    createCanvas(window.innerWidth, window.innerHeight);
+    const canvas = createCanvas(window.innerWidth, window.innerHeight);
+    console.log(width, height)
+    const container = document.getElementById("container");
+    container.appendChild(canvas.elt);
 
     colors.fg = color("#ffffff");
     colors.bg = color("#333333");
@@ -65,6 +68,8 @@ function setup() {
 
     hammer.get('press').set({ enable: false, time: 10 });
     hammer.on('press', handlePress);
+
+    addEventListener('touchend', handleTouchEnd);
 
     startNewActivity();
 }
@@ -115,4 +120,6 @@ function handlePress(event) {
     activity.handlePress(event);
 }
 
-
+function handleTouchEnd(event) {
+    activity.handleTouchEnd(event);
+}

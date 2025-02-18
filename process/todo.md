@@ -46,8 +46,8 @@
 - ~~Add Look at this box interaction~~
 - ~~Add Look Here locational interaction~~
 - ~~Add splash of colour~~
+- ~~Animate swipes~~
 
-- Animate swipes
 - Fix scroll representation which is now a "drag"
 
 ## Writing

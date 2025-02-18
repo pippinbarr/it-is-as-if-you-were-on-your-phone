@@ -15,6 +15,7 @@ function lookBoxData() {
         name: "Look Box",
         instruction: "Watch here",
         size: 0.75,
+        weight: 0.015,
         dashSize: width * 0.015,
         time: random(3000, 5000)
     };

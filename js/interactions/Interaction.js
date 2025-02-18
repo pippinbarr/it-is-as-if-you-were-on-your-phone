@@ -37,6 +37,10 @@ class Interaction extends Action {
 
     }
 
+    handleTouchEnd(event) {
+
+    }
+
     end() {
         this.state = InteractionStates.ENDING;
     }
