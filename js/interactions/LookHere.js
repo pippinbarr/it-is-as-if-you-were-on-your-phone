@@ -21,11 +21,11 @@ class LookHere extends Interaction {
     display() {
         const x = this.data.x;
         const y = this.data.y;
-        const size = this.data.size * width;
+        const size = touchableSize;
 
         push();
         stroke(colors.ui);
-        strokeWeight(this.data.weight * width);
+        strokeWeight(lineWeight);
         line(x - size / 2, y - size / 2, x + size / 2, y + size / 2);
         line(x + size / 2, y - size / 2, x - size / 2, y + size / 2);
         pop();

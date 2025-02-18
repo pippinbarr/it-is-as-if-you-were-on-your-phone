@@ -41,9 +41,9 @@ class DoubleTap extends Tap {
             // Outer tap
             push();
             stroke(colors.ui);
-            strokeWeight(5);
+            strokeWeight(lineWeight);
             noFill();
-            ellipse(this.tap.x, this.tap.y, this.tap.size * 1.2 * width * this.tap.tween);
+            ellipse(this.tap.x, this.tap.y, touchableSize * 1.25 * this.tap.tween);
             pop();
         }
     }
@@ -52,7 +52,7 @@ class DoubleTap extends Tap {
         if (this.state === InteractionStates.COMPLETE) return;
 
         const d = dist(event.center.x, event.center.y, this.tap.x, this.tap.y);
-        if (d < this.tap.size * width) {
+        if (d < touchableSize) {
             if (this.tap.taps === 0) {
                 this.tap.taps++;
                 this.doubleTapTimeout = setTimeout(() => {

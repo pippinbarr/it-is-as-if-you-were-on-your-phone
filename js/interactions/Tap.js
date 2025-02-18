@@ -36,7 +36,7 @@ class Tap extends Interaction {
         push();
         noStroke();
         fill(colors.ui);
-        ellipse(this.tap.x, this.tap.y, this.tap.size * width * this.tap.tween);
+        ellipse(this.tap.x, this.tap.y, touchableSize * this.tap.tween);
         pop();
     }
 
@@ -44,7 +44,7 @@ class Tap extends Interaction {
         if (this.state === InteractionStates.COMPLETE) return;
 
         const d = dist(event.center.x, event.center.y, this.tap.x, this.tap.y);
-        if (d < this.tap.size * width) {
+        if (d < touchableSize * 0.5) {
             // Tap achieved!
             // Play a random gong
             bangAGong();

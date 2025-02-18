@@ -1,4 +1,4 @@
-const keyboardColumns = 10;
+const keyboardColumns = 6;
 const keyboardRows = 4;
 
 class Type extends Interaction {
@@ -21,10 +21,11 @@ class Type extends Interaction {
 
     createKeyboard() {
         const t = tapData();
+        const startX = (width - keyboardColumns * touchableSize) * 0.5;
         for (let r = 0; r < keyboardRows; r++) {
             for (let c = 0; c < keyboardColumns; c++) {
-                const x = width * t.size * 0.5 + c * width * t.size;
-                const y = height - width * t.size - r * width * t.size;
+                const x = startX + touchableSize * 0.5 + c * touchableSize;
+                const y = height - touchableSize * 0.5 - r * touchableSize;
                 this.keyboard.push({
                     x: x,
                     y: y,

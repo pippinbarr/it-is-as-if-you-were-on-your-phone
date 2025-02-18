@@ -38,16 +38,15 @@ class Drag extends Interaction {
         push();
         noStroke();
         fill(colors.ui);
-        ellipse(this.data.source.x, this.data.source.y, this.data.size * width);
+        ellipse(this.data.source.x, this.data.source.y, touchableSize);
         pop();
 
         // Target
         push();
         noFill();
         stroke(colors.ui);
-        strokeWeight(0.005 * width);
-        drawingContext.setLineDash([this.data.dashSize]);
-        ellipse(this.data.target.x, this.data.target.y, this.data.size * width);
+        strokeWeight(lineWeight);
+        ellipse(this.data.target.x, this.data.target.y, touchableSize);
         pop();
     }
 
@@ -60,7 +59,7 @@ class Drag extends Interaction {
     handlePress(event) {
         if (this.data.state !== DragStates.READY) return;
         const d = dist(event.center.x, event.center.y, this.data.source.x, this.data.source.y);
-        if (d < this.data.size * width / 2) {
+        if (d < touchableSize * 0.5) {
             this.data.state = DragStates.DRAGGING;
         }
     }
@@ -68,7 +67,7 @@ class Drag extends Interaction {
     handleTouchEnd(event) {
         if (this.data.state === DragStates.DRAGGING) {
             const d = dist(this.data.source.x, this.data.source.y, this.data.target.x, this.data.target.y);
-            if (d < this.data.size * width / 2) {
+            if (d < touchableSize * 0.5) {
                 this.data.source.x = this.data.target.x;
                 this.data.source.y = this.data.target.y;
                 this.data.state = DragStates.COMPLETE;

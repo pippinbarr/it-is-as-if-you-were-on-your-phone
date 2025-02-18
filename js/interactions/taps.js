@@ -10,10 +10,10 @@ const TapStates = {
 };
 
 function tapData() {
+    const position = randomTouchablePositionInPlayable();
     return {
-        x: random(0, width),
-        y: random(0, height),
-        size: 0.1,
+        x: position.x,
+        y: position.y,
         state: TapStates.TWEEN_IN,
         tween: 0
     };
@@ -27,7 +27,6 @@ function typeData({ x, y }) {
     return {
         x: x,
         y: y,
-        size: 0.1,
         state: TapStates.TWEEN_IN,
         tween: 0
     };

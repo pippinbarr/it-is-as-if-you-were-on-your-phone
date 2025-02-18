@@ -31,7 +31,7 @@ class Swipe extends Interaction {
         const arrow = {
             x: this.swipe.x,
             y: this.swipe.y,
-            size: 256,
+            size: arrowSize,
             text: this.swipe.emoji,
             fill: colors.ui,
         };

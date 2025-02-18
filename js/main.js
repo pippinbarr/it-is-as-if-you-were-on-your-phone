@@ -46,6 +46,7 @@ function preload() {
 */
 function setup() {
     const canvas = createCanvas(window.innerWidth, window.innerHeight);
+    setSizes();
 
     console.log("== Canvas size ==");
     console.log(width, height)
@@ -125,4 +126,10 @@ function handlePress(event) {
 
 function handleTouchEnd(event) {
     activity.handleTouchEnd(event);
+}
+
+function setSizes() {
+    touchableSize = touchableSizeRatio * width;
+    lineWeight = lineWeightRatio * width;
+    arrowSize = arrowSizeRatio * width;
 }
