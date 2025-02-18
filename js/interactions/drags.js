@@ -8,13 +8,13 @@ function dragData() {
     return {
         source: {
             x: random(0, width),
-            y: random(0, height),
+            y: random(ACT_HEIGHT * height, height),
         },
         target: {
             x: random(0, width),
-            y: random(0, height),
+            y: random(ACT_HEIGHT * height, height),
         },
-        size: 0.1,
+        size: 0.15,
         weight: 0.015,
         dashSize: width * 0.015,
         state: DragStates.READY,

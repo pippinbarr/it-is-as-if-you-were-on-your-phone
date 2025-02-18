@@ -47,18 +47,18 @@
 - ~~Add Look Here locational interaction~~
 - ~~Add splash of colour~~
 - ~~Animate swipes~~
-
-- Fix scroll representation which is now a "drag"
+- ~~Fix scroll representation which is now a "drag"~~
 
 ## Writing
 
 - Work on the Acts, build up a big set
-- Contemplate Tracery?
+- Contemplate Tracery? ... probably not?
 
 ## Actually building
 
 - ~~Make the whole thing responsive in the OOP model~~
 
+- Need better control over where taps (and all elements generate), e.g. x y (that is we need the idea of the Playable Area)
 - Add Zen Mode (what is "actually building"???)
 
 ## Issues
@@ -71,8 +71,6 @@
     - ~~Further testing makes me think this is a series issue, at least in p5 seems to come down to whether a conditional is evaluated or not which... seems insane to me~~
     - ~~Even further reflection has me wondering about using a different library (PixiJS?)~~
 - Was being caused by the interaction being cleared but the pan still triggering ~~Crash on holding a pan at the bottom of a scroll?~~
-
-- If you hold a pan it seems to hold over to the next interaction which feels a bit wrong? Like we need to require a touch up first? 
-- Also if you hold a pan it seems to manage to scroll up sometimes when you mean down or..?
-- Need better control over where taps (and all elements generate), e.g. x y
-- Sometimes on mobile it gets to a state where the page scrolls instead of the ui element...
+- ~~Sometimes on mobile it gets to a state where the page scrolls instead of the ui element...~~
+- ~~If you hold a pan it seems to hold over to the next interaction which feels a bit wrong? Like we need to require a touch up first? ~~
+- **Eliminating this only because I don't have a scroll anymore, this may come back to haunt** ~~Also if you hold a pan it seems to manage to scroll up sometimes when you mean down or..?~~

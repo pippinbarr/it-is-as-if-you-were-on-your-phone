@@ -92,12 +92,12 @@ class Activity {
         push();
         noStroke();
         fill(colors.bg);
-        rect(0, 0, width, 0.2 * height);
+        rect(0, 0, width, ACT_HEIGHT * height);
         pop();
 
         push();
         stroke(colors.fg);
-        line(0, 0.2 * height, width, 0.2 * height);
+        line(0, ACT_HEIGHT * height, width, ACT_HEIGHT * height);
         pop();
 
         if (this.act) {

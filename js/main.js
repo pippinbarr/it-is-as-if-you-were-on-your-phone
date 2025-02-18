@@ -46,7 +46,10 @@ function preload() {
 */
 function setup() {
     const canvas = createCanvas(window.innerWidth, window.innerHeight);
+
+    console.log("== Canvas size ==");
     console.log(width, height)
+
     const container = document.getElementById("container");
     container.appendChild(canvas.elt);
 

@@ -5,30 +5,18 @@ it buddy.
 
 **********************************************/
 
-#container {
-  /* overflow: hidden; */
-}
-
-* {
-  overflow: hidden;
-  user-select: none;
-  touch-action: manipulation;
-}
-
-main {
-  /* overflow: hidden; */
-  user-select: none;
-  touch-action: manipulation;
-}
-
 body {
   padding: 0;
   margin: 0;
-  /* overflow: hidden; */
+  overflow: hidden;
   user-select: none;
   touch-action: manipulation;
 }
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+canvas {
+  position: fixed;
 }

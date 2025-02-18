@@ -53,7 +53,6 @@ class Drag extends Interaction {
 
     handlePan(event) {
         if (this.data.state !== DragStates.DRAGGING) return;
-
         this.data.source.x = event.center.x;
         this.data.source.y = event.center.y;
     }

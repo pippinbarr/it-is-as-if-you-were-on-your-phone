@@ -1,3 +1,5 @@
+const ACT_HEIGHT = 0.2;
+
 const ActStates = {
     ACTIVE: "Active",
     ENDING: "Ending",
