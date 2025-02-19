@@ -32,11 +32,11 @@ class Swipe extends Interaction {
     update() {
         super.update();
 
-        this.x += this.velocity.x;
-        this.y += this.velocity.y;
+        this.x += this.velocity.x * width;
+        this.y += this.velocity.y * height;
 
-        if (this.x < 0 || this.x > width ||
-            this.y < 0 || this.y > height) {
+        if (this.x < 0 || this.x > 1 ||
+            this.y < 0 || this.y > 1) {
             this.state = InteractionStates.COMPLETE;
         }
     }
@@ -50,13 +50,13 @@ class Swipe extends Interaction {
 
     displayInstruction() {
         let x = this.x;
-        let y = this.y - this.height / 2 - instructionPadding;
+        let y = this.y - this.height * 0.5 - instructionPaddingRatio;
 
         push();
         textAlign(CENTER, CENTER);
         fill(colors.fg);
         textSize(instructionTextSize);
-        text(this.instruction, x, y);
+        text(this.instruction, x * width, y * height);
         pop();
     }
 
@@ -65,7 +65,7 @@ class Swipe extends Interaction {
         textSize(this.textSize);
         textAlign(CENTER, CENTER);
         fill(colors.ui);
-        text(this.emoji, this.x, this.y);
+        text(this.emoji, this.x * width, this.y * height);
         pop();
 
     }
@@ -76,10 +76,10 @@ class Swipe extends Interaction {
         if (this.direction === event.direction) {
             // If it's the correct swipe
             if ([Hammer.DIRECTION_LEFT, Hammer.DIRECTION_RIGHT].includes(event.direction)) {
-                this.velocity.x = Math.sign(event.velocityX) * this.speed;
+                this.velocity.x = Math.sign(event.velocityX) / width * this.speed;
             }
             else if ([Hammer.DIRECTION_UP, Hammer.DIRECTION_DOWN].includes(event.direction)) {
-                this.velocity.y = Math.sign(event.velocityY) * this.speed;
+                this.velocity.y = Math.sign(event.velocityY) / height * this.speed;
             }
         }
     }

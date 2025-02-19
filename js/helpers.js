@@ -28,15 +28,15 @@ function randomTouchablePositionInPlayable() {
         x: 0,
         y: 0
     };
-    position.x = random(touchableSize * 0.5, width - touchableSize - 0.5);
-    position.y = random(playableTop * height + touchableSize * 0.5, height - touchableSize * 0.5);
+    position.x = random(touchableSizeRatio, 1 - touchableSizeRatio);
+    position.y = random(playableTop + touchableSizeRatio * 0.5, 1 - touchableSizeRatio * 0.5);
     return position;
 }
 
 function randomTouchablePositionInPlayableAvoiding(avoid) {
     let position = randomTouchablePositionInPlayable();
     let d = dist(position.x, position.y, avoid.x, avoid.y);
-    while (d > touchableSize * width) {
+    while (d > touchableSizeRatio) {
         position = randomTouchablePositionInPlayable();
         d = dist(position.x, position.y, avoid.x, avoid.y);
     }

@@ -11,8 +11,8 @@ class Tap extends Interaction {
         this.seen = config.seen;
         this.x = data.x;
         this.y = data.y;
-        this.width = touchableSize;
-        this.height = touchableSize;
+        this.width = touchableSizeRatio;
+        this.height = touchableSizeRatio;
         this.state = data.state;
         this.tween = data.tween;
     }
@@ -49,16 +49,16 @@ class Tap extends Interaction {
         push();
         noStroke();
         fill(colors.ui);
-        ellipse(this.x, this.y, touchableSize * this.tween);
+        ellipse(this.x * width, this.y * height, (touchableSizeRatio * width) * this.tween);
         pop();
     }
 
     displayInstruction() {
-        let x = 0;
+        let x = undefined;
         let y = this.y;
 
         push();
-        if (this.x < width / 2) {
+        if (this.x < 0.5) {
             x = this.x + this.width * 0.75;
             textAlign(LEFT, CENTER);
         }
@@ -68,15 +68,15 @@ class Tap extends Interaction {
         }
         fill(colors.fg);
         textSize(instructionTextSize);
-        text(this.instruction, x, y);
+        text(this.instruction, x * width, y * height);
         pop();
     }
 
     handleTap(event) {
         if (this.state === InteractionStates.COMPLETE) return;
 
-        const d = dist(event.center.x, event.center.y, this.x, this.y);
-        if (d < touchableSize * 0.5) {
+        const d = dist(event.center.x / width, event.center.y / height, this.x, this.y);
+        if (d < touchableSizeRatio * 0.5) {
             // Tap achieved!
             // Play a random gong
             bangAGong();

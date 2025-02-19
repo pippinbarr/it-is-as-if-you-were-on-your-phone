@@ -34,19 +34,17 @@ class LookBox extends Interaction {
         fill(colors.fg);
         textSize(instructionTextSize);
         textAlign(CENTER, CENTER);
-        text(this.instruction, this.x, this.y);
+        text(this.instruction, this.x * width, this.y * height);
         pop();
     }
 
     displayIcon() {
-        const size = width * this.sizeRatio;
-
         push();
         noFill();
         stroke(colors.ui);
         strokeWeight(lineWeight);
         rectMode(CENTER);
-        rect(this.x, this.y, size);
+        rect(this.x * width, this.y * height, this.sizeRatio * width);
         pop();
     }
 }

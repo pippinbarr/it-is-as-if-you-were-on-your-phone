@@ -46,6 +46,7 @@ function preload() {
 */
 function setup() {
     const canvas = createCanvas(window.innerWidth, window.innerHeight);
+    windowResized();
     setSizes();
 
     console.log("== Canvas size ==");
@@ -99,8 +100,19 @@ function draw() {
 /**
  * Respond to window resizing so we're always full bleed
  */
-function canvasResized() {
-    resizeCanvas(window.innerWidth, window.innerHeight);
+function windowResized() {
+
+    let newWidth = window.innerWidth;
+    let newHeight = window.innerHeight;
+
+    if (newWidth > newHeight) {
+        console.log("Resizing..")
+        newWidth = newHeight / 16 * 9;
+    }
+
+    console.log(newWidth, newHeight);
+
+    resizeCanvas(newWidth, newHeight);
 }
 
 function bangAGong() {

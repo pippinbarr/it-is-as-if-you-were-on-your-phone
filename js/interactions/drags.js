@@ -12,8 +12,8 @@ function dragData() {
 
     return {
         name: "Drag",
-        width: touchableSize,
-        height: touchableSize,
+        width: touchableSizeRatio,
+        height: touchableSizeRatio,
         source: source,
         target: target,
         state: DragStates.READY,

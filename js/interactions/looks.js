@@ -2,8 +2,8 @@ function lookBoxData() {
     return {
         name: "Look Box",
         instruction: "Watch here",
-        x: width / 2,
-        y: height / 2,
+        x: 0.5,
+        y: 0.5,
         sizeRatio: 0.75,
         time: random(3000, 5000)
     };

@@ -45,14 +45,14 @@ function swipeData() {
         emoji: "-",
         textSize: arrowSize,
         instruction: "Swipe",
-        x: width / 2,
-        y: height / 2,
+        x: 0.5,
+        y: 0.5,
         direction: -1,
         velocity: {
             x: 0,
             y: 0
         },
-        speed: 50,
+        speed: 0.05,
         active: true
     };
 }

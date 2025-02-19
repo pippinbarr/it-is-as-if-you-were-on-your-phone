@@ -54,7 +54,7 @@ class Drag extends Interaction {
         let y = icon.y;
 
         push();
-        if (icon.x < width / 2) {
+        if (icon.x < 0.5) {
             x = icon.x + this.width * 0.75;
             textAlign(LEFT, CENTER);
         }
@@ -64,7 +64,7 @@ class Drag extends Interaction {
         }
         fill(colors.fg);
         textSize(instructionTextSize);
-        text(icon.instruction, x, y);
+        text(icon.instruction, x * width, y * height);
         pop();
     }
 
@@ -73,7 +73,7 @@ class Drag extends Interaction {
         push();
         noStroke();
         fill(colors.ui);
-        ellipse(this.source.x, this.source.y, touchableSize);
+        ellipse(this.source.x * width, this.source.y * height, touchableSizeRatio * width);
         pop();
 
         // Target
@@ -81,20 +81,20 @@ class Drag extends Interaction {
         noFill();
         stroke(colors.ui);
         strokeWeight(lineWeight);
-        ellipse(this.target.x, this.target.y, touchableSize);
+        ellipse(this.target.x * width, this.target.y * height, touchableSizeRatio * width);
         pop();
     }
 
     handlePan(event) {
         if (this.state !== DragStates.DRAGGING) return;
-        this.source.x = event.center.x;
-        this.source.y = event.center.y;
+        this.source.x = event.center.x / width;
+        this.source.y = event.center.y / height;
     }
 
     handlePress(event) {
         if (this.state !== DragStates.READY) return;
-        const d = dist(event.center.x, event.center.y, this.source.x, this.source.y);
-        if (d < touchableSize * 0.5) {
+        const d = dist(event.center.x / width, event.center.y / height, this.source.x, this.source.y);
+        if (d < touchableSizeRatio * 0.5) {
             this.state = DragStates.DRAGGING;
         }
     }
@@ -102,7 +102,7 @@ class Drag extends Interaction {
     handleTouchEnd(event) {
         if (this.state === DragStates.DRAGGING) {
             const d = dist(this.source.x, this.source.y, this.target.x, this.target.y);
-            if (d < touchableSize * 0.5) {
+            if (d < touchableSizeRatio * 0.5) {
                 this.source.x = this.target.x;
                 this.source.y = this.target.y;
                 this.state = DragStates.COMPLETE;
