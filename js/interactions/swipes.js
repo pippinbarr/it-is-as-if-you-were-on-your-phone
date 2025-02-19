@@ -52,7 +52,6 @@ function swipeData() {
             x: 0,
             y: 0
         },
-        booster: 10,
         speed: 50,
         active: true
     };

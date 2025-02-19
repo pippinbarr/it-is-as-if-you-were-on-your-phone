@@ -15,9 +15,11 @@ class Swipe extends Interaction {
         this.x = data.x;
         this.y = data.y;
         this.velocity = data.velocity;
+        this.speed = data.speed;
         this.direction = data.direction;
         this.emoji = data.emoji;
         this.textSize = data.textSize;
+        this.active = data.active;
 
         push();
         textSize(this.textSize);
@@ -50,8 +52,8 @@ class Swipe extends Interaction {
         let x = this.x;
         let y = this.y - this.height / 2 - instructionPadding;
 
+        push();
         textAlign(CENTER, CENTER);
-
         fill(colors.fg);
         textSize(instructionTextSize);
         text(this.instruction, x, y);
@@ -79,8 +81,6 @@ class Swipe extends Interaction {
             else if ([Hammer.DIRECTION_UP, Hammer.DIRECTION_DOWN].includes(event.direction)) {
                 this.velocity.y = Math.sign(event.velocityY) * this.speed;
             }
-
-            console.log(this.velocity);
         }
     }
 }

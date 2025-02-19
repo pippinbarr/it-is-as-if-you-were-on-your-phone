@@ -11,10 +11,9 @@ class Drag extends Interaction {
         const data = generator();
 
         this.name = data.name;
-        this.instruction = data.instruction;
+        this.state = data.state;
         this.source = data.source;
         this.target = data.target;
-        this.instruction = data.instruction;
         this.width = data.width;
         this.height = data.height;
     }
@@ -70,7 +69,6 @@ class Drag extends Interaction {
     }
 
     displayIcon() {
-
         // Source
         push();
         noStroke();

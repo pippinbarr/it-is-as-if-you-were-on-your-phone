@@ -65,6 +65,7 @@
 - Bring back Acts
 - Add Zen Mode
 - Add title screen and menu
+- Maybe make it display in a phone ratio if you're on a wide screen thing? Make it playable on desktop if need be?
 
 ## Issues
 
