@@ -59,7 +59,9 @@
 - ~~Make the whole thing responsive in the OOP model~~
 - ~~Create a better representation of tap size and location (as below as well I guess, just make it better)~~
 - ~~Need better control over where taps (and all elements generate), e.g. x y (that is we need the idea of the Playable Area)~~
+- ~~Add instructions~~
 
+- Make instructions disappear after some number of views?
 - Bring back Acts
 - Add Zen Mode
 - Add title screen and menu

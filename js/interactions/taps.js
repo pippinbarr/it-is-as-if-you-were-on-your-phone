@@ -12,6 +12,8 @@ const TapStates = {
 function tapData() {
     const position = randomTouchablePositionInPlayable();
     return {
+        name: "Tap",
+        instruction: "Tap this",
         x: position.x,
         y: position.y,
         state: TapStates.TWEEN_IN,
@@ -20,11 +22,22 @@ function tapData() {
 }
 
 function doubleTapData() {
-    return tapData();
+    const data = tapData();
+    data.name = "Double tap";
+    data.instruction = "Double tap this";
+    return data;
 }
 
-function typeData({ x, y }) {
+function typeData() {
     return {
+        name: "Type",
+        instruction: "Tap these",
+    };
+}
+
+function positionedTapData({ x, y }) {
+    return {
+        name: "Positioned Tap",
         x: x,
         y: y,
         state: TapStates.TWEEN_IN,

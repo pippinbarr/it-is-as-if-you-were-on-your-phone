@@ -8,8 +8,15 @@ class Drag extends Interaction {
     constructor(generator) {
         super();
 
-        this.name = "Drag";
-        this.data = generator();
+        const data = generator();
+
+        this.name = data.name;
+        this.instruction = data.instruction;
+        this.source = data.source;
+        this.target = data.target;
+        this.instruction = data.instruction;
+        this.width = data.width;
+        this.height = data.height;
     }
 
     update() {
@@ -17,7 +24,7 @@ class Drag extends Interaction {
 
         if (this.state !== InteractionStates.ACTIVE) return;
 
-        switch (this.data.state) {
+        switch (this.state) {
             case DragStates.READY:
                 break;
             case DragStates.DRAGGING:
@@ -34,11 +41,41 @@ class Drag extends Interaction {
     display() {
         super.display();
 
+        this.displayInstruction();
+        this.displayIcon();
+    }
+
+    displayInstruction() {
+        this.displayInstructionFor(this.source);
+        this.displayInstructionFor(this.target);
+    }
+
+    displayInstructionFor(icon) {
+        let x = 0;
+        let y = icon.y;
+
+        push();
+        if (icon.x < width / 2) {
+            x = icon.x + this.width * 0.75;
+            textAlign(LEFT, CENTER);
+        }
+        else {
+            x = icon.x - this.width * 0.75;
+            textAlign(RIGHT, CENTER);
+        }
+        fill(colors.fg);
+        textSize(instructionTextSize);
+        text(icon.instruction, x, y);
+        pop();
+    }
+
+    displayIcon() {
+
         // Source
         push();
         noStroke();
         fill(colors.ui);
-        ellipse(this.data.source.x, this.data.source.y, touchableSize);
+        ellipse(this.source.x, this.source.y, touchableSize);
         pop();
 
         // Target
@@ -46,34 +83,34 @@ class Drag extends Interaction {
         noFill();
         stroke(colors.ui);
         strokeWeight(lineWeight);
-        ellipse(this.data.target.x, this.data.target.y, touchableSize);
+        ellipse(this.target.x, this.target.y, touchableSize);
         pop();
     }
 
     handlePan(event) {
-        if (this.data.state !== DragStates.DRAGGING) return;
-        this.data.source.x = event.center.x;
-        this.data.source.y = event.center.y;
+        if (this.state !== DragStates.DRAGGING) return;
+        this.source.x = event.center.x;
+        this.source.y = event.center.y;
     }
 
     handlePress(event) {
-        if (this.data.state !== DragStates.READY) return;
-        const d = dist(event.center.x, event.center.y, this.data.source.x, this.data.source.y);
+        if (this.state !== DragStates.READY) return;
+        const d = dist(event.center.x, event.center.y, this.source.x, this.source.y);
         if (d < touchableSize * 0.5) {
-            this.data.state = DragStates.DRAGGING;
+            this.state = DragStates.DRAGGING;
         }
     }
 
     handleTouchEnd(event) {
-        if (this.data.state === DragStates.DRAGGING) {
-            const d = dist(this.data.source.x, this.data.source.y, this.data.target.x, this.data.target.y);
+        if (this.state === DragStates.DRAGGING) {
+            const d = dist(this.source.x, this.source.y, this.target.x, this.target.y);
             if (d < touchableSize * 0.5) {
-                this.data.source.x = this.data.target.x;
-                this.data.source.y = this.data.target.y;
-                this.data.state = DragStates.COMPLETE;
+                this.source.x = this.target.x;
+                this.source.y = this.target.y;
+                this.state = DragStates.COMPLETE;
             }
             else {
-                this.data.state = DragStates.READY;
+                this.state = DragStates.READY;
             }
         }
     }

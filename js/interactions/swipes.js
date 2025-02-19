@@ -7,6 +7,7 @@ function swipeLeftData() {
     const swipe = swipeData();
     swipe.emoji = "←";
     swipe.name = "Swipe left";
+    swipe.instruction = "Swipe left";
     swipe.direction = Hammer.DIRECTION_LEFT;
     return swipe;
 }
@@ -15,6 +16,7 @@ function swipeRightData() {
     const swipe = swipeData();
     swipe.emoji = "→";
     swipe.name = "Swipe right";
+    swipe.instruction = "Swipe right";
     swipe.direction = Hammer.DIRECTION_RIGHT;
     return swipe;
 }
@@ -23,6 +25,7 @@ function swipeUpData() {
     const swipe = swipeData();
     swipe.emoji = "↑";
     swipe.name = "Swipe up";
+    swipe.instruction = "Swipe up";
     swipe.direction = Hammer.DIRECTION_UP;
     return swipe;
 }
@@ -31,6 +34,7 @@ function swipeDownData() {
     const swipe = swipeData();
     swipe.emoji = "↓";
     swipe.name = "Swipe down";
+    swipe.instruction = "Swipe down";
     swipe.direction = Hammer.DIRECTION_DOWN;
     return swipe;
 }
@@ -39,6 +43,10 @@ function swipeData() {
     return {
         name: "Swipe",
         emoji: "-",
+        textSize: arrowSize,
+        instruction: "Swipe",
+        x: width / 2,
+        y: height / 2,
         direction: -1,
         velocity: {
             x: 0,

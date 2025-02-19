@@ -8,9 +8,12 @@ class Type extends Interaction {
     constructor(generator) {
         super();
 
-        this.name = "Type";
-        this.keyboard = [];
-        this.createKeyboard();
+        const data = generator();
+
+        this.name = data.name;
+        this.instruction = data.instruction;
+
+        this.keyboard = this.createKeyboard();
 
         this.addTaps();
 
@@ -20,24 +23,25 @@ class Type extends Interaction {
     }
 
     createKeyboard() {
-        const t = tapData();
+        const keyboard = [];
+
         const startX = (width - keyboardColumns * touchableSize) * 0.5;
         for (let r = 0; r < keyboardRows; r++) {
             for (let c = 0; c < keyboardColumns; c++) {
                 const x = startX + touchableSize * 0.5 + c * touchableSize;
                 const y = height - touchableSize * 0.5 - r * touchableSize;
-                this.keyboard.push({
+                keyboard.push({
                     x: x,
                     y: y,
                     tap: undefined
                 });
             }
         }
-
+        return keyboard;
     }
 
     addTaps() {
-        const numKeys = random(5, 8);
+        const numKeys = random(3, 5);
         for (let i = 0; i < numKeys; i++) {
             this.addKeyboardTap();
         }
@@ -49,7 +53,7 @@ class Type extends Interaction {
         while (!placed) {
             const key = random(this.keyboard);
             if (!key.tap) {
-                key.tap = new Tap(typeData, { x: key.x, y: key.y });
+                key.tap = new Tap(positionedTapData, { x: key.x, y: key.y });
                 placed = true;
             }
         }
@@ -80,8 +84,25 @@ class Type extends Interaction {
     }
 
     display() {
+        this.displayInstruction();
+        this.displayKeyboard();
+    }
+
+    displayInstruction() {
+        const x = width / 2;
+        const y = height - touchableSize * 0.5 - keyboardRows * touchableSize;
+
+        push();
+        fill(colors.fg);
+        textAlign(CENTER, CENTER);
+        textSize(instructionTextSize);
+        text(this.instruction, x, y)
+        pop();
+    }
+
+    displayKeyboard() {
         for (let key of this.keyboard) {
-            if (key.tap) key.tap.display();
+            if (key.tap) key.tap.displayIcon();
         }
     }
 

@@ -5,45 +5,45 @@ class DoubleTap extends Tap {
     constructor(generator, config = {}) {
         super(generator, config);
 
-        this.tap.taps = 0;
-
-        this.name = "DoubleTap";
+        this.taps = 0;
+        this.width = touchableSize * 1.2;
+        this.height = touchableSize * 1.2;
     }
 
     update() {
         super.update();
 
-        switch (this.tap.state) {
+        switch (this.state) {
             case TapStates.TWEEN_IN:
-                this.tap.tween += TAP_TWEEN_IN_SPEED;
-                if (this.tap.tween >= 1) {
-                    this.tap.tween = 1;
-                    this.tap.state = TapStates.ACTIVE;
+                this.tween += TAP_TWEEN_IN_SPEED;
+                if (this.tween >= 1) {
+                    this.tween = 1;
+                    this.state = TapStates.ACTIVE;
                 }
                 break;
             case TapStates.ACTIVE:
                 break;
             case TapStates.TWEEN_OUT:
-                this.tap.tween -= TAP_TWEEN_OUT_SPEED;
-                if (this.tap.tween <= 0) {
-                    this.tap.state = TapStates.INACTIVE;
+                this.tween -= TAP_TWEEN_OUT_SPEED;
+                if (this.tween <= 0) {
+                    this.state = TapStates.INACTIVE;
                     this.state = InteractionStates.COMPLETE;
                 }
                 break;
         }
     }
 
-    display() {
+    displayIcon() {
         // Inner tap
-        super.display();
+        super.displayIcon();
 
-        if (this.tap.taps === 0) {
+        if (this.taps === 0) {
             // Outer tap
             push();
             stroke(colors.ui);
             strokeWeight(lineWeight);
             noFill();
-            ellipse(this.tap.x, this.tap.y, touchableSize * 1.25 * this.tap.tween);
+            ellipse(this.x, this.y, touchableSize * 1.25 * this.tween);
             pop();
         }
     }
@@ -51,12 +51,12 @@ class DoubleTap extends Tap {
     handleTap(event) {
         if (this.state === InteractionStates.COMPLETE) return;
 
-        const d = dist(event.center.x, event.center.y, this.tap.x, this.tap.y);
+        const d = dist(event.center.x, event.center.y, this.x, this.y);
         if (d < touchableSize) {
-            if (this.tap.taps === 0) {
-                this.tap.taps++;
+            if (this.taps === 0) {
+                this.taps++;
                 this.doubleTapTimeout = setTimeout(() => {
-                    this.tap.taps = 0;
+                    this.taps = 0;
                 }, 300);
             }
             else {

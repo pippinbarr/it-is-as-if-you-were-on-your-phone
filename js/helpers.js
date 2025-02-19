@@ -6,11 +6,22 @@ const playableTop = 0.2;
 const touchableSizeRatio = 0.15;
 const lineWeightRatio = 0.005;
 const arrowSizeRatio = 0.4;
+const instructionTextSizeRatio = 0.05;
+const instructionPaddingRatio = 0.01;
 
 let touchableSize = undefined;
 let lineWeight = undefined;
 let arrowSize = undefined;
+let instructionTextSize = undefined;
+let instructionPadding = undefined;
 
+function setSizes() {
+    touchableSize = touchableSizeRatio * width;
+    lineWeight = lineWeightRatio * width;
+    arrowSize = arrowSizeRatio * width;
+    instructionTextSize = instructionTextSizeRatio * width;
+    instructionPadding = instructionPaddingRatio * width;
+}
 
 function randomTouchablePositionInPlayable() {
     const position = {

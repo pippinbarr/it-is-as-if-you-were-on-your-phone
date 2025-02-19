@@ -128,8 +128,3 @@ function handleTouchEnd(event) {
     activity.handleTouchEnd(event);
 }
 
-function setSizes() {
-    touchableSize = touchableSizeRatio * width;
-    lineWeight = lineWeightRatio * width;
-    arrowSize = arrowSizeRatio * width;
-}

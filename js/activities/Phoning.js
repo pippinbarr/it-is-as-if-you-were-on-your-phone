@@ -6,31 +6,27 @@ class Phoning extends Activity {
             interactions: [
                 {
                     class: Tap,
-                    generator: tapData
+                    generator: tapData,
                 },
                 {
                     class: Drag,
-                    generator: dragData
+                    generator: dragData,
                 },
                 {
                     class: Swipe,
-                    generator: randomSwipeData
+                    generator: randomSwipeData,
                 },
                 {
                     class: Type,
-                    generator: typeData
+                    generator: typeData,
                 },
                 {
                     class: DoubleTap,
-                    generator: doubleTapData
-                },
-                {
-                    class: LookHere,
-                    generator: lookHereData
+                    generator: doubleTapData,
                 },
                 {
                     class: LookBox,
-                    generator: lookBoxData
+                    generator: lookBoxData,
                 },
             ]
         };
