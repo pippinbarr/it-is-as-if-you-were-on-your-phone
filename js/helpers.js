@@ -2,8 +2,13 @@
  * Helper functions for things like positioning
  */
 
+let ratio = undefined;
 const playableTop = 0.2;
-const touchableSizeRatio = 0.15;
+const touchableSizeRatio = {
+    x: 0.15,
+    y: undefined
+};
+
 const lineWeightRatio = 0.005;
 const arrowSizeRatio = 0.4;
 const instructionTextSizeRatio = 0.05;
@@ -16,7 +21,9 @@ let instructionTextSize = undefined;
 let instructionPadding = undefined;
 
 function setSizes() {
-    touchableSize = touchableSizeRatio * width;
+    ratio = width / height;
+    touchableSizeRatio.y = ratio * touchableSizeRatio.x;
+
     lineWeight = lineWeightRatio * width;
     arrowSize = arrowSizeRatio * width;
     instructionTextSize = instructionTextSizeRatio * width;
@@ -28,17 +35,21 @@ function randomTouchablePositionInPlayable() {
         x: 0,
         y: 0
     };
-    position.x = random(touchableSizeRatio, 1 - touchableSizeRatio);
-    position.y = random(playableTop + touchableSizeRatio * 0.5, 1 - touchableSizeRatio * 0.5);
+    position.x = random(touchableSizeRatio.x, 1 - touchableSizeRatio.x);
+    position.y = random(playableTop + touchableSizeRatio.y * 0.5, 1 - touchableSizeRatio.y * 0.5);
     return position;
 }
 
 function randomTouchablePositionInPlayableAvoiding(avoid) {
     let position = randomTouchablePositionInPlayable();
-    let d = dist(position.x, position.y, avoid.x, avoid.y);
-    while (d > touchableSizeRatio) {
+
+    let dx = abs(position.x - avoid.x);
+    let dy = abs(position.y - avoid.y);
+
+    while (dx < touchableSizeRatio.x && dy < touchableSizeRatio.y) {
         position = randomTouchablePositionInPlayable();
-        d = dist(position.x, position.y, avoid.x, avoid.y);
+        dx = abs(position.x - avoid.x);
+        dy = abs(position.y - avoid.y);
     }
     return position;
 }

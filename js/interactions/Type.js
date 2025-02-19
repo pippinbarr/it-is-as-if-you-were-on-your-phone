@@ -25,11 +25,11 @@ class Type extends Interaction {
     createKeyboard() {
         const keyboard = [];
 
-        const startX = (1 - keyboardColumns * touchableSizeRatio) * 0.5;
+        const startX = (1 - keyboardColumns * touchableSizeRatio.x) * 0.5;
         for (let r = 0; r < keyboardRows; r++) {
             for (let c = 0; c < keyboardColumns; c++) {
-                const x = startX + touchableSizeRatio * 0.5 + c * touchableSizeRatio;
-                const y = (1 - touchableSizeRatio * 0.5) - (r * touchableSizeRatio);
+                const x = startX + touchableSizeRatio.x * 0.5 + c * touchableSizeRatio.x;
+                const y = (1 - touchableSizeRatio.y * 0.5) - (r * touchableSizeRatio.y);
                 keyboard.push({
                     x: x,
                     y: y,
@@ -90,7 +90,7 @@ class Type extends Interaction {
 
     displayInstruction() {
         const x = 0.5;
-        const y = 1 - touchableSizeRatio * 0.5 - keyboardRows * touchableSizeRatio;
+        const y = 1 - touchableSizeRatio.y * 0.5 - keyboardRows * touchableSizeRatio.y;
 
         push();
         fill(colors.fg);

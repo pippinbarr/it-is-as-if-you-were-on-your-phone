@@ -11,8 +11,8 @@ class Tap extends Interaction {
         this.seen = config.seen;
         this.x = data.x;
         this.y = data.y;
-        this.width = touchableSizeRatio;
-        this.height = touchableSizeRatio;
+        this.width = touchableSizeRatio.x;
+        this.height = touchableSizeRatio.y;
         this.state = data.state;
         this.tween = data.tween;
     }
@@ -46,10 +46,13 @@ class Tap extends Interaction {
     }
 
     displayIcon() {
+        const w = (touchableSizeRatio.x * width) * this.tween;
+        const h = (touchableSizeRatio.y * height) * this.tween;
+
         push();
         noStroke();
         fill(colors.ui);
-        ellipse(this.x * width, this.y * height, (touchableSizeRatio * width) * this.tween);
+        ellipse(this.x * width, this.y * height, w, h);
         pop();
     }
 
@@ -75,11 +78,16 @@ class Tap extends Interaction {
     handleTap(event) {
         if (this.state === InteractionStates.COMPLETE) return;
 
-        const d = dist(event.center.x / width, event.center.y / height, this.x, this.y);
-        if (d < touchableSizeRatio * 0.5) {
+        // Splitting on x and y to avoid the insane-making issues
+        // around using dist() when the two distances are relative to
+        // different ratio something something something...
+        const dx = abs(event.center.x / width - this.x);
+        const dy = abs(event.center.y / height - this.y);
+
+        if (dx < touchableSizeRatio.x * 0.5 && dy < touchableSizeRatio.y * 0.5) {
             // Tap achieved!
             // Play a random gong
-            bangAGong();
+            // bangAGong();
             // Get it fading out
             this.state = TapStates.TWEEN_OUT;
         }

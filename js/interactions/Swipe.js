@@ -50,19 +50,19 @@ class Swipe extends Interaction {
 
     displayInstruction() {
         let x = this.x;
-        let y = this.y - this.height * 0.5 - instructionPaddingRatio;
+        let y = this.y - (this.height / height) * 0.5 - instructionPaddingRatio;
 
         push();
         textAlign(CENTER, CENTER);
         fill(colors.fg);
-        textSize(instructionTextSize);
+        textSize(instructionTextSizeRatio * width);
         text(this.instruction, x * width, y * height);
         pop();
     }
 
     displayIcon() {
         push();
-        textSize(this.textSize);
+        textSize(arrowSizeRatio * width);
         textAlign(CENTER, CENTER);
         fill(colors.ui);
         text(this.emoji, this.x * width, this.y * height);

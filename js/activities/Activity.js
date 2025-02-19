@@ -129,10 +129,28 @@ class Activity {
         }
     }
 
+    handleMousePressed(event) {
+        handlePress({
+            center: {
+                x: mouseX,
+                y: mouseY
+            }
+        });
+    }
+
     handleTouchEnd(event) {
         if (this.interaction && this.interaction.interactive) {
             this.interaction.handleTouchEnd(event);
         }
+    }
+
+    handleMouseReleased(event) {
+        handleTouchEnd({
+            center: {
+                x: mouseX,
+                y: mouseY
+            }
+        });
     }
 
     isComplete() {

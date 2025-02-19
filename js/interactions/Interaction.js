@@ -37,8 +37,16 @@ class Interaction extends Action {
 
     }
 
+    handleMousePressed(event) {
+        handlePress(event);
+    }
+
     handleTouchEnd(event) {
 
+    }
+
+    handleMouseReleased(event) {
+        handleTouchEnd(event);
     }
 
     end() {

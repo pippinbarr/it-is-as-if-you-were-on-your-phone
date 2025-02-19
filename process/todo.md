@@ -61,13 +61,13 @@
 - ~~Need better control over where taps (and all elements generate), e.g. x y (that is we need the idea of the Playable Area)~~
 - ~~Add instructions~~
 - ~~Maybe make it display in a phone ratio if you're on a wide screen thing?~~
+- ~~Convert positioning to ratio~~
+- **I think this works now?** ~~Make it playable on desktop if need be?~~
 
-- Convert positioning to ratio
 - Make instructions disappear after some number of views?
 - Bring back Acts
 - Add Zen Mode
 - Add title screen and menu
-- Make it playable on desktop if need be?
 
 ## Issues
 

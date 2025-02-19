@@ -11,6 +11,7 @@ const TapStates = {
 
 function tapData() {
     const position = randomTouchablePositionInPlayable();
+
     return {
         name: "Tap",
         instruction: "Tap this",

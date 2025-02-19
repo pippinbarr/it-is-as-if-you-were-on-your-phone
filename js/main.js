@@ -104,14 +104,15 @@ function windowResized() {
 
     let newWidth = window.innerWidth;
     let newHeight = window.innerHeight;
-
-    if (newWidth > newHeight) {
-        console.log("Resizing..")
+    let newRatio = newWidth / newHeight;
+    console.log(newRatio);
+    if (newRatio > 0.75) {
         newWidth = newHeight / 16 * 9;
     }
 
-    console.log(newWidth, newHeight);
+    ratio = newWidth / newHeight;
 
+    setSizes();
     resizeCanvas(newWidth, newHeight);
 }
 
@@ -140,3 +141,10 @@ function handleTouchEnd(event) {
     activity.handleTouchEnd(event);
 }
 
+// function mousePressed(event) {
+//     activity.handleMousePressed(event);
+// }
+
+function mouseReleased(event) {
+    activity.handleMouseReleased(event);
+}

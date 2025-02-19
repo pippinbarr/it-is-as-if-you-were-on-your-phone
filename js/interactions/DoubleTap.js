@@ -6,8 +6,8 @@ class DoubleTap extends Tap {
         super(generator, config);
 
         this.taps = 0;
-        this.width = touchableSize * 1.2;
-        this.height = touchableSize * 1.2;
+        this.width = touchableSizeRatio.x * 1.2;
+        this.height = touchableSizeRatio.y * 1.2;
     }
 
     update() {
@@ -37,13 +37,18 @@ class DoubleTap extends Tap {
         // Inner tap
         super.displayIcon();
 
+        const w = this.width * width * this.tween;
+        const h = this.height * height * this.tween;
+
+        console.log(this.width, this.height);
+
         if (this.taps === 0) {
             // Outer tap
             push();
             stroke(colors.ui);
             strokeWeight(lineWeight);
             noFill();
-            ellipse(this.x, this.y, touchableSize * 1.25 * this.tween);
+            ellipse(this.x * width, this.y * height, w, h);
             pop();
         }
     }
@@ -51,8 +56,10 @@ class DoubleTap extends Tap {
     handleTap(event) {
         if (this.state === InteractionStates.COMPLETE) return;
 
-        const d = dist(event.center.x, event.center.y, this.x, this.y);
-        if (d < touchableSize) {
+        const dx = abs(event.center.x / width - this.x);
+        const dy = abs(event.center.y / height - this.y);
+
+        if (dx < touchableSizeRatio.x * 0.5 && dy < touchableSizeRatio.y * 0.5) {
             if (this.taps === 0) {
                 this.taps++;
                 this.doubleTapTimeout = setTimeout(() => {
