@@ -12,21 +12,45 @@ class Act extends Action {
 
         this.name = "Act";
         this.interactive = false;
-        this.acts = [
-            "Scratch your left eyebrow at the outside corner",
-            "Breathe in deeply through your nose",
-            "Shake your head briefly",
-            "Nod slowly for at least three nods",
-            "Sigh, then run a hand over the top of your head",
-            "Narrow your eyes for two seconds",
-            "Shift the weight of your body from one side to the other",
-            "Compress your lips"
+        this.actions = [
+            "Look up",
+            "Smile to yourself",
+            "Narrow your eyes",
+            "Nod",
+            "Shake your head",
+            "Breathe in",
+            "Close your eyes",
+            "Grimace",
+            "Smile with the left side of your mouth",
+            "Wince",
+            "Glance away",
+            "Shrug",
+            "Look down at your feet",
+            "Compress your lips",
+            "Furrow your brow",
+            "Look away to the right",
+            "Look to the left",
+            "Squeeze the phone",
+            "Stretch your neck",
+            "Laugh under your breath",
+            "Mutter something unintelligible"
         ];
-        this.text = random(this.acts);
+        this.durations = [
+            "briefly",
+            "quickly",
+            "for a tiny moment",
+            "for a count of three",
+            "for a count of two",
+            "momentarily",
+            "minutely",
+            "subtly",
+            "for a moment",
+        ];
+        this.text = random(this.actions) + " " + random(this.durations) + ".";
 
         setTimeout(() => {
             this.state = ActStates.COMPLETE;
-        }, random(2000, 3000));
+        }, random(5000, 6000));
     }
 
     update() {
@@ -34,8 +58,6 @@ class Act extends Action {
     }
 
     display() {
-
-
         // Text of the act
         push();
         textSize(width * 0.05);

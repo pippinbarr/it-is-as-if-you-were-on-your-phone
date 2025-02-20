@@ -40,8 +40,6 @@ class DoubleTap extends Tap {
         const w = this.width * width * this.tween;
         const h = this.height * height * this.tween;
 
-        console.log(this.width, this.height);
-
         if (this.taps === 0) {
             // Outer tap
             push();

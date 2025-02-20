@@ -14,6 +14,8 @@ class Activity {
             hammer.get(e).set({ enable: true });
         }
 
+        this.state = ActivityStates.ACTIVE;
+
         // These will reflect our current action and act
         // which will both flow along in parallel
         this.interaction = undefined;
@@ -22,7 +24,6 @@ class Activity {
         this.chooseNewInteraction();
         this.chooseNewAct();
 
-        this.state = ActivityStates.ACTIVE;
 
         // End the state at a set time
         this.activityTimeout = setTimeout(() => {
@@ -84,8 +85,6 @@ class Activity {
 
     display() {
         background(colors.bg);
-
-
 
         if (this.interaction) {
             this.interaction.display();

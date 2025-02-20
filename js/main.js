@@ -49,9 +49,6 @@ function setup() {
     windowResized();
     setSizes();
 
-    console.log("== Canvas size ==");
-    console.log(width, height)
-
     const container = document.getElementById("container");
     container.appendChild(canvas.elt);
 
@@ -105,7 +102,7 @@ function windowResized() {
     let newWidth = window.innerWidth;
     let newHeight = window.innerHeight;
     let newRatio = newWidth / newHeight;
-    console.log(newRatio);
+
     if (newRatio > 0.75) {
         newWidth = newHeight / 16 * 9;
     }

@@ -5,6 +5,6 @@ function lookBoxData() {
         x: 0.5,
         y: 0.5,
         sizeRatio: 0.75,
-        time: random(3000, 5000)
+        time: random(5000, 15000)
     };
 }
