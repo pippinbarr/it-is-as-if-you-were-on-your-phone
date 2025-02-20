@@ -458,3 +458,27 @@ Leading to the idea of just dealing with that on a title page to keep the play s
 As I do all this, that red arrow in the mockups is making me want a splash of colour in amongst it. Maybe the interaction areas/items could be pink or something?
 
 Anyway, it was pretty soothing to do this because I feel like I'm creeping back to something simpler and less directly connected to actual UI. More abstraction, not less.
+
+## Progress; Zen (2025-02-20)
+
+### Progress
+
+Hwell... I implemented those mockups pretty literally over the last few days and the game has kind of jumped from feeling a bit off to pretty much feeling like what I wanted? It suddenly feels close to done -- though naturally that doesn't mean it *is* close to done.
+
+Crucially I think it seems to work. I've had Jim look at it for the "does it make any sense" angle and he got it. As mentioned in a commit somewhere, I've had Felix play it and got the excellent feedback that he didn't want to stop, helping to emphasize the instinct that there's just a bizarre moreishness to these sorts of basic interactions (which I'm hoping will also play into the Zen mode when I get to it). I also showed it to a couple of other people from the perspective of observing and they confirmed that yes, I looked like I was on my phone, haha.
+
+There are still plenty of things to tidy up around the language, some tweaks to layouts and more. And then there's Zen mode, a menu, and such. But yeah it's reached that point where it feels inevitable that I'll release it as a real thingamie.
+
+### Zen
+
+The next big question for the game is how to create the Zen mode. This is more of a design brainstormy moment but the point is to use the same structure of the game (like, exactly the same) but to have to it communicate and ideally *be* a meditative experience. So:
+
+- **Sound effects** become zen sounds like gongs for taps and... other stuff...
+- Should there be **background music**? Dare I make something on the OPZ? Or something generative with chords? Or not really, let people plug in their own music?
+- Should the **colours** change? Is there a "zen palette"? And relatedly is there a "better" approach to the palette of the non-zen version? I keep thinking about a sort of rainbow hue shifting thing, but it that just basically pretty dumb? Might look nice? I can try it
+- We need an approach to the **act texts** which my first thought was just like a guided breathing thing, then I wondered about a guided meditation sort of set of things around observing/feeling/etc., and another possibility is a single specific quote or whatever that just stays there and you can meditate on the one thing throughout. I don't dislike any of those ideas, but I feel like I should probably just stick to a single one. A quote may be hard to fit? There's good old "If death alone is certain, and the time of death is uncertain, what then should I do?"
+- Should there be a **timer** to explicitly pair this with the idea that it's a session of meditation? Or again outsource that? (Could be a recommendation in the explainer text?)
+
+So those are I think the main concerns. None of them are actually all that high challenge, just a thing to do. I guess I try out the different potential textual approaches specifically.
+
+I haven't written a Why for this project. Let me do that.

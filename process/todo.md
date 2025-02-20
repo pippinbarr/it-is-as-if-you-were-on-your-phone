@@ -51,8 +51,8 @@
 
 ## Writing
 
-- Work on the Acts, build up a big set
-- Contemplate Tracery? ... probably not?
+- ~~Work on the Acts, build up a big set~~
+- ~~Contemplate Tracery? ... probably not?~~
 
 ## Actually building
 
@@ -66,9 +66,11 @@
 - ~~Make instructions disappear after some number of views?~~
 - ~~Bring back Acts~~
 
+- Add sounds
 - Add Zen Mode
 - Add title screen and menu
-- Think about relationship of instructions to movement (swipes, drags)
+- Maybe a back button at the top in the act zone?
+- Think about relationship of instructions to movement (swipes, drags) -- notably if you swipe up
 
 ## Issues
 
