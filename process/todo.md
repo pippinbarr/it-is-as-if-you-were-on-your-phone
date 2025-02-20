@@ -71,6 +71,7 @@
 - Add title screen and menu
 - Maybe a back button at the top in the act zone?
 - Think about relationship of instructions to movement (swipes, drags) -- notably if you swipe up
+- JSON the language (maybe consider French? Although already a bit painful)
 
 ## Issues
 
