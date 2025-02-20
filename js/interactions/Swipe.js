@@ -5,8 +5,8 @@ class Swipe extends Interaction {
 
     static events = ["swipe"];
 
-    constructor(generator) {
-        super();
+    constructor(generator, config = {}) {
+        super(generator, config);
 
         const data = generator();
 
@@ -39,13 +39,6 @@ class Swipe extends Interaction {
             this.y < 0 || this.y > 1) {
             this.state = InteractionStates.COMPLETE;
         }
-    }
-
-    display() {
-        super.display();
-
-        this.displayInstruction();
-        this.displayIcon();
     }
 
     displayInstruction() {

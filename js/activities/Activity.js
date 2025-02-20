@@ -40,7 +40,10 @@ class Activity {
      */
     chooseNewInteraction() {
         const interaction = random(this.interactions);
-        this.interaction = new interaction.class(interaction.generator);
+        this.interaction = new interaction.class(interaction.generator, {
+            seen: interaction.seen
+        });
+        interaction.seen = true;
     }
 
     chooseNewAct() {

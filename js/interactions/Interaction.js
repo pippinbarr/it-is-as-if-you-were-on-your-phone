@@ -5,10 +5,11 @@ const InteractionStates = {
 };
 
 class Interaction extends Action {
-    constructor() {
+    constructor(generator, config = {}) {
         super();
 
         this.name = "Interaction";
+        this.seen = config.seen;
         this.interactive = true;
         this.state = InteractionStates.ACTIVE;
     }
@@ -18,7 +19,10 @@ class Interaction extends Action {
     }
 
     display() {
-
+        if (!this.seen) {
+            this.displayInstruction();
+        }
+        this.displayIcon();
     }
 
     handleTap(event) {

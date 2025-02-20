@@ -5,8 +5,8 @@ class Drag extends Interaction {
 
     static events = ["pan", "press"];
 
-    constructor(generator) {
-        super();
+    constructor(generator, config = {}) {
+        super(generator, config);
 
         const data = generator();
 
@@ -35,13 +35,6 @@ class Drag extends Interaction {
                     this.state = InteractionStates.COMPLETE;
                 }, 500);
         }
-    }
-
-    display() {
-        super.display();
-
-        this.displayInstruction();
-        this.displayIcon();
     }
 
     displayInstruction() {

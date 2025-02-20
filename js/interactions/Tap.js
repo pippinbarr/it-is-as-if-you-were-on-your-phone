@@ -3,7 +3,7 @@ class Tap extends Interaction {
     static events = ["tap"];
 
     constructor(generator, config = {}) {
-        super();
+        super(generator, config);
 
         const data = generator(config);
         this.name = data.name;
@@ -38,11 +38,6 @@ class Tap extends Interaction {
                 }
                 break;
         }
-    }
-
-    display() {
-        this.displayInstruction();
-        this.displayIcon();
     }
 
     displayIcon() {

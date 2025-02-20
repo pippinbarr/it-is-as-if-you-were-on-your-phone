@@ -63,11 +63,12 @@
 - ~~Maybe make it display in a phone ratio if you're on a wide screen thing?~~
 - ~~Convert positioning to ratio~~
 - **I think this works now?** ~~Make it playable on desktop if need be?~~
+- ~~Make instructions disappear after some number of views?~~
 
-- Make instructions disappear after some number of views?
 - Bring back Acts
 - Add Zen Mode
 - Add title screen and menu
+- Think about relationship of instructions to movement (swipes, drags)
 
 ## Issues
 

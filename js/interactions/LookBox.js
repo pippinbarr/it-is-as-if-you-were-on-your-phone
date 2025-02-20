@@ -3,7 +3,7 @@ class LookBox extends Interaction {
     static events = [];
 
     constructor(generator, config = {}) {
-        super();
+        super(generator, config);
 
         const data = generator(config);
 
@@ -22,11 +22,6 @@ class LookBox extends Interaction {
 
     update() {
         super.update();
-    }
-
-    display() {
-        this.displayInstruction();
-        this.displayIcon();
     }
 
     displayInstruction() {

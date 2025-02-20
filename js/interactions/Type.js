@@ -5,8 +5,8 @@ class Type extends Interaction {
 
     static events = ["tap"];
 
-    constructor(generator) {
-        super();
+    constructor(generator, config = {}) {
+        super(generator, config);
 
         const data = generator();
 
@@ -83,11 +83,6 @@ class Type extends Interaction {
         }
     }
 
-    display() {
-        this.displayInstruction();
-        this.displayKeyboard();
-    }
-
     displayInstruction() {
         const x = 0.5;
         const y = 1 - touchableSizeRatio.y * 0.5 - keyboardRows * touchableSizeRatio.y;
@@ -100,7 +95,7 @@ class Type extends Interaction {
         pop();
     }
 
-    displayKeyboard() {
+    displayIcon() {
         for (let key of this.keyboard) {
             if (key.tap) key.tap.displayIcon();
         }
