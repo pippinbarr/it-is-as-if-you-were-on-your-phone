@@ -8,10 +8,10 @@ class Phoning extends Activity {
                     class: Tap,
                     generator: tapData,
                 },
-                {
-                    class: Drag,
-                    generator: dragData,
-                },
+                // {
+                //     class: Drag,
+                //     generator: dragData,
+                // },
                 {
                     class: Swipe,
                     generator: randomSwipeData,

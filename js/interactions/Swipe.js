@@ -11,7 +11,6 @@ class Swipe extends Interaction {
         const data = generator();
 
         this.name = data.name;
-        this.instruction = data.instruction;
         this.x = data.x;
         this.y = data.y;
         this.velocity = data.velocity;
@@ -27,6 +26,13 @@ class Swipe extends Interaction {
         this.height = textAscent() + textDescent();
         pop();
 
+        this.instruction.text = data.instruction;
+        this.instruction.x = data.x;
+        this.instruction.y = data.y - (this.height / height) * 0.5 - instructionPaddingRatio;
+        this.instruction.align = {
+            horizontal: CENTER,
+            vertical: CENTER
+        };
     }
 
     update() {
@@ -39,18 +45,6 @@ class Swipe extends Interaction {
             this.y < 0 || this.y > 1) {
             this.state = InteractionStates.COMPLETE;
         }
-    }
-
-    displayInstruction() {
-        let x = this.x;
-        let y = this.y - (this.height / height) * 0.5 - instructionPaddingRatio;
-
-        push();
-        textAlign(CENTER, CENTER);
-        fill(colors.fg);
-        textSize(instructionTextSizeRatio * width);
-        text(this.instruction, x * width, y * height);
-        pop();
     }
 
     displayIcon() {
@@ -75,6 +69,7 @@ class Swipe extends Interaction {
                 this.velocity.y = Math.sign(event.velocityY) / height * this.speed;
             }
             random(sounds.swipes).play();
+            this.fadeOutInstruction();
         }
     }
 }

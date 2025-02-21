@@ -12,10 +12,21 @@ class Interaction extends Action {
         this.seen = config.seen;
         this.interactive = true;
         this.state = InteractionStates.ACTIVE;
+
+        this.instruction = {
+            fill: color(colors.fg.toString()),
+            size: instructionTextSizeRatio,
+            alpha: 255,
+            alphaChange: 0,
+            alphaSpeed: 5
+        }
     }
 
     update() {
-
+        this.instruction.alpha += this.instruction.alphaChange;
+        if (this.instruction.alpha < 0) {
+            this.instruction.alpha = 0;
+        }
     }
 
     display() {
@@ -23,6 +34,28 @@ class Interaction extends Action {
             this.displayInstruction();
         }
         this.displayIcon();
+    }
+
+    displayInstruction() {
+        if (!this.instruction) {
+            console.error("No config for displayInstruction()!");
+        }
+
+        push();
+        textAlign(this.instruction.align.horizontal, this.instruction.align.vertical);
+        this.instruction.fill.setAlpha(this.instruction.alpha);
+        fill(this.instruction.fill);
+        textSize(this.instruction.size * width);
+        text(this.instruction.text, this.instruction.x * width, this.instruction.y * height);
+        pop();
+    }
+
+    fadeOutInstruction() {
+        this.instruction.alphaChange = -this.instruction.alphaSpeed;
+    }
+
+    displayIcon() {
+
     }
 
     handleTap(event) {
@@ -58,6 +91,6 @@ class Interaction extends Action {
     }
 
     isComplete() {
-        return this.state === InteractionStates.COMPLETE;
+        return this.instruction.alpha === 0 && this.state === InteractionStates.COMPLETE;
     }
 }

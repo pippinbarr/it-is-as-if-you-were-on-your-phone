@@ -11,7 +11,14 @@ class Type extends Interaction {
         const data = generator();
 
         this.name = data.name;
-        this.instruction = data.instruction;
+
+        this.instruction.text = data.instruction;
+        this.instruction.x = 0.5;
+        this.instruction.y = 1 - touchableSizeRatio.y * 0.5 - keyboardRows * touchableSizeRatio.y;
+        this.instruction.align = {
+            horizontal: CENTER,
+            vertical: CENTER
+        };
 
         this.keyboard = this.createKeyboard();
 
@@ -19,7 +26,7 @@ class Type extends Interaction {
 
         setTimeout(() => {
             this.state = InteractionStates.ENDING;
-        }, random(10000, 15000));
+        }, random(0, 0));
     }
 
     createKeyboard() {
@@ -80,19 +87,8 @@ class Type extends Interaction {
         }
         if (activeTaps === 0 && this.state === InteractionStates.ENDING) {
             this.state = InteractionStates.COMPLETE;
+            this.fadeOutInstruction();
         }
-    }
-
-    displayInstruction() {
-        const x = 0.5;
-        const y = 1 - touchableSizeRatio.y * 0.5 - keyboardRows * touchableSizeRatio.y;
-
-        push();
-        fill(colors.fg);
-        textAlign(CENTER, CENTER);
-        textSize(instructionTextSize);
-        text(this.instruction, x * width, y * height)
-        pop();
     }
 
     displayIcon() {
@@ -105,9 +101,5 @@ class Type extends Interaction {
         for (let key of this.keyboard) {
             if (key.tap) key.tap.handleTap(event);
         }
-    }
-
-    isComplete() {
-        return this.state === InteractionStates.COMPLETE;
     }
 }

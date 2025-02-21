@@ -7,7 +7,6 @@ class Tap extends Interaction {
 
         const data = generator(config);
         this.name = data.name;
-        this.instruction = data.instruction;
         this.seen = config.seen;
         this.x = data.x;
         this.y = data.y;
@@ -15,6 +14,8 @@ class Tap extends Interaction {
         this.height = touchableSizeRatio.y;
         this.state = data.state;
         this.tween = data.tween;
+
+        this.instruction.text = data.instruction;
     }
 
     update() {
@@ -33,6 +34,7 @@ class Tap extends Interaction {
             case TapStates.TWEEN_OUT:
                 this.tween -= TAP_TWEEN_OUT_SPEED;
                 if (this.tween <= 0) {
+                    this.tween = 0;
                     this.state = TapStates.INACTIVE;
                     this.state = InteractionStates.COMPLETE;
                 }
@@ -52,22 +54,23 @@ class Tap extends Interaction {
     }
 
     displayInstruction() {
-        let x = undefined;
-        let y = this.y;
-
-        push();
         if (this.x < 0.5) {
-            x = this.x + this.width * 0.75;
-            textAlign(LEFT, CENTER);
+            this.instruction.x = this.x + this.width * 0.75;
+            this.instruction.align = {
+                horizontal: LEFT,
+                vertical: CENTER
+            };
         }
         else {
-            x = this.x - this.width * 0.75;
-            textAlign(RIGHT, CENTER);
+            this.instruction.x = this.x - this.width * 0.75;
+            this.instruction.align = {
+                horizontal: RIGHT,
+                vertical: CENTER
+            };
         }
-        fill(colors.fg);
-        textSize(instructionTextSize);
-        text(this.instruction, x * width, y * height);
-        pop();
+        this.instruction.y = this.y;
+
+        super.displayInstruction();
     }
 
     handleTap(event) {
@@ -82,6 +85,8 @@ class Tap extends Interaction {
         if (dx < touchableSizeRatio.x * 0.5 && dy < touchableSizeRatio.y * 0.5) {
             // Tap achieved!
             random(sounds.taps).play();
+            // Fade out instruction
+            this.fadeOutInstruction();
             // Get it fading out
             this.state = TapStates.TWEEN_OUT;
         }

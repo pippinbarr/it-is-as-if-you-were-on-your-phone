@@ -6,6 +6,10 @@
 
 ## Building it
 
+- ~~Instruction fades~~
+
+- Drag instruction fade
+- Act fades?
 - Add Zen Mode
 - Add title screen and menu
 - Maybe a back button at the top in the act zone?
