@@ -1,5 +1,24 @@
 # To-do
 
+## Sound
+
+- Think through the sound design of standard and zen
+
+## Building it
+
+- Add Zen Mode
+- Add title screen and menu
+- Maybe a back button at the top in the act zone?
+- Maybe a mute button as well? Argh, buttons.
+- Acts move inside the Watch Box when it no longer has a tutorial (should there be watch box specific acts?) -- great idea from Matt
+- Put away your phone and take it out (a classic gesture -- Matt!)
+- Think about relationship of instructions to movement (swipes, drags) -- notably if you swipe up
+- JSON the language (maybe consider French? Although already a bit painful)
+
+---
+
+# Archival to-dos (as of 2025-02-21)
+
 ## Big questions
 
 - **We're doing it, don't worry** ~~Zen versus Social Camouflage?~~
@@ -54,6 +73,10 @@
 - ~~Work on the Acts, build up a big set~~
 - ~~Contemplate Tracery? ... probably not?~~
 
+## Sound
+
+- Think through the sound design of standard and zen
+
 ## Actually building
 
 - ~~Make the whole thing responsive in the OOP model~~
@@ -65,11 +88,12 @@
 - **I think this works now?** ~~Make it playable on desktop if need be?~~
 - ~~Make instructions disappear after some number of views?~~
 - ~~Bring back Acts~~
+- ~~Add sounds~~
 
-- Add sounds
 - Add Zen Mode
 - Add title screen and menu
 - Maybe a back button at the top in the act zone?
+- Maybe a mute button as well? Argh, buttons.
 - Think about relationship of instructions to movement (swipes, drags) -- notably if you swipe up
 - JSON the language (maybe consider French? Although already a bit painful)
 

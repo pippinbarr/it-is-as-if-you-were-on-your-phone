@@ -81,8 +81,7 @@ class Tap extends Interaction {
 
         if (dx < touchableSizeRatio.x * 0.5 && dy < touchableSizeRatio.y * 0.5) {
             // Tap achieved!
-            // Play a random gong
-            // bangAGong();
+            random(sounds.taps).play();
             // Get it fading out
             this.state = TapStates.TWEEN_OUT;
         }

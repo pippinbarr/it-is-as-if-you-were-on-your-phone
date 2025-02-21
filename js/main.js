@@ -3,7 +3,7 @@
  * Pippin Barr
  * 
  * Helps the user/player to simulate the outward manifestations of being on their
- * phone so that they can relax and just not be on their phone.
+ * phone so that they can relax and just not be on their phone, on their phone.
  * 
  * Uses:
  * p5.js (for now)
@@ -17,9 +17,21 @@ const colors = {
     ui: undefined,
 };
 
-const sounds = {
-    gongs: []
+// Sounds for standard and zen modes
+const soundSets = {
+    standard: {
+        taps: [],
+        swipes: [],
+        drags: []
+    },
+    zen: {
+        taps: [],
+        swipes: [],
+        drags: []
+    }
 };
+// Current sound set to use
+let sounds = soundSets.zen;
 
 // Going to be using hammer
 let hammer = undefined;
@@ -34,11 +46,14 @@ let activity;
  * Load media (sounds)
  */
 function preload() {
-    // Load our three (for now) gong sounds
+    // Load our gong sounds
     for (let i = 1; i <= 3; i++) {
-        const sound = loadSound(`assets/sounds/gong-${i}.wav`);
-        sounds.gongs.push(sound);
+        soundSets.zen.taps.push(loadSound(`assets/sounds/zen/gong-${i}.wav`));
+        soundSets.zen.swipes.push(loadSound(`assets/sounds/zen/gong-${i}.wav`));
     }
+    // Load our tone sounds
+    soundSets.standard.taps.push(loadSound(`assets/sounds/standard/tap.mp3`));
+    soundSets.standard.swipes.push(loadSound(`assets/sounds/standard/swipe.mp3`));
 }
 
 /**
@@ -137,10 +152,6 @@ function handlePress(event) {
 function handleTouchEnd(event) {
     activity.handleTouchEnd(event);
 }
-
-// function mousePressed(event) {
-//     activity.handleMousePressed(event);
-// }
 
 function mouseReleased(event) {
     activity.handleMouseReleased(event);

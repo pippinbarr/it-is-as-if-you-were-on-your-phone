@@ -74,6 +74,7 @@ class Swipe extends Interaction {
             else if ([Hammer.DIRECTION_UP, Hammer.DIRECTION_DOWN].includes(event.direction)) {
                 this.velocity.y = Math.sign(event.velocityY) / height * this.speed;
             }
+            random(sounds.swipes).play();
         }
     }
 }

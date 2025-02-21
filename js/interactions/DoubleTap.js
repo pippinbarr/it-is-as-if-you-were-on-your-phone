@@ -60,6 +60,7 @@ class DoubleTap extends Tap {
         if (dx < touchableSizeRatio.x * 0.5 && dy < touchableSizeRatio.y * 0.5) {
             if (this.taps === 0) {
                 this.taps++;
+                random(sounds.taps).play();
                 this.doubleTapTimeout = setTimeout(() => {
                     this.taps = 0;
                 }, 300);

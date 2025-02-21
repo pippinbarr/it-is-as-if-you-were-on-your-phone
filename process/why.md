@@ -26,10 +26,10 @@ Again I can't totally tell where I am on the funny versus honest spectrum with t
 
 --
 
-In the Games as Research meeting today we walked about Per Liljenberg Halstrøm's journal article *Design as Value Celebration: Rethinking Design Argumentation*. A big part of that is the idea that you can/should frame design by thinking in terms of the *values* involved, and specifically in terms of how you are "celebrating" or "praising" those values through the design/thing in question (you could also be "blaming").
+In the Games as Research meeting today we talked about Per Liljenberg Halstrøm's journal article *Design as Value Celebration: Rethinking Design Argumentation*. A big part of that is the idea that you can/should frame design by thinking in terms of the *values* involved, and specifically in terms of how you are "celebrating" or "praising" those values through the design/thing in question (you could also be "blaming").
 
 So how does that work here?
 
-Well I'd say that this overall project is an attempt to *praise* both the idea of calm and fitting in as reasonable and desirable goals, and to *blame* the way our phones (and technology and everything else) work to destroy those goals. In the form of an application that tries to support your value of feeling calm and strangely not captive to your phone/the internet by allowing you to use your phone on different (celebratory) terms. 
+Well I'd say that this overall project is an attempt to *praise/celebrate* both the idea of calm and fitting in as reasonable and desirable goals, and to *blame* the way our phones (and technology and everything else) work to destroy those goals. In the form of an application that tries to support your value of feeling calm and strangely not captive to your phone/the internet by allowing you to use your phone on different (celebratory) terms. 
 
 I tried.
