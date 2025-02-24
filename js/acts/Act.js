@@ -7,68 +7,54 @@ const ActStates = {
 }
 
 class Act extends Action {
-    constructor() {
+    constructor(config) {
         super();
 
         this.name = "Act";
         this.interactive = false;
-        this.actions = [
-            "Look up",
-            "Smile to yourself",
-            "Narrow your eyes",
-            "Nod",
-            "Shake your head",
-            "Breathe in",
-            "Close your eyes",
-            "Grimace",
-            "Smile with the left side of your mouth",
-            "Wince",
-            "Glance away",
-            "Shrug",
-            "Look down at your feet",
-            "Compress your lips",
-            "Furrow your brow",
-            "Look away to the right",
-            "Look to the left",
-            "Squeeze the phone",
-            "Stretch your neck",
-            "Laugh under your breath",
-            "Mutter something unintelligible"
-        ];
-        this.durations = [
-            "briefly",
-            "quickly",
-            "for a tiny moment",
-            "for a count of three",
-            "for a count of two",
-            "momentarily",
-            "minutely",
-            "subtly",
-            "for a moment",
-        ];
-        this.text = random(this.actions) + " " + random(this.durations) + ".";
+        this.fill = color(colors.fg.toString());
+        this.alpha = 0;
+        this.alphaDirection = 1;
+        this.alphaSpeed = uiAlphaSpeed;
 
-        setTimeout(() => {
-            this.state = ActStates.COMPLETE;
-        }, random(5000, 6000));
+        this.actTextFunction = config.actTextFunction;
+        this.actTimingFunction = config.actTimingFunction;
+
+        this.text = this.actTextFunction();
+
+        this.endTimeout = setTimeout(() => {
+            this.end()
+        }, this.actTimingFunction());
     }
 
     update() {
-
+        this.alpha += this.alphaDirection * this.alphaSpeed;
+        if (this.alpha >= 255) {
+            this.alpha = 255;
+            this.alphaDirection = 0;
+        }
+        else if (this.alpha <= 0 && this.state === ActStates.ENDING) {
+            this.alpha = 0;
+            this.alphaDirection = 0;
+            this.state = ActStates.COMPLETE;
+        }
     }
 
     display() {
         // Text of the act
         push();
         textSize(width * 0.05);
-        fill(255);
+        this.fill.setAlpha(this.alpha);
+        fill(this.fill);
         textAlign(LEFT, TOP);
         text(this.text, 0.1 * width, 0.05 * height, width * 0.8);
         pop();
     }
 
     end() {
+        if (this.endTimeout) clearTimeout(this.endTimeout);
         this.state = ActStates.ENDING;
+        this.alphaDirection = -1;
     }
 
     isComplete() {

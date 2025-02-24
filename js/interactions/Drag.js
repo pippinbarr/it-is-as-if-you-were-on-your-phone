@@ -16,6 +16,8 @@ class Drag extends Interaction {
         this.target = data.target;
         this.width = data.width;
         this.height = data.height;
+        this.instruction.text = data.instruction;
+
     }
 
     update() {
@@ -43,22 +45,27 @@ class Drag extends Interaction {
     }
 
     displayInstructionFor(icon) {
-        let x = 0;
-        let y = icon.y;
+        const config = {
+            text: icon.instruction,
+            x: undefined,
+            y: icon.y,
+            align: {
+                horizontal: undefined,
+                vertical: CENTER
+            }
+        };
 
         push();
         if (icon.x < 0.5) {
-            x = icon.x + this.width * 0.75;
-            textAlign(LEFT, CENTER);
+            config.x = icon.x + this.width * 0.75;
+            config.align.horizontal = LEFT;
         }
         else {
-            x = icon.x - this.width * 0.75;
-            textAlign(RIGHT, CENTER);
+            config.x = icon.x - this.width * 0.75;
+            config.align.horizontal = RIGHT;
         }
-        fill(colors.fg);
-        textSize(instructionTextSize);
-        text(icon.instruction, x * width, y * height);
-        pop();
+
+        super.displayInstruction(config);
     }
 
     displayIcon() {
@@ -95,7 +102,8 @@ class Drag extends Interaction {
         const dy = abs(event.center.y / height - this.source.y);
 
         if (dx < touchableSizeRatio.x * 0.5 && dy < touchableSizeRatio.y * 0.5) {
-            random(sounds.taps).play();
+            random(this.sounds.taps).play();
+            this.fadeOutInstruction();
             this.state = DragStates.DRAGGING;
         }
     }
@@ -111,7 +119,7 @@ class Drag extends Interaction {
                 this.source.x = this.target.x;
                 this.source.y = this.target.y;
                 this.state = DragStates.COMPLETE;
-                random(sounds.swipes).play();
+                random(this.sounds.swipes).play();
             }
             else {
                 this.state = DragStates.READY;

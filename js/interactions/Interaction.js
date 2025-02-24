@@ -10,6 +10,7 @@ class Interaction extends Action {
 
         this.name = "Interaction";
         this.seen = config.seen;
+        this.sounds = config.sounds;
         this.interactive = true;
         this.state = InteractionStates.ACTIVE;
 
@@ -18,7 +19,7 @@ class Interaction extends Action {
             size: instructionTextSizeRatio,
             alpha: 255,
             alphaChange: 0,
-            alphaSpeed: 5
+            alphaSpeed: uiAlphaSpeed
         }
     }
 
@@ -36,18 +37,31 @@ class Interaction extends Action {
         this.displayIcon();
     }
 
-    displayInstruction() {
+    displayInstruction(config) {
         if (!this.instruction) {
             console.error("No config for displayInstruction()!");
         }
 
-        push();
-        textAlign(this.instruction.align.horizontal, this.instruction.align.vertical);
-        this.instruction.fill.setAlpha(this.instruction.alpha);
-        fill(this.instruction.fill);
-        textSize(this.instruction.size * width);
-        text(this.instruction.text, this.instruction.x * width, this.instruction.y * height);
-        pop();
+        if (config) {
+            push();
+            this.instruction.fill.setAlpha(this.instruction.alpha);
+            fill(this.instruction.fill);
+            textSize(this.instruction.size * width);
+
+            textAlign(config.align.horizontal, config.align.vertical);
+            text(config.text, config.x * width, config.y * height);
+            pop();
+
+        }
+        else {
+            push();
+            textAlign(this.instruction.align.horizontal, this.instruction.align.vertical);
+            this.instruction.fill.setAlpha(this.instruction.alpha);
+            fill(this.instruction.fill);
+            textSize(this.instruction.size * width);
+            text(this.instruction.text, this.instruction.x * width, this.instruction.y * height);
+            pop();
+        }
     }
 
     fadeOutInstruction() {

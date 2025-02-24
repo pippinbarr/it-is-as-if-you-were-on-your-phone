@@ -54,7 +54,6 @@ class Swipe extends Interaction {
         fill(colors.ui);
         text(this.emoji, this.x * width, this.y * height);
         pop();
-
     }
 
     handleSwipe(event) {
@@ -68,7 +67,7 @@ class Swipe extends Interaction {
             else if ([Hammer.DIRECTION_UP, Hammer.DIRECTION_DOWN].includes(event.direction)) {
                 this.velocity.y = Math.sign(event.velocityY) / height * this.speed;
             }
-            random(sounds.swipes).play();
+            random(this.sounds.swipes).play();
             this.fadeOutInstruction();
         }
     }

@@ -9,10 +9,15 @@ const touchableSizeRatio = {
     y: undefined
 };
 
+const titleTextSize = 0.16;
+
 const lineWeightRatio = 0.005;
 const arrowSizeRatio = 0.4;
 const instructionTextSizeRatio = 0.05;
 const instructionPaddingRatio = 0.01;
+const titlePaddingRatio = 0.1;
+
+const uiAlphaSpeed = 5;
 
 let touchableSize = undefined;
 let lineWeight = undefined;

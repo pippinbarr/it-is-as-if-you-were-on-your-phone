@@ -3,20 +3,28 @@
 ## Sound
 
 - Think through the sound design of standard and zen
+    - Current instinct: no sound for normal, sound for zen
+
+## Writing it
+- More Acts
+    - Jiggle your leg, make sure your mouth is turned down, chew, flex your jaw, smile, crinkle your eyes, sit back, look more closely at your phone, mutter under your breath, say random words under your breath, look over at someone else, bring your phone close to your face, nod, bob your head to an unheard rhythm, tilt your head back
+    - Put away your phone and take it out (a classic gesture -- Matt!)
+- Zen Acts
+- Help text
 
 ## Building it
 
 - ~~Instruction fades~~
+- **For now let's say NO to mute button, even though it's bad design** ~~Maybe a mute button as well? Argh, buttons.~~
+- ~~Drag instruction fade~~
+- ~~Act fades?~~
+- ~~Add Zen Mode~~
+- ~~Add title screen and menu~~
+- **I think it's alright** ~~Think about relationship of instructions to movement (swipes, drags) -- notably if you swipe up~~
 
-- Drag instruction fade
-- Act fades?
-- Add Zen Mode
-- Add title screen and menu
-- Maybe a back button at the top in the act zone?
-- Maybe a mute button as well? Argh, buttons.
+- Help screen
+- Maybe a back button at the top in the act zone? (Back to menu)
 - Acts move inside the Watch Box when it no longer has a tutorial (should there be watch box specific acts?) -- great idea from Matt
-- Put away your phone and take it out (a classic gesture -- Matt!)
-- Think about relationship of instructions to movement (swipes, drags) -- notably if you swipe up
 - JSON the language (maybe consider French? Although already a bit painful)
 
 ---

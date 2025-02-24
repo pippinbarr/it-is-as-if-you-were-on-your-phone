@@ -4,8 +4,13 @@ const ActivityStates = {
     ENDING: "Ending"
 };
 
-class Activity {
+class Activity extends State {
     constructor(config) {
+        super();
+        this.sounds = config.sounds;
+        this.actTextFunction = config.actTextFunction;
+        this.actTimingFunction = config.actTimingFunction;
+
         this.hammerEvents = config.hammerEvents;
         this.interactions = config.interactions;
 
@@ -42,14 +47,18 @@ class Activity {
     chooseNewInteraction() {
         const interaction = random(this.interactions);
         this.interaction = new interaction.class(interaction.generator, {
-            seen: interaction.seen
+            seen: interaction.seen,
+            sounds: this.sounds
         });
         interaction.seen = true;
     }
 
     chooseNewAct() {
         if (this.state === ActivityStates.ACTIVE) {
-            this.act = new Act();
+            this.act = new Act({
+                actTimingFunction: this.actTimingFunction,
+                actTextFunction: this.actTextFunction
+            });
         }
     }
 
@@ -69,6 +78,10 @@ class Activity {
                     this.chooseNewInteraction();
                 }
             }, random(500, 1000));
+        }
+
+        if (this.act) {
+            this.act.update();
         }
 
         if (this.act && this.act.isComplete()) {
@@ -159,9 +172,4 @@ class Activity {
         return this.state === ActivityStates.COMPLETE;
     }
 
-    deconstruct() {
-        for (let e of this.hammerEvents) {
-            hammer.get(e).set({ enable: false });
-        }
-    }
 }

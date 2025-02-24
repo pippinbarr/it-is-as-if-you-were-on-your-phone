@@ -30,8 +30,6 @@ const soundSets = {
         drags: []
     }
 };
-// Current sound set to use
-let sounds = soundSets.zen;
 
 // Going to be using hammer
 let hammer = undefined;
@@ -40,7 +38,11 @@ let hammer = undefined;
 const activities = [Phoning]; //tos, Typing, Dating, Browsing];
 
 // Current mode
-let activity;
+let state = undefined;
+
+// Menu data
+let menu = undefined;
+const buttons = [];
 
 /**
  * Load media (sounds)
@@ -74,39 +76,36 @@ function setup() {
     // Setup swipes
     hammer = new Hammer(document, {});
 
-    hammer.get('tap').set({ enable: false });
+    hammer.get('tap').set();
     hammer.on('tap', handleTap);
 
-    hammer.get('swipe').set({ enable: false, direction: Hammer.DIRECTION_ALL });
+    hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
     hammer.on('swipe', handleSwipe);
 
-    hammer.get('pan').set({ enable: false, direction: Hammer.DIRECTION_ALL });
+    hammer.get('pan').set({ direction: Hammer.DIRECTION_ALL });
     hammer.on('pan', handlePan);
 
-    hammer.get('press').set({ enable: false, time: 10 });
+    hammer.get('press').set({ time: 10 });
     hammer.on('press', handlePress);
 
     addEventListener('touchend', handleTouchEnd);
 
-    startNewActivity();
+    state = new Menu();
+
+    // startNewActivity();
 }
 
 function startNewActivity() {
     const NextActivity = random(activities);
-    activity = new NextActivity();
+    state = new NextActivity();
 }
 
 /**
  * Frame ticker
 */
 function draw() {
-    activity.update();
-    activity.display();
-
-    if (activity.isComplete()) {
-        activity.deconstruct();
-        startNewActivity();
-    }
+    state.update();
+    state.display();
 }
 
 /**
@@ -128,31 +127,26 @@ function windowResized() {
     resizeCanvas(newWidth, newHeight);
 }
 
-function bangAGong() {
-    const gong = random(sounds.gongs);
-    gong.play();
-}
-
 function handleTap(event) {
-    activity.handleTap(event);
+    state.handleTap(event);
 }
 
 function handleSwipe(event) {
-    activity.handleSwipe(event);
+    state.handleSwipe(event);
 }
 
 function handlePan(event) {
-    activity.handlePan(event);
+    state.handlePan(event);
 }
 
 function handlePress(event) {
-    activity.handlePress(event);
+    state.handlePress(event);
 }
 
 function handleTouchEnd(event) {
-    activity.handleTouchEnd(event);
+    state.handleTouchEnd(event);
 }
 
 function mouseReleased(event) {
-    activity.handleMouseReleased(event);
+    state.handleMouseReleased(event);
 }

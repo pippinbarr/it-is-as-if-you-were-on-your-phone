@@ -54,23 +54,17 @@ class Tap extends Interaction {
     }
 
     displayInstruction() {
-        if (this.x < 0.5) {
-            this.instruction.x = this.x + this.width * 0.75;
-            this.instruction.align = {
-                horizontal: LEFT,
+        const config = {
+            text: this.instruction.text,
+            x: this.x + this.width * (this.x < 0.5 ? 0.75 : -0.75),
+            y: this.y,
+            align: {
+                horizontal: this.x < 0.5 ? LEFT : RIGHT,
                 vertical: CENTER
-            };
-        }
-        else {
-            this.instruction.x = this.x - this.width * 0.75;
-            this.instruction.align = {
-                horizontal: RIGHT,
-                vertical: CENTER
-            };
-        }
-        this.instruction.y = this.y;
+            }
+        };
 
-        super.displayInstruction();
+        super.displayInstruction(config);
     }
 
     handleTap(event) {
@@ -84,7 +78,7 @@ class Tap extends Interaction {
 
         if (dx < touchableSizeRatio.x * 0.5 && dy < touchableSizeRatio.y * 0.5) {
             // Tap achieved!
-            random(sounds.taps).play();
+            random(this.sounds.taps).play();
             // Fade out instruction
             this.fadeOutInstruction();
             // Get it fading out
