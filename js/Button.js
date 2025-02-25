@@ -1,9 +1,11 @@
 class Button {
     constructor(config) {
         this.text = config.text;
-        this.x = 0.5;
+        this.icon = config.icon;
+        this.x = config.x;
         this.y = config.y;
-        this.width = 0.8;
+        this.size = config.size;
+        this.width = 0.2;
         this.height = 0.1;
         this.callback = config.callback;
     }
@@ -15,15 +17,15 @@ class Button {
     display() {
         push();
         noStroke();
-        fill(colors.fg);
+        fill(colors.ui);
         rectMode(CENTER);
-        rect(0.5 * width, this.y * height, this.width * width, this.height * height, width)
+        ellipse(this.x * width, this.y * height, this.size * width)
 
         textAlign(CENTER, CENTER);
-        textSize(0.075 * width);
+        textSize(0.1 * width);
         textStyle(BOLD);
         fill(colors.ui);
-        text(this.text, 0.5 * width, this.y * height);
+        text(this.icon, this.x * width, this.y * height);
         pop();
     }
 

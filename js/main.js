@@ -89,10 +89,9 @@ function setup() {
     hammer.on('press', handlePress);
 
     addEventListener('touchend', handleTouchEnd);
+    addEventListener('orientationchange', windowResized);
 
     state = new Menu();
-
-    // startNewActivity();
 }
 
 function startNewActivity() {

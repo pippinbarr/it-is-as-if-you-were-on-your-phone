@@ -3,7 +3,7 @@ class Menu extends State {
         super();
 
         this.title = {
-            text: "It is as if you were on your phone",
+            text: "It is as if you were on your phone.",
             x: 0,
             y: 0,
             align: {
@@ -12,9 +12,14 @@ class Menu extends State {
             }
         }
 
+        const buttonY = 0.85;
+        const buttonSize = 0.25;
         const standardButton = new Button({
             text: "Standard",
-            y: 0.6,
+            icon: "📱",
+            x: 0.2,
+            y: buttonY,
+            size: buttonSize,
             callback: () => {
                 state = new Phoning({
                     sounds: soundSets.standard,
@@ -25,7 +30,10 @@ class Menu extends State {
         });
         const zenButton = new Button({
             text: "Zen",
-            y: 0.75,
+            icon: "🧘",
+            x: 0.5,
+            y: buttonY,
+            size: buttonSize,
             callback: () => {
                 state = new Phoning({
                     sounds: soundSets.zen,
@@ -36,7 +44,10 @@ class Menu extends State {
         });
         const helpButton = new Button({
             text: "Help",
-            y: 0.9,
+            icon: "ℹ️",
+            x: 0.8,
+            y: buttonY,
+            size: buttonSize,
             callback: () => {
                 state = new Phoning();
             }
@@ -54,7 +65,8 @@ class Menu extends State {
         background(colors.bg);
 
         push();
-        fill(colors.ui);
+        fill(colors.fg);
+        textLeading(titleTextLineHeight * width);
         textAlign(this.title.align.horizontal, this.title.align.vertical);
         textSize(titleTextSize * width);
         textStyle(BOLD);

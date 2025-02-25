@@ -4,8 +4,10 @@
 
 - Think through the sound design of standard and zen
     - Current instinct: no sound for normal, sound for zen
+    - Or: just some really innocuous "yep, you interacting" sounds; not trying to have an affect... just all business... clicks?
 
 ## Writing it
+
 - More Acts
     - Jiggle your leg, make sure your mouth is turned down, chew, flex your jaw, smile, crinkle your eyes, sit back, look more closely at your phone, mutter under your breath, say random words under your breath, look over at someone else, bring your phone close to your face, nod, bob your head to an unheard rhythm, tilt your head back
     - Put away your phone and take it out (a classic gesture -- Matt!)
@@ -26,6 +28,11 @@
 - Maybe a back button at the top in the act zone? (Back to menu)
 - Acts move inside the Watch Box when it no longer has a tutorial (should there be watch box specific acts?) -- great idea from Matt
 - JSON the language (maybe consider French? Although already a bit painful)
+
+## Problemos
+
+- If you tip to landscape and back it is fuuuuucked (on mobile)
+- Layout of Menu looks pretty bad on mobile right now
 
 ---
 

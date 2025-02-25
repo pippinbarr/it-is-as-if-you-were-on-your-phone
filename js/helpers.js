@@ -10,6 +10,7 @@ const touchableSizeRatio = {
 };
 
 const titleTextSize = 0.16;
+const titleTextLineHeight = 0.17;
 
 const lineWeightRatio = 0.005;
 const arrowSizeRatio = 0.4;
