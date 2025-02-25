@@ -2,9 +2,11 @@
 
 ## Sound
 
-- Think through the sound design of standard and zen
-    - Current instinct: no sound for normal, sound for zen
-    - Or: just some really innocuous "yep, you interacting" sounds; not trying to have an affect... just all business... clicks?
+- ~~Think through the sound design of standard and zen~~
+    - ~~Current instinct: no sound for normal, sound for zen~~
+    - ~~Or: just some really innocuous "yep, you interacting" sounds; not trying to have an affect... just all business... clicks?~~
+    
+- Work on sound design for Zen further (different styles of sounds for different acts? All gongs? Natural sounds? BG music?)
 
 ## Writing it
 
@@ -31,8 +33,8 @@
 
 ## Problemos
 
-- If you tip to landscape and back it is fuuuuucked (on mobile)
-- Layout of Menu looks pretty bad on mobile right now
+- ~~If you tip to landscape and back it is fuuuuucked (on mobile)~~
+- ~~Layout of Menu looks pretty bad on mobile right now~~
 
 ---
 
