@@ -49,7 +49,7 @@ class Menu extends State {
             y: buttonY,
             size: buttonSize,
             callback: () => {
-                state = new Phoning();
+                state = new Info();
             }
         });
         this.buttons = [standardButton, zenButton, helpButton];

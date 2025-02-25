@@ -33,7 +33,7 @@ class Button {
         const dx = abs(event.center.x / width - this.x);
         const dy = abs(event.center.y / height - this.y);
 
-        if (dx < this.width * 0.5 && dy < this.height * 0.5) {
+        if (dx < this.size * 0.5 && dy < this.size * 0.5) {
             this.callback();
         }
     }
