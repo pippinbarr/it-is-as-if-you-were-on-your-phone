@@ -10,11 +10,14 @@
 
 ## Writing it
 
-- More Acts
-    - Jiggle your leg, make sure your mouth is turned down, chew, flex your jaw, smile, crinkle your eyes, sit back, look more closely at your phone, mutter under your breath, say random words under your breath, look over at someone else, bring your phone close to your face, nod, bob your head to an unheard rhythm, tilt your head back
-    - Put away your phone and take it out (a classic gesture -- Matt!)
-- Zen Acts
-- Help text
+- ~~More Acts~~
+    - ~~Jiggle your leg, make sure your mouth is turned down, chew, flex your jaw, smile, crinkle your eyes, sit back, look more closely at your phone, mutter under your breath, say random words under your breath, look over at someone else, bring your phone close to your face, nod, bob your head to an unheard rhythm, tilt your head back, press fingers to your mouth, to your chin, on your head, ...~~
+    - **Hmmm, doesn't fit the generator right now** ~~Put away your phone and take it out (a classic gesture -- Matt!)~~
+- ~~Zen Acts~~
+
+- Think about the success/failure of the Zen acts (get feedback)
+- What about the "guided meditation" approach?
+- Info text
 
 ## Building it
 
@@ -25,11 +28,12 @@
 - ~~Add Zen Mode~~
 - ~~Add title screen and menu~~
 - **I think it's alright** ~~Think about relationship of instructions to movement (swipes, drags) -- notably if you swipe up~~
+- ~~Help screen~~
 
-- Help screen
 - Maybe a back button at the top in the act zone? (Back to menu)
 - Acts move inside the Watch Box when it no longer has a tutorial (should there be watch box specific acts?) -- great idea from Matt
 - JSON the language (maybe consider French? Although already a bit painful)
+    - No matter what, JSON it for best practice brah
 
 ## Problemos
 

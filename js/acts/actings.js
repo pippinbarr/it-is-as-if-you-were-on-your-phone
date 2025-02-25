@@ -5,7 +5,7 @@ const standardActs = {
         "Narrow your eyes",
         "Nod",
         "Shake your head",
-        "Breathe in",
+        "Breathe in deeply",
         "Close your eyes",
         "Grimace",
         "Smile with the left side of your mouth",
@@ -20,18 +20,42 @@ const standardActs = {
         "Squeeze the phone",
         "Stretch your neck",
         "Laugh under your breath",
-        "Mutter something unintelligible"
+        "Mutter under your breath",
+        "Jiggle one leg",
+        "Keep your mouth turned down",
+        "Chew some real or imagined gum",
+        "Clench your jaw",
+        "Smile",
+        "Lean backwards",
+        "Lean over your phone",
+        "Look more closely at your phone",
+        "Look up at an imagined noise",
+        "Bring your phone closer to your face",
+        "Study your phone",
+        "Squint at your phone",
+        "Nod to an imagined rhythm",
+        "Tip your head back",
+        "Press two fingers to your lips",
+        "Hold the back of your neck",
+        "Scratch your knee",
+        "Rest your fingertips on your your chin",
+        "Blink rapidly",
+        "Widen your eyes",
+        "Raise your eyebrows",
+        "Frown"
     ],
     durations: [
+        "then sigh",
+        "then breathe out",
+        "then smirk",
         "briefly",
         "quickly",
-        "for a tiny moment",
-        "for a count of three",
-        "for a count of two",
         "momentarily",
-        "minutely",
-        "subtly",
         "for a moment",
+        "for a count of two",
+        "for a count of three",
+        "for a count of five",
+        "for a while",
     ]
 };
 
@@ -44,7 +68,14 @@ function generateStandardActTime() {
 
 const zenActs = {
     koans: [
-        "Ohmmm etc."
+        "Since death alone is certain, And the time of death is uncertain, What shall I do?",
+        "The way you can go isn't the real way",
+        "The name you can say isn't the real name",
+        "Here you are",
+        "Things are as they are",
+        "Nothing ever exists entirely alone",
+        "An old day passes, a new day arrives",
+        "Concentrate the mind on the present moment",
     ]
 }
 
@@ -53,5 +84,6 @@ function generateZenActText() {
 }
 
 function generateZenActTime() {
-    return random(30000, 60000);
+    // All zen moments are five minutes long...?
+    return random(5 * 60 * 1000, 5 * 60 * 1000);
 }
