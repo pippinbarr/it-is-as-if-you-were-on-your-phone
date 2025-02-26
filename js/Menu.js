@@ -17,7 +17,7 @@ class Menu extends State {
         const standardButton = new Button({
             text: "Standard",
             icon: "📱",
-            x: 0.2,
+            x: 0.33,
             y: buttonY,
             size: buttonSize,
             callback: () => {
@@ -28,31 +28,17 @@ class Menu extends State {
                 });
             }
         });
-        const zenButton = new Button({
-            text: "Zen",
-            icon: "🧘",
-            x: 0.5,
-            y: buttonY,
-            size: buttonSize,
-            callback: () => {
-                state = new Phoning({
-                    sounds: soundSets.zen,
-                    actTextFunction: generateZenActText,
-                    actTimingFunction: generateZenActTime,
-                });
-            }
-        });
         const helpButton = new Button({
             text: "Help",
             icon: "ℹ️",
-            x: 0.8,
+            x: 0.66,
             y: buttonY,
             size: buttonSize,
             callback: () => {
                 state = new Info();
             }
         });
-        this.buttons = [standardButton, zenButton, helpButton];
+        this.buttons = [standardButton, helpButton];
     }
 
     update() {
