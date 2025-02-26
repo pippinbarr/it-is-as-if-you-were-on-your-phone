@@ -42,6 +42,8 @@
 - ~~If you tip to landscape and back it is fuuuuucked (on mobile)~~
 - ~~Layout of Menu looks pretty bad on mobile right now~~
 
+- DoubleTap positions at edge sometimes because the position code assumes single tap positioning
+
 ---
 
 # Archival to-dos (as of 2025-02-21)

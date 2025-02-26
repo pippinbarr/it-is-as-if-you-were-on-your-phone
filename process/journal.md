@@ -482,3 +482,25 @@ The next big question for the game is how to create the Zen mode. This is more o
 So those are I think the main concerns. None of them are actually all that high challenge, just a thing to do. I guess I try out the different potential textual approaches specifically.
 
 I haven't written a Why for this project. Let me do that.
+
+## High praise; explainers; bye zen (2025-02-26)
+
+Been a few days since journaling - that seems to be the pattern with this one. Often with projects I'll journal every day, but this one I think is probably sufficiently clear in my mind it's less needed. Although I've definitely been wobbling through confusion as well.
+
+### High praise
+
+I mentioned above that the game generally makes sense to people. That continues, which is encouraging. Most notably last night (I think?) Felix and I were FaceTime-ing with Jim and Mary in New Zealand and a message notification came up on my phone (which we were using). Felix instinctively swiped it away and we looked at each other for a beat. Then a couple of moments later he said something along the lines of "do you remember that ball and arrow game? that was fun" - meaning this game, *It is as if you were on your phone*. Clearly this is great because having a six year old remember enjoying playing your abstract game about social camouflage and stripping back interactions into almost-nothingness is... very cool. Also I really liked the way it was linked to him interacting with the phone in a "normal" functional way, and remembering the game through that feeling. This general argument that there's something purely to the *feeling* of *doing something* is also important - it's something I've kind of played down as I've worked on the game because I've become more focused on the idea of camouflage/pretending, but the satisfaction around just *doing a thing* and seeing it work is not to be trifled with.
+
+### Explainers
+
+Part of recent work was creating a menu and and info screen which I dropped some lorem ipsum into. I did that in no small part because when I tried to explain the game in a very small space I really, really struggled. And I think a huge part of *that* was that there's such a signficant difference in intent between the "normal mode" and the "zen mode". It felt very odd and disjunction to be talking about them both on the same screen.
+
+So.......
+
+### Bye Zen
+
+I've passed the game over to David W for comment since he has spent a lot of time using a videogame in a meditative way (Playne). But my growing feeling is that the zen mode just doesn't really work right now. It's too distinct from the main project, it's not about pretending you're on your phone and I think that if I'm going to pursue it as an idea (using phone interactions as a form of meditation) I need to give it its own space to breathe and be its own thing.
+
+This is also going on small bits of feedback where it seems like the zen part of things just isn't all that clear. I can explain it (as to Jonathan at lunch yesterday) and there's a degree of sense (I think particularly in thinking about awareness of phone interactions as a form of focused attention, kind of sensual etc.) but it's kind of awkward, and I don't think it's helping the shape of the bigger thing.
+
+So... bye zen!
