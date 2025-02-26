@@ -119,7 +119,7 @@ class Drag extends Interaction {
                 this.source.x = this.target.x;
                 this.source.y = this.target.y;
                 this.state = DragStates.COMPLETE;
-                random(this.sounds.swipes).play();
+                if (this.sounds) random(this.sounds.swipes).play();
             }
             else {
                 this.state = DragStates.READY;

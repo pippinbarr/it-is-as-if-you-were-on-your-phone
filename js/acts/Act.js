@@ -16,6 +16,7 @@ class Act extends Action {
         this.alpha = 0;
         this.alphaDirection = 1;
         this.alphaSpeed = uiAlphaSpeed;
+        this.show = true;
 
         this.actTextFunction = config.actTextFunction;
         this.actTimingFunction = config.actTimingFunction;
@@ -41,6 +42,8 @@ class Act extends Action {
     }
 
     display() {
+        if (!this.show) return;
+
         // Text of the act
         push();
         textSize(width * 0.05);

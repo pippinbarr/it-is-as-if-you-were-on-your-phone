@@ -12,6 +12,7 @@ class Interaction extends Action {
         this.seen = config.seen;
         this.sounds = config.sounds;
         this.interactive = true;
+        this.activity = config.activity;
         this.state = InteractionStates.ACTIVE;
 
         this.instruction = {

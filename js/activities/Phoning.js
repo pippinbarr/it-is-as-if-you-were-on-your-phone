@@ -28,8 +28,8 @@ class Phoning extends Activity {
                     generator: doubleTapData,
                 },
                 {
-                    class: LookBox,
-                    generator: lookBoxData,
+                    class: Watch,
+                    generator: watchData,
                 },
             ]
         };

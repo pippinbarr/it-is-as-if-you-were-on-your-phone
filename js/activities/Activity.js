@@ -45,12 +45,12 @@ class Activity extends State {
      * (This used to be probabilistic but is now pure random)
      */
     chooseNewInteraction() {
-        const interaction = random(this.interactions);
-        this.interaction = new interaction.class(interaction.generator, {
-            seen: interaction.seen,
-            sounds: this.sounds
+        this.currentInteraction = random(this.interactions);
+        this.interaction = new this.currentInteraction.class(this.currentInteraction.generator, {
+            seen: this.currentInteraction.seen,
+            sounds: this.sounds,
+            activity: this
         });
-        interaction.seen = true;
     }
 
     chooseNewAct() {
@@ -68,6 +68,8 @@ class Activity extends State {
         this.interaction.update();
 
         if (this.interaction && this.interaction.isComplete()) {
+            this.currentInteraction.seen = true;
+            this.currentInteraction = undefined;
             this.interaction = undefined;
             setTimeout(() => {
                 if (this.state === ActivityStates.ENDING) {

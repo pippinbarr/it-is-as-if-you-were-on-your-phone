@@ -1,4 +1,4 @@
-class LookBox extends Interaction {
+class Watch extends Interaction {
 
     static events = [];
 
@@ -12,7 +12,7 @@ class LookBox extends Interaction {
         this.y = data.y;
         this.sizeRatio = data.sizeRatio;
         this.time = data.time;
-
+        this.fill = color(colors.fg.toString());
         this.instruction.text = data.instruction;
         this.instruction.x = data.x;
         this.instruction.y = data.y;
@@ -30,16 +30,13 @@ class LookBox extends Interaction {
 
     update() {
         super.update();
+
+
     }
 
-    // displayInstruction() {
-    //     push();
-    //     fill(colors.fg);
-    //     textSize(instructionTextSize);
-    //     textAlign(CENTER, CENTER);
-    //     text(this.instruction, this.x * width, this.y * height);
-    //     pop();
-    // }
+    displayInstruction() {
+
+    }
 
     displayIcon() {
         push();
@@ -48,6 +45,33 @@ class LookBox extends Interaction {
         strokeWeight(lineWeight);
         rectMode(CENTER);
         rect(this.x * width, this.y * height, this.sizeRatio * width);
+        pop();
+
+        push();
+
+        let watchBoxText = "";
+        const watchBoxTextWidth = (this.sizeRatio - (0.1 * 2)) * width;
+        const x = (this.x * width) - watchBoxTextWidth / 2;
+        const y = (this.y * height - watchBoxTextWidth / 2);
+
+        let alpha = 0;
+
+        if (this.activity.act) this.activity.act.show = false;
+
+        if (!this.seen) {
+            watchBoxText = this.instruction.text;
+            alpha = this.instruction.alpha;
+        }
+        else if (this.activity.act) {
+            watchBoxText = this.activity.act.text;
+            alpha = min(this.activity.act.alpha, this.instruction.alpha);
+        }
+        this.fill.setAlpha(alpha);
+
+        fill(this.fill);
+        textSize(instructionTextSize);
+        textAlign(LEFT, TOP);
+        text(`${watchBoxText}`, x, y, watchBoxTextWidth);
         pop();
     }
 }

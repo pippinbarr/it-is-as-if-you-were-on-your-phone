@@ -17,7 +17,7 @@
 
 - Think about the success/failure of the Zen acts (get feedback)
 - What about the "guided meditation" approach?
-- Info text
+- Info text...?
 
 ## Building it
 
@@ -29,9 +29,11 @@
 - ~~Add title screen and menu~~
 - **I think it's alright** ~~Think about relationship of instructions to movement (swipes, drags) -- notably if you swipe up~~
 - ~~Help screen~~
+- ~~Padding for bottom of the keyboard please~~
+- ~~Return to timing for the keyboard (not instant done)~~
+- **Well that was a lot fucking harder than I would have liked.** ~~Acts move inside the Watch Box when it no longer has a tutorial (should there be watch box specific acts?) -- great idea from Matt~~
 
 - Maybe a back button at the top in the act zone? (Back to menu)
-- Acts move inside the Watch Box when it no longer has a tutorial (should there be watch box specific acts?) -- great idea from Matt
 - JSON the language (maybe consider French? Although already a bit painful)
     - No matter what, JSON it for best practice brah
 
