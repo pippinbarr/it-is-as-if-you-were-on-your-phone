@@ -504,3 +504,15 @@ I've passed the game over to David W for comment since he has spent a lot of tim
 This is also going on small bits of feedback where it seems like the zen part of things just isn't all that clear. I can explain it (as to Jonathan at lunch yesterday) and there's a degree of sense (I think particularly in thinking about awareness of phone interactions as a form of focused attention, kind of sensual etc.) but it's kind of awkward, and I don't think it's helping the shape of the bigger thing.
 
 So... bye zen!
+
+## Back problems (2025-02-27)
+
+Wasn't sure how to foreground this sort of "negative design moment" without a journal entry, but I'll be brief because it's not that interesting. Spent some time this afternoon trying to think through how a back button would look on the play screen, because this thing is pretty "appy" and so I figured it made sense as "just good UI design" to have a back button so you could get back to the menu and read the info screen or something. 
+
+However everything looked gross:
+
+![Prototypes of back button](./images/2025-02-27-it-is-as-if-you-were-on-your-phone-back-problems.png)
+
+As you can see. There just doesn't seem to be a layout that would fit in a back button. It conflicts everywhere it goes and doesn't contribute to the main goal. And I suppose even philosophically going "back" somewhat defeats the... well no, because you could make a version of this game where you're literally navigating a working larger interface so that's not the thing but it just... doesn't sit right and has nowhere to *be*. Can't be at the bottom because that's for the "keyboard" when it shows up. No room for it up top in conjunction with the acting instructions, and then you've already struck out.
+
+So I don't have a back button, the end.

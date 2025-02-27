@@ -17,8 +17,9 @@
 - **Bye bye zen** ~~Think about the success/failure of the Zen acts (get feedback)~~
 - **Bye bye zen** ~~What about the "guided meditation" approach?~~
 - **First draft** ~~Info text...?~~
+- ~~Keep working on the info text, maybe we need an imagined context for the user~~
 
-- Keep working on the info text, maybe we need an imagined context for the user
+- Send the writing to someone specifically
 
 ## Building it
 
@@ -33,9 +34,9 @@
 - ~~Padding for bottom of the keyboard please~~
 - ~~Return to timing for the keyboard (not instant done)~~
 - **Well that was a lot fucking harder than I would have liked.** ~~Acts move inside the Watch Box when it no longer has a tutorial (should there be watch box specific acts?) -- great idea from Matt~~
+- **Tried out 🤔 instead and I think I like it, moved the buttons and I think... I don't know** ~~Title layout? Move the bottons to left align under the title? Something else? Is the info emoji the right choice?~~
+- **Cannot find a way for this not to look shit and without zen mode there anymore I think it's probably just justifiable to not bother even though it's bad UI or whatever, sorry UI gods** ~~Maybe a back button at the top in the act zone? (Back to menu)~~
 
-- Title layout? Move the bottons to left align under the title? Something else? Is the info emoji the right choice?
-- Maybe a back button at the top in the act zone? (Back to menu)
 - JSON the language (maybe consider French? Although already a bit painful)
     - No matter what, JSON it for best practice brah
 
