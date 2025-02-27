@@ -64,7 +64,7 @@ class Type extends Interaction {
         while (!placed) {
             const key = random(this.keyboard);
             if (!key.tap) {
-                key.tap = new Tap(positionedTapData, { x: key.x, y: key.y, sounds: this.sounds });
+                key.tap = new Tap(positionedTapData, { x: key.x, y: key.y });
                 placed = true;
             }
         }

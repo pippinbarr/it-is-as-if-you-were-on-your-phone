@@ -102,7 +102,6 @@ class Drag extends Interaction {
         const dy = abs(event.center.y / height - this.source.y);
 
         if (dx < touchableSizeRatio.x * 0.5 && dy < touchableSizeRatio.y * 0.5) {
-            if (this.sounds) random(this.sounds.taps).play();
             this.fadeOutInstruction();
             this.state = DragStates.DRAGGING;
         }
@@ -119,7 +118,6 @@ class Drag extends Interaction {
                 this.source.x = this.target.x;
                 this.source.y = this.target.y;
                 this.state = DragStates.COMPLETE;
-                if (this.sounds) random(this.sounds.swipes).play();
             }
             else {
                 this.state = DragStates.READY;

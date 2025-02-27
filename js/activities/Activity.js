@@ -7,7 +7,6 @@ const ActivityStates = {
 class Activity extends State {
     constructor(config) {
         super();
-        this.sounds = config.sounds;
         this.actTextFunction = config.actTextFunction;
         this.actTimingFunction = config.actTimingFunction;
 
@@ -49,7 +48,6 @@ class Activity extends State {
 
         this.interaction = new this.currentInteraction.class(this.currentInteraction.generator, {
             seen: this.currentInteraction.seen,
-            sounds: this.sounds,
             activity: this,
             sizeRatio: this.currentInteraction.sizeRatio
         });

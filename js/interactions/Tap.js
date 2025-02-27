@@ -78,7 +78,6 @@ class Tap extends Interaction {
 
         if (dx < touchableSizeRatio.x * 0.5 && dy < touchableSizeRatio.y * 0.5) {
             // Tap achieved!
-            if (this.sounds) random(this.sounds.taps).play();
             // Fade out instruction
             this.fadeOutInstruction();
             // Get it fading out

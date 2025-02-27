@@ -17,13 +17,6 @@ const colors = {
     ui: undefined,
 };
 
-// Sounds for standard and zen modes
-const sounds = {
-    taps: [],
-    swipes: [],
-    drags: []
-};
-
 // Going to be using hammer
 let hammer = undefined;
 
@@ -42,13 +35,9 @@ let lang = "en";
 let strings = undefined;
 
 /**
- * Load media (sounds)
+ * Load media (JSON)
  */
 function preload() {
-    // Load our tone sounds
-    sounds.taps.push(loadSound(`assets/sounds/standard/tap.mp3`));
-    sounds.swipes.push(loadSound(`assets/sounds/standard/swipe.mp3`));
-
     strings = loadJSON(`assets/data/lang.json`);
 }
 

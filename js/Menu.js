@@ -22,7 +22,6 @@ class Menu extends State {
             size: buttonSize,
             callback: () => {
                 state = new Phoning({
-                    sounds: sounds,
                     actTextFunction: generateStandardActText,
                     actTimingFunction: generateStandardActTime,
                 });
