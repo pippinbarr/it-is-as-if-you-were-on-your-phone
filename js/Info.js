@@ -5,7 +5,7 @@ class Info extends State {
         this.infos = [
             {
                 icon: "📱",
-                text: "Being on your phone all the time and not being on your phone all the time has never been more important!\n\nTreat yourself to  \"It is as if you were on your phone\", a phone-based experience for pretending to be on your phone without needing to be on your phone. All on your phone!\n\nRelax and self-soothe with familiar gestures and realistic human behaviour, safe in the knowledge that you're not really on your phone."
+                text: "Being on your phone all the time and simultaneously not being on your phone all the time has never been more important.\n\n\"It is as if you were on your phone\" is a phone-based experience for pretending to be on your phone without needing to be on your phone. All from the comfort of your phone.\n\nRelax and blend in with familiar gestures and realistic human behaviour."
             }
         ];
 
@@ -25,15 +25,15 @@ class Info extends State {
         let h = height - (2 * titlePaddingRatio * width);
 
         for (let info of this.infos) {
-            push();
-            fill(colors.fg);
-            textSize(0.2 * width);
-            textStyle(NORMAL);
-            textAlign(LEFT, TOP);
-            text(info.icon, x, y, w);
+            // push();
+            // fill(colors.fg);
+            // textSize(0.2 * width);
+            // textStyle(NORMAL);
+            // textAlign(LEFT, TOP);
+            // text(info.icon, x, y, w);
 
-            y += textAscent() + textDescent();
-            pop();
+            // y += textAscent() + textDescent();
+            // pop();
 
             push();
             fill(colors.fg);

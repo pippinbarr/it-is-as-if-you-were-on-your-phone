@@ -14,10 +14,11 @@
     - ~~Jiggle your leg, make sure your mouth is turned down, chew, flex your jaw, smile, crinkle your eyes, sit back, look more closely at your phone, mutter under your breath, say random words under your breath, look over at someone else, bring your phone close to your face, nod, bob your head to an unheard rhythm, tilt your head back, press fingers to your mouth, to your chin, on your head, ...~~
     - **Hmmm, doesn't fit the generator right now** ~~Put away your phone and take it out (a classic gesture -- Matt!)~~
 - ~~Zen Acts~~
+- **Bye bye zen** ~~Think about the success/failure of the Zen acts (get feedback)~~
+- **Bye bye zen** ~~What about the "guided meditation" approach?~~
+- **First draft** ~~Info text...?~~
 
-- Think about the success/failure of the Zen acts (get feedback)
-- What about the "guided meditation" approach?
-- Info text...?
+- Keep working on the info text, maybe we need an imagined context for the user
 
 ## Building it
 
@@ -33,6 +34,7 @@
 - ~~Return to timing for the keyboard (not instant done)~~
 - **Well that was a lot fucking harder than I would have liked.** ~~Acts move inside the Watch Box when it no longer has a tutorial (should there be watch box specific acts?) -- great idea from Matt~~
 
+- Title layout? Move the bottons to left align under the title? Something else? Is the info emoji the right choice?
 - Maybe a back button at the top in the act zone? (Back to menu)
 - JSON the language (maybe consider French? Although already a bit painful)
     - No matter what, JSON it for best practice brah

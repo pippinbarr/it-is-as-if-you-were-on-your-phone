@@ -12,12 +12,12 @@ class Menu extends State {
             }
         }
 
-        const buttonY = 0.85;
+        const buttonY = 0.7;
         const buttonSize = 0.25;
         const standardButton = new Button({
             text: "Standard",
             icon: "📱",
-            x: 0.33,
+            x: 0.22,
             y: buttonY,
             size: buttonSize,
             callback: () => {
@@ -30,8 +30,8 @@ class Menu extends State {
         });
         const helpButton = new Button({
             text: "Help",
-            icon: "ℹ️",
-            x: 0.66,
+            icon: "🤔",
+            x: 0.55,
             y: buttonY,
             size: buttonSize,
             callback: () => {
