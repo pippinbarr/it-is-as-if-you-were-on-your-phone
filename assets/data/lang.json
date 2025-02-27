@@ -1,0 +1,122 @@
+{
+    "description": "Language file for It is as if you were on your phone",
+    "menu": {
+        "title": {
+            "en": "It is as if you were on your phone."
+        },
+        "play": {
+            "en": "📱"
+        },
+        "info": {
+            "en": "🤔"
+        }
+    },
+    "info": {
+        "explanation": {
+            "en": "Being on your phone all the time and simultaneously not being on your phone all the time has never been more important.\n\n\"It is as if you were on your phone\" is a phone-based experience for pretending to be on your phone without needing to be on your phone. All from the comfort of your phone.\n\nRelax and blend in with familiar gestures and realistic human behaviour."
+        },
+        "return": {
+            "en": "Tap anywhere to return."
+        }
+    },
+    "instructions": {
+        "tap": {
+            "en": "Tap this."
+        },
+        "doubleTap": {
+            "en": "Double tap this."
+        },
+        "type": {
+            "en": "Tap these."
+        },
+        "drag": {
+            "source": {
+                "en": "Drag this"
+            },
+            "target": {
+                "en": "to here."
+            }
+        },
+        "swipe": {
+            "left": {
+                "en": "Swipe left."
+            },
+            "right": {
+                "en": "Swipe right."
+            },
+            "up": {
+                "en": "Swipe up."
+            },
+            "down": {
+                "en": "Swipe down."
+            }
+        },
+        "watch": {
+            "en": "Watch this box."
+        }
+    },
+    "actings": {
+        "actions": {
+            "en": [
+                "Look up",
+                "Smile to yourself",
+                "Narrow your eyes",
+                "Nod",
+                "Shake your head",
+                "Breathe in deeply",
+                "Close your eyes",
+                "Grimace",
+                "Smile with the left side of your mouth",
+                "Wince",
+                "Glance away",
+                "Shrug",
+                "Look down at your feet",
+                "Compress your lips",
+                "Furrow your brow",
+                "Look away to the right",
+                "Look to the left",
+                "Squeeze the phone",
+                "Stretch your neck",
+                "Laugh under your breath",
+                "Mutter under your breath",
+                "Jiggle one leg",
+                "Keep your mouth turned down",
+                "Chew some real or imagined gum",
+                "Clench your jaw",
+                "Smile",
+                "Lean backwards",
+                "Lean over your phone",
+                "Look more closely at your phone",
+                "Look up at an imagined noise",
+                "Bring your phone closer to your face",
+                "Study your phone",
+                "Squint at your phone",
+                "Nod to an imagined rhythm",
+                "Tip your head back",
+                "Press two fingers to your lips",
+                "Hold the back of your neck",
+                "Scratch your knee",
+                "Rest your fingertips on your your chin",
+                "Blink rapidly",
+                "Widen your eyes",
+                "Raise your eyebrows",
+                "Frown"
+            ]
+        },
+        "durations": {
+            "en": [
+                "then sigh",
+                "then breathe out",
+                "then smirk",
+                "briefly",
+                "quickly",
+                "momentarily",
+                "for a moment",
+                "for a count of two",
+                "for a count of three",
+                "for a count of five",
+                "for a while"
+            ]
+        }
+    }
+}

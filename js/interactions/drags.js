@@ -6,9 +6,9 @@ const DragStates = {
 
 function dragData() {
     const source = randomTouchablePositionInPlayable();
-    source.instruction = "Drag this";
+    source.instruction = strings.instructions.drag.source[lang];
     const target = randomTouchablePositionInPlayableAvoiding(source);
-    target.instruction = "to here";
+    target.instruction = strings.instructions.drag.target[lang];
 
     return {
         name: "Drag",

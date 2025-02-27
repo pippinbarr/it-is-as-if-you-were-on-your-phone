@@ -4,9 +4,8 @@
 
 - ~~Think through the sound design of standard and zen~~
     - ~~Current instinct: no sound for normal, sound for zen~~
-    - ~~Or: just some really innocuous "yep, you interacting" sounds; not trying to have an affect... just all business... clicks?~~
-    
-- Work on sound design for Zen further (different styles of sounds for different acts? All gongs? Natural sounds? BG music?)
+    - ~~Or: just some really innocuous "yep, you interacting" sounds; not trying to have an affect... just all business... clicks?~~   
+- ~~Work on sound design for Zen further (different styles of sounds for different acts? All gongs? Natural sounds? BG music?)~~
 
 ## Writing it
 
@@ -36,9 +35,8 @@
 - **Well that was a lot fucking harder than I would have liked.** ~~Acts move inside the Watch Box when it no longer has a tutorial (should there be watch box specific acts?) -- great idea from Matt~~
 - **Tried out 🤔 instead and I think I like it, moved the buttons and I think... I don't know** ~~Title layout? Move the bottons to left align under the title? Something else? Is the info emoji the right choice?~~
 - **Cannot find a way for this not to look shit and without zen mode there anymore I think it's probably just justifiable to not bother even though it's bad UI or whatever, sorry UI gods** ~~Maybe a back button at the top in the act zone? (Back to menu)~~
-
-- JSON the language (maybe consider French? Although already a bit painful)
-    - No matter what, JSON it for best practice brah
+- ~~JSON the language (maybe consider French? Although already a bit painful)~~
+    - ~~No matter what, JSON it for best practice brah~~
 
 ## Problemos
 

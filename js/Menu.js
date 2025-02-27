@@ -3,7 +3,7 @@ class Menu extends State {
         super();
 
         this.title = {
-            text: "It is as if you were on your phone.",
+            text: strings.menu.title[lang],
             x: 0,
             y: 0,
             align: {
@@ -16,13 +16,13 @@ class Menu extends State {
         const buttonSize = 0.25;
         const standardButton = new Button({
             text: "Standard",
-            icon: "📱",
+            icon: strings.menu.play[lang],
             x: 0.22,
             y: buttonY,
             size: buttonSize,
             callback: () => {
                 state = new Phoning({
-                    sounds: undefined,
+                    sounds: sounds,
                     actTextFunction: generateStandardActText,
                     actTimingFunction: generateStandardActTime,
                 });
@@ -30,7 +30,7 @@ class Menu extends State {
         });
         const helpButton = new Button({
             text: "Help",
-            icon: "🤔",
+            icon: strings.menu.info[lang],
             x: 0.55,
             y: buttonY,
             size: buttonSize,

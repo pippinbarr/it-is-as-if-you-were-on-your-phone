@@ -18,17 +18,10 @@ const colors = {
 };
 
 // Sounds for standard and zen modes
-const soundSets = {
-    standard: {
-        taps: [],
-        swipes: [],
-        drags: []
-    },
-    zen: {
-        taps: [],
-        swipes: [],
-        drags: []
-    }
+const sounds = {
+    taps: [],
+    swipes: [],
+    drags: []
 };
 
 // Going to be using hammer
@@ -44,18 +37,19 @@ let state = undefined;
 let menu = undefined;
 const buttons = [];
 
+// Language data
+let lang = "en";
+let strings = undefined;
+
 /**
  * Load media (sounds)
  */
 function preload() {
-    // Load our gong sounds
-    for (let i = 1; i <= 3; i++) {
-        soundSets.zen.taps.push(loadSound(`assets/sounds/zen/gong-${i}.wav`));
-        soundSets.zen.swipes.push(loadSound(`assets/sounds/zen/gong-${i}.wav`));
-    }
     // Load our tone sounds
-    soundSets.standard.taps.push(loadSound(`assets/sounds/standard/tap.mp3`));
-    soundSets.standard.swipes.push(loadSound(`assets/sounds/standard/swipe.mp3`));
+    sounds.taps.push(loadSound(`assets/sounds/standard/tap.mp3`));
+    sounds.swipes.push(loadSound(`assets/sounds/standard/swipe.mp3`));
+
+    strings = loadJSON(`assets/data/lang.json`);
 }
 
 /**

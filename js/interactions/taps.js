@@ -15,7 +15,7 @@ function tapData(config = { sizeRatio: touchableSizeRatio }) {
 
     return {
         name: "Tap",
-        instruction: "Tap this",
+        instruction: strings.instructions.tap[lang],
         x: position.x,
         y: position.y,
         state: TapStates.TWEEN_IN,
@@ -26,14 +26,14 @@ function tapData(config = { sizeRatio: touchableSizeRatio }) {
 function doubleTapData() {
     const data = tapData({ sizeRatio: doubleTapTouchableSizeRatio });
     data.name = "Double tap";
-    data.instruction = "Double tap this";
+    data.instruction = strings.instructions.doubleTap[lang];
     return data;
 }
 
 function typeData() {
     return {
         name: "Type",
-        instruction: "Tap these",
+        instruction: strings.instructions.type[lang],
     };
 }
 
