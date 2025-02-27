@@ -10,6 +10,7 @@ class Phoning extends Activity {
                 {
                     class: Tap,
                     generator: tapData,
+                    sizeRatio: touchableSizeRatio
                 },
                 {
                     class: Drag,

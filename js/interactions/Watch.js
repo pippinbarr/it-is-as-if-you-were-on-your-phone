@@ -5,7 +5,7 @@ class Watch extends Interaction {
     constructor(generator, config = {}) {
         super(generator, config);
 
-        const data = generator(config);
+        const data = generator();
 
         this.name = data.name;
         this.x = data.x;

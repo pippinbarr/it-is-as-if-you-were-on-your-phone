@@ -46,10 +46,12 @@ class Activity extends State {
      */
     chooseNewInteraction() {
         this.currentInteraction = random(this.interactions);
+
         this.interaction = new this.currentInteraction.class(this.currentInteraction.generator, {
             seen: this.currentInteraction.seen,
             sounds: this.sounds,
-            activity: this
+            activity: this,
+            sizeRatio: this.currentInteraction.sizeRatio
         });
     }
 

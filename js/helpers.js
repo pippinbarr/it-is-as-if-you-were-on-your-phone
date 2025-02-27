@@ -8,6 +8,10 @@ const touchableSizeRatio = {
     x: 0.15,
     y: undefined
 };
+const doubleTapTouchableSizeRatio = {
+    x: 0.16,
+    y: undefined
+};
 
 const titleTextSize = 0.16;
 const titleTextLineHeight = 0.17;
@@ -29,6 +33,7 @@ let instructionPadding = undefined;
 function setSizes() {
     ratio = width / height;
     touchableSizeRatio.y = ratio * touchableSizeRatio.x;
+    doubleTapTouchableSizeRatio.y = ratio * doubleTapTouchableSizeRatio.x;
 
     lineWeight = lineWeightRatio * width;
     arrowSize = arrowSizeRatio * width;
@@ -36,13 +41,13 @@ function setSizes() {
     instructionPadding = instructionPaddingRatio * width;
 }
 
-function randomTouchablePositionInPlayable() {
+function randomTouchablePositionInPlayable(sizeRatio = touchableSizeRatio) {
     const position = {
         x: 0,
         y: 0
     };
-    position.x = random(touchableSizeRatio.x, 1 - touchableSizeRatio.x);
-    position.y = random(playableTop + touchableSizeRatio.y * 0.5, 1 - touchableSizeRatio.y * 0.5);
+    position.x = random(sizeRatio.x * 0.5, 1 - sizeRatio.x * 0.5);
+    position.y = random(playableTop + sizeRatio.y * 0.5, 1 - sizeRatio.y * 0.5);
     return position;
 }
 
@@ -52,7 +57,9 @@ function randomTouchablePositionInPlayableAvoiding(avoid) {
     let dx = abs(position.x - avoid.x);
     let dy = abs(position.y - avoid.y);
 
-    while (dx < touchableSizeRatio.x && dy < touchableSizeRatio.y) {
+    while (dy < touchableSizeRatio.y) {
+        // Experimenting with only caring about y distance to avoid
+        // overlapping instructions...
         position = randomTouchablePositionInPlayable();
         dx = abs(position.x - avoid.x);
         dy = abs(position.y - avoid.y);

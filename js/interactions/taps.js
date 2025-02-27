@@ -9,8 +9,9 @@ const TapStates = {
     INACTIVE: "Not active"
 };
 
-function tapData() {
-    const position = randomTouchablePositionInPlayable();
+function tapData(config = { sizeRatio: touchableSizeRatio }) {
+
+    const position = randomTouchablePositionInPlayable(config.sizeRatio);
 
     return {
         name: "Tap",
@@ -23,7 +24,7 @@ function tapData() {
 }
 
 function doubleTapData() {
-    const data = tapData();
+    const data = tapData({ sizeRatio: doubleTapTouchableSizeRatio });
     data.name = "Double tap";
     data.instruction = "Double tap this";
     return data;
