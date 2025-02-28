@@ -44,8 +44,8 @@
 - ~~If you tip to landscape and back it is fuuuuucked (on mobile)~~
 - ~~Layout of Menu looks pretty bad on mobile right now~~
 - **Well that took a lot of frustrating work that further broke my sparkling engineering** ~~DoubleTap positions at edge sometimes because the position code assumes single tap positioning~~
-
-- Watch box leads to quite a few problems - should I just revert to it being normal? I think so sadly. Sorry Matt.
+- ~~Watch box leads to quite a few problems - should I just revert to it being normal? I think so sadly. Sorry Matt.~~
+- ~~Tutorial instructions should fade in, not just out~~
 
 ---
 

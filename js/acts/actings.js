@@ -47,15 +47,15 @@ function generateAct() {
             break;
 
         case "act act":
-            act.text = `${act1}, then ${act2.toLowerCase()}.`;
+            act.text = `${act1} then ${act2.toLowerCase()}.`;
             break;
 
         case "act duration act":
-            act.text = `${act1} ${duration}, then ${act2.toLowerCase()}.`;
+            act.text = `${act1} ${duration} then ${act2.toLowerCase()}.`;
             break;
 
         case "act act duration":
-            act.text = `${act1}, then ${act2.toLowerCase()} ${duration}.`;
+            act.text = `${act1} then ${act2.toLowerCase()} ${duration}.`;
             break;
 
     }

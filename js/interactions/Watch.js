@@ -34,9 +34,9 @@ class Watch extends Interaction {
 
     }
 
-    displayInstruction() {
+    // displayInstruction() {
 
-    }
+    // }
 
     displayIcon() {
         push();
@@ -47,31 +47,31 @@ class Watch extends Interaction {
         rect(this.x * width, this.y * height, this.sizeRatio * width);
         pop();
 
-        push();
+        // push();
 
-        let watchBoxText = "";
-        const watchBoxTextWidth = (this.sizeRatio - (0.1 * 2)) * width;
-        const x = (this.x * width) - watchBoxTextWidth / 2;
-        const y = (this.y * height - watchBoxTextWidth / 2);
+        // let watchBoxText = "";
+        // const watchBoxTextWidth = (this.sizeRatio - (0.1 * 2)) * width;
+        // const x = (this.x * width) - watchBoxTextWidth / 2;
+        // const y = (this.y * height - watchBoxTextWidth / 2);
 
-        let alpha = 0;
+        // let alpha = 0;
 
-        if (this.activity.act) this.activity.act.show = false;
+        // if (this.activity.act) this.activity.act.show = false;
 
-        if (!this.seen) {
-            watchBoxText = this.instruction.text;
-            alpha = this.instruction.alpha;
-        }
-        else if (this.activity.act) {
-            watchBoxText = this.activity.act.text;
-            alpha = min(this.activity.act.alpha, this.instruction.alpha);
-        }
-        this.fill.setAlpha(alpha);
+        // if (!this.seen) {
+        //     watchBoxText = this.instruction.text;
+        //     alpha = this.instruction.alpha;
+        // }
+        // else if (this.activity.act) {
+        //     watchBoxText = this.activity.act.text;
+        //     alpha = min(this.activity.act.alpha, this.instruction.alpha);
+        // }
+        // this.fill.setAlpha(alpha);
 
-        fill(this.fill);
-        textSize(instructionTextSize);
-        textAlign(LEFT, TOP);
-        text(`${watchBoxText}`, x, y, watchBoxTextWidth);
-        pop();
+        // fill(this.fill);
+        // textSize(instructionTextSize);
+        // textAlign(LEFT, TOP);
+        // text(`${watchBoxText}`, x, y, watchBoxTextWidth);
+        // pop();
     }
 }

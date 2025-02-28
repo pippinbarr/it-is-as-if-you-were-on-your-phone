@@ -17,17 +17,15 @@ class Interaction extends Action {
         this.instruction = {
             fill: color(colors.fg.toString()),
             size: instructionTextSizeRatio,
-            alpha: 255,
-            alphaChange: 0,
+            alpha: 0,
+            alphaChange: 1,
             alphaSpeed: uiAlphaSpeed
         }
     }
 
     update() {
-        this.instruction.alpha += this.instruction.alphaChange;
-        if (this.instruction.alpha < 0) {
-            this.instruction.alpha = 0;
-        }
+        this.instruction.alpha += this.instruction.alphaChange * this.instruction.alphaSpeed;
+        this.instruction.alpha = constrain(this.instruction.alpha, 0, 255);
     }
 
     display() {

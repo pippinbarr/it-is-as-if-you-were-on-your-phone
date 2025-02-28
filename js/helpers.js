@@ -22,7 +22,7 @@ const instructionTextSizeRatio = 0.05;
 const instructionPaddingRatio = 0.01;
 const titlePaddingRatio = 0.1;
 
-const uiAlphaSpeed = 5;
+const uiAlphaSpeed = 3;
 
 let touchableSize = undefined;
 let lineWeight = undefined;
