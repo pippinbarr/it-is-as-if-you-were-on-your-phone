@@ -516,3 +516,49 @@ However everything looked gross:
 As you can see. There just doesn't seem to be a layout that would fit in a back button. It conflicts everywhere it goes and doesn't contribute to the main goal. And I suppose even philosophically going "back" somewhat defeats the... well no, because you could make a version of this game where you're literally navigating a working larger interface so that's not the thing but it just... doesn't sit right and has nowhere to *be*. Can't be at the bottom because that's for the "keyboard" when it shows up. No room for it up top in conjunction with the acting instructions, and then you've already struck out.
 
 So I don't have a back button, the end.
+
+## Acting math; dead face (2025-02-28)
+
+Hwellll here we are at the end of February. Been working on this thing since... 7 january, so that would be roughly seven weeks? A little more. Considering I've done other stuff in that time I'm pretty alright with the timing - since I do think it's basically done. Not that time matters right? Naaaaaaahh.
+
+### Acting math
+
+Main thing on my mind at this point is about the pacing and especially the scripted acting stuff. As of right now it's a pretty primitive system:
+
+```
+{act} {duration}
+```
+
+Where duration can secret be another action, so it's a pretty hacky piece of bullshit.
+
+e.g.
+
+```
+{Widen your eyes} {for a moment}
+```
+
+It occurs to me it could be refined by having a small set of possible structures (not the whole tracery hog but a very small nod to it):
+
+```
+{act}
+{act} {duration}
+{act} then {act}
+{act} {duration} then {act}
+{act} then {act} {duration}
+```
+
+Something like that gives more fleixibility, makes the things more atomic. I particularly don't want it to feel repetitive, even though it will be by definition.
+
+One could imagine breaking it down further in some cases, as with "scratch your knee"... well there's all kinds of things you could scratch, but just how procedural makes any sense for this?
+
+I think I need to take another pass at it with this in mind and see if it helps.
+
+### Dead face
+
+One thing that has occurred to me consistently when using my own phone or observing people in the wild, is that the vast majority of the time we are *not* making faces or moving around or anything, we just look kind of impassive.
+
+So I've wondered about a kind of baseline acting instruction which is just just maintain that deadface, and then to switch that less often to other things. "Look at the screen impassively" over and over again by default. You could vary it, but there's probably a rhetorical point to just returning to the same baseline feeling?
+
+That could then just be in the math... you either get deadface with a fairly high priority, or you ... well maybe you alternate deadface and acting, but the deadface has a longer timing.
+
+I think I should try to implement this and see how it feels.
