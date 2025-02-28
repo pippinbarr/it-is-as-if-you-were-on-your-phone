@@ -21,10 +21,7 @@ class Menu extends State {
             y: buttonY,
             size: buttonSize,
             callback: () => {
-                state = new Phoning({
-                    actTextFunction: generateStandardActText,
-                    actTimingFunction: generateStandardActTime,
-                });
+                state = new Phoning();
             }
         });
         const helpButton = new Button({

@@ -7,8 +7,6 @@ const ActivityStates = {
 class Activity extends State {
     constructor(config) {
         super();
-        this.actTextFunction = config.actTextFunction;
-        this.actTimingFunction = config.actTimingFunction;
 
         this.hammerEvents = config.hammerEvents;
         this.interactions = config.interactions;
@@ -30,11 +28,11 @@ class Activity extends State {
 
 
         // End the state at a set time
-        this.activityTimeout = setTimeout(() => {
-            this.state = ActivityStates.ENDING;
-            if (this.interaction) this.interaction.end();
-            if (this.act) this.act.end();
-        }, random(10000, 20000));
+        // this.activityTimeout = setTimeout(() => {
+        //     this.state = ActivityStates.ENDING;
+        //     if (this.interaction) this.interaction.end();
+        //     if (this.act) this.act.end();
+        // }, random(10000, 20000));
     }
 
     /**
@@ -55,10 +53,7 @@ class Activity extends State {
 
     chooseNewAct() {
         if (this.state === ActivityStates.ACTIVE) {
-            this.act = new Act({
-                actTimingFunction: this.actTimingFunction,
-                actTextFunction: this.actTextFunction
-            });
+            this.act = new Act();
         }
     }
 
@@ -94,7 +89,7 @@ class Activity extends State {
                 else {
                     this.chooseNewAct();
                 }
-            }, random(1000, 10000));
+            }, random(2000, 2000));
         }
     }
 

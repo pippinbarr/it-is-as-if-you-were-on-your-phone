@@ -7,7 +7,7 @@ const ActStates = {
 }
 
 class Act extends Action {
-    constructor(config) {
+    constructor(act) {
         super();
 
         this.name = "Act";
@@ -18,14 +18,12 @@ class Act extends Action {
         this.alphaSpeed = uiAlphaSpeed;
         this.show = true;
 
-        this.actTextFunction = config.actTextFunction;
-        this.actTimingFunction = config.actTimingFunction;
-
-        this.text = this.actTextFunction();
+        this.act = generateAct();
+        this.text = this.act.text;
 
         this.endTimeout = setTimeout(() => {
             this.end()
-        }, this.actTimingFunction());
+        }, this.act.time);
     }
 
     update() {
