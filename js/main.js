@@ -26,6 +26,9 @@ const activities = [Phoning]; //tos, Typing, Dating, Browsing];
 // Current mode
 let state = undefined;
 
+// Current aspect
+let landscape = undefined;
+
 // Menu data
 let menu = undefined;
 const buttons = [];
@@ -86,8 +89,26 @@ function startNewActivity() {
  * Frame ticker
 */
 function draw() {
-    state.update();
-    state.display();
+    if (!landscape) {
+        state.update();
+        state.display();
+    }
+    else {
+        showLandscapeMessage();
+    }
+}
+
+function showLandscapeMessage() {
+    background(colors.bg);
+
+    push();
+    textAlign(CENTER, CENTER);
+    fill(colors.fg);
+    textSize(0.2 * height);
+    text("📱", width * 0.5, height * 0.4);
+    textSize(0.075 * height);
+    text("Portrait mode please.", width * 0.5, height * 0.6);
+    pop();
 }
 
 /**
@@ -99,9 +120,11 @@ function windowResized() {
     let newHeight = window.innerHeight;
     let newRatio = newWidth / newHeight;
 
-    if (newRatio > 0.75) {
-        newWidth = newHeight / 16 * 9;
-    }
+    landscape = newWidth > newHeight;
+
+    // if (newRatio > 0.75) {
+    //     newWidth = newHeight / 16 * 9;
+    // }
 
     ratio = newWidth / newHeight;
 
