@@ -25,14 +25,6 @@ class Activity extends State {
 
         this.chooseNewInteraction();
         this.chooseNewAct();
-
-
-        // End the state at a set time
-        // this.activityTimeout = setTimeout(() => {
-        //     this.state = ActivityStates.ENDING;
-        //     if (this.interaction) this.interaction.end();
-        //     if (this.act) this.act.end();
-        // }, random(10000, 20000));
     }
 
     /**
@@ -42,7 +34,11 @@ class Activity extends State {
      * (This used to be probabilistic but is now pure random)
      */
     chooseNewInteraction() {
-        this.currentInteraction = random(this.interactions);
+        let nextInteraction = random(this.interactions);
+        while (this.currentInteraction && nextInteraction.name === this.currentInteraction.name) {
+            nextInteraction = random(this.interactions)
+        }
+        this.currentInteraction = nextInteraction;
 
         this.interaction = new this.currentInteraction.class(this.currentInteraction.generator, {
             seen: this.currentInteraction.seen,
@@ -64,7 +60,7 @@ class Activity extends State {
 
         if (this.interaction && this.interaction.isComplete()) {
             this.currentInteraction.seen = true;
-            this.currentInteraction = undefined;
+            // this.currentInteraction = undefined;
             this.interaction = undefined;
             setTimeout(() => {
                 if (this.state === ActivityStates.ENDING) {
