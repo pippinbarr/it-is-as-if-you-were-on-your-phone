@@ -562,3 +562,11 @@ So I've wondered about a kind of baseline acting instruction which is just just 
 That could then just be in the math... you either get deadface with a fairly high priority, or you ... well maybe you alternate deadface and acting, but the deadface has a longer timing.
 
 I think I should try to implement this and see how it feels.
+
+## Kind of done? (2025-03-03)
+
+It's perhaps a bit sudden but I feel like I'm kind of done with it? I could probably spend all week tweaking certain parts of this, but I'm not too sure that that's really worth it. It feels like it has hit a point where it makes its point, has enough diversity to actually use for a good while, and is solid in terms of not crashing etc.
+
+I should probably revisit the Why stuff and make sure I'm still more or less aligned with the original vision for this (and I should write some kind of closing statement for the same reasons) but yeah I deel basically happy with this one and ready to send it out into the world (on Wednesday I guess? Do I bother to send it to any media? I mean I could... hard to feel like anyone would give any shits?)
+
+I'll make a press kit for now anyway. If nothing else, *I* find them useful.
