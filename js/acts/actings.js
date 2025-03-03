@@ -1,5 +1,6 @@
 const acts = [
     "act",
+    "act",
     "act duration",
     "act act",
     "act duration act",

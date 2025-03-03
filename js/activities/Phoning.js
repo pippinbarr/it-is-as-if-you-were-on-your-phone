@@ -4,27 +4,27 @@ class Phoning extends Activity {
         const config = {
             hammerEvents: [...Tap.events, ...Drag.events, ...Swipe.events],
             interactions: [
-                // {
-                //     class: Tap,
-                //     generator: tapData,
-                //     sizeRatio: touchableSizeRatio
-                // },
-                // {
-                //     class: Drag,
-                //     generator: dragData,
-                // },
-                // {
-                //     class: Swipe,
-                //     generator: randomSwipeData,
-                // },
-                // {
-                //     class: Type,
-                //     generator: typeData,
-                // },
-                // {
-                //     class: DoubleTap,
-                //     generator: doubleTapData,
-                // },
+                {
+                    class: Tap,
+                    generator: tapData,
+                    sizeRatio: touchableSizeRatio
+                },
+                {
+                    class: Drag,
+                    generator: dragData,
+                },
+                {
+                    class: Swipe,
+                    generator: randomSwipeData,
+                },
+                {
+                    class: Type,
+                    generator: typeData,
+                },
+                {
+                    class: DoubleTap,
+                    generator: doubleTapData,
+                },
                 {
                     class: Watch,
                     generator: watchData,
