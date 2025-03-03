@@ -58,11 +58,11 @@
     "actings": {
         "deadfaces": {
             "en": [
-                "Look at the screen impassively",
-                "Stare blankly at the screen",
-                "Return to a neutral expression",
-                "Just look at your phone",
-                "Watch the screen"
+                "Look at the screen",
+                "Stare at the screen",
+                "Watch the screen",
+                "Hold a neutral expression",
+                "Just look at your phone"
             ]
         },
         "actions": {

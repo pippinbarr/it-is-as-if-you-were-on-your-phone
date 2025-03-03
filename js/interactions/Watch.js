@@ -15,11 +15,12 @@ class Watch extends Interaction {
         this.fill = color(colors.fg.toString());
         this.instruction.text = data.instruction;
         this.instruction.x = data.x;
-        this.instruction.y = data.y;
+        this.instruction.y = data.y - this.sizeRatio * 0.15;
         this.instruction.align = {
             horizontal: CENTER,
             vertical: CENTER
         };
+        this.spinnerAngle = 0;
 
         // Set the timer for when this is done
         this.timeout = setTimeout(() => {
@@ -30,13 +31,7 @@ class Watch extends Interaction {
 
     update() {
         super.update();
-
-
     }
-
-    // displayInstruction() {
-
-    // }
 
     displayIcon() {
         push();
@@ -47,31 +42,17 @@ class Watch extends Interaction {
         rect(this.x * width, this.y * height, this.sizeRatio * width);
         pop();
 
-        // push();
+        // if (this.seen) {
+        push();
+        this.instruction.fill.setAlpha(this.alpha);
+        stroke(colors.ui);
+        strokeWeight(lineWeight);
+        translate(this.x * width, this.y * height);
+        rotate(this.spinnerAngle);
+        line(-this.sizeRatio * 0.1 * width, 0, this.sizeRatio * 0.1 * width, 0);
+        pop();
 
-        // let watchBoxText = "";
-        // const watchBoxTextWidth = (this.sizeRatio - (0.1 * 2)) * width;
-        // const x = (this.x * width) - watchBoxTextWidth / 2;
-        // const y = (this.y * height - watchBoxTextWidth / 2);
-
-        // let alpha = 0;
-
-        // if (this.activity.act) this.activity.act.show = false;
-
-        // if (!this.seen) {
-        //     watchBoxText = this.instruction.text;
-        //     alpha = this.instruction.alpha;
+        this.spinnerAngle += 0.1;
         // }
-        // else if (this.activity.act) {
-        //     watchBoxText = this.activity.act.text;
-        //     alpha = min(this.activity.act.alpha, this.instruction.alpha);
-        // }
-        // this.fill.setAlpha(alpha);
-
-        // fill(this.fill);
-        // textSize(instructionTextSize);
-        // textAlign(LEFT, TOP);
-        // text(`${watchBoxText}`, x, y, watchBoxTextWidth);
-        // pop();
     }
 }

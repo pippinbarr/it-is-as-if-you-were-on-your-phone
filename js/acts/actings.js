@@ -43,7 +43,7 @@ function generateAct() {
             break;
 
         case "act duration":
-            act.text = `${act1}, ${duration}.`;
+            act.text = `${act1} ${duration}.`;
             break;
 
         case "act act":
