@@ -2,7 +2,7 @@
 
 ![Banner image of It is as if you were being on your phone showing a simple interaction](./images/it-is-as-if-you-were-on-your-phone-banner.png)
 
-# [Play Online](../)
+# [Play Online](../) (for phones only)
 
 ## Description
 

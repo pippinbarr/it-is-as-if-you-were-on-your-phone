@@ -107,7 +107,7 @@ function showLandscapeMessage() {
     textSize(0.2 * height);
     text("📱", width * 0.5, height * 0.4);
     textSize(0.075 * height);
-    text("Portrait mode please.", width * 0.5, height * 0.6);
+    text("For phones in portrait mode only.", width * 0.5, height * 0.6);
     pop();
 }
 
