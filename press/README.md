@@ -7,7 +7,7 @@
 * Developer: [Pippin Barr](http://www.pippinbarr.com/)
 * Release: 5 March 2025
 * Platform: Mobile
-* Code repository: https://www.github.com/pippinbarr/it-is-as-if-you-were-on-your-phone/
+* Code repository: [https://www.github.com/pippinbarr/it-is-as-if-you-were-on-your-phone/](https://www.github.com/pippinbarr/it-is-as-if-you-were-on-your-phone/)
 * Price: $0.00
 
 ## Description
