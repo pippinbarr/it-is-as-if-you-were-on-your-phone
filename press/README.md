@@ -1,6 +1,6 @@
 # *It is as if you were on your phone* Press Kit
 
-### [Play Online](https://pippinbarr.com/it-is-as-if-you-were-on-your-phone)
+### [Play Online](https://pippinbarr.com/it-is-as-if-you-were-on-your-phone) (Phones only)
 
 ## The basics
 
