@@ -106,8 +106,9 @@ function showLandscapeMessage() {
     fill(colors.fg);
     textSize(0.2 * height);
     text("📱", width * 0.5, height * 0.4);
-    textSize(0.075 * height);
-    text("For phones in portrait mode only.", width * 0.5, height * 0.6);
+    textSize(0.0555 * height);
+    rectMode(CENTER);
+    text("For phones in portrait mode only.\n\nTap/click this screen to go to the game's information page.", width * 0.5, height * 0.6, width * 0.8);
     pop();
 }
 
@@ -133,7 +134,12 @@ function windowResized() {
 }
 
 function handleTap(event) {
-    state.handleTap(event);
+    if (!landscape) {
+        state.handleTap(event);
+    }
+    else {
+        window.open("https://pippinbarr.com/it-is-as-if-you-were-on-your-phone/info");
+    }
 }
 
 function handleSwipe(event) {
