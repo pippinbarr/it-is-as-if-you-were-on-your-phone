@@ -18,7 +18,7 @@
 
 ## History
 
-I've made a bunch of games in the speculative "It is as if" series. One on [Chess](https://pippinbarr.com/it-is-as-if-you-were-playing-chess/info/), one on [Work](https://pippinbarr.com/itisasifyouweredoingwork/info/), one on [Making Love](https://pippinbarr.com/itisasifyouweremakinglove/info/) and one on [Papework](https://pippinbarr.com/it-is-as-if-you-were-doing-paperwork/info/). It seemed fitting to keep expanding outward even further and to explore the idea of making a game about simply seeming to be using a phone at all, with no underlying context or objectives.
+I've made a bunch of games in the speculative "It is as if" series. One on [Chess](https://pippinbarr.com/it-is-as-if-you-were-playing-chess/info/), one on [Work](https://pippinbarr.com/itisasifyouweredoingwork/info/), one on [Making Love](https://pippinbarr.com/itisasifyouweremakinglove/info/) and one on [Paperwork](https://pippinbarr.com/it-is-as-if-you-were-doing-paperwork/info/). It seemed fitting to keep expanding outward even further and to explore the idea of making a game about simply seeming to be using a phone at all, with no underlying context or objectives.
 
 I fit this into a "speculative play" framework – games that function in part as experiences from the near future rather than the present – but really we already exist in a world where it could be calming and sane to simply pretend to be on your phone and not worry about the realities of what's on there. So, you're welcome?
 

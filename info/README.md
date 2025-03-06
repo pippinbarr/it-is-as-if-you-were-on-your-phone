@@ -14,6 +14,8 @@
 
 ## Press
 
+- Iwan Morris. [It's As If You Were On Your Phone is a bizarre new introspective desktop mobile release](https://www.pocketgamer.com/its-as-if-you-were-on-your-phone/out-now-from-pippin-barr/). Pocket Gamer. 6 March 2025.
+
 Read the [Press Kit](../press) for press information.
 
 ## Documentation
