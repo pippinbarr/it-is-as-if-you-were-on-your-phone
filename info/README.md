@@ -15,6 +15,7 @@
 ## Press
 
 - Iwan Morris. [It's As If You Were On Your Phone is a bizarre new introspective desktop mobile release](https://www.pocketgamer.com/its-as-if-you-were-on-your-phone/out-now-from-pippin-barr/). Pocket Gamer. 6 March 2025.
+- Jason Kottke. [A game called “It is as if you were on your phone” is designed to make you look like you’re on your phone.](https://also.kottke.org/25/03/0046409-a-game-called-it-is). Kottke.org. 7 March 2025.
 
 Read the [Press Kit](../press) for press information.
 
