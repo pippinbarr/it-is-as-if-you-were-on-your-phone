@@ -61,9 +61,9 @@ function setup() {
 
     // Setup swipes
     hammer = new Hammer(document, {});
-    Hammer.SUPPORT_POINTER_EVENTS ? Hammer.PointerEventInput : Hammer.TouchInput,
+    Hammer.SUPPORT_POINTER_EVENTS ? Hammer.PointerEventInput : Hammer.TouchInput;
 
-        hammer.get('tap').set();
+    hammer.get('tap').set();
     hammer.on('tap', handleTap);
 
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
