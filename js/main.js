@@ -65,6 +65,7 @@ function preload() {
 */
 function setup() {
     const canvas = createCanvas(window.innerWidth, window.innerHeight);
+    pixelDensity(1)
     windowResized();
     setSizes();
 
