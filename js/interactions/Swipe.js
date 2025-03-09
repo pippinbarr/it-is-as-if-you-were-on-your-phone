@@ -41,6 +41,7 @@ class Swipe extends Interaction {
         this.x += this.velocity.x * width;
         this.y += this.velocity.y * height;
 
+
         if (this.x < 0 || this.x > 1 ||
             this.y < 0 || this.y > 1) {
             this.state = InteractionStates.COMPLETE;
@@ -60,12 +61,17 @@ class Swipe extends Interaction {
         if (!this.active) return;
 
         if (this.direction === event.direction) {
-            // If it's the correct swipe
-            if ([Hammer.DIRECTION_LEFT, Hammer.DIRECTION_RIGHT].includes(event.direction)) {
-                this.velocity.x = Math.sign(event.velocityX) / width * this.speed;
+            if (event.direction === Swipes.LEFT) {
+                this.velocity.x = -1 / width * this.speed;
             }
-            else if ([Hammer.DIRECTION_UP, Hammer.DIRECTION_DOWN].includes(event.direction)) {
-                this.velocity.y = Math.sign(event.velocityY) / height * this.speed;
+            else if (event.direction === Swipes.RIGHT) {
+                this.velocity.x = 1 / width * this.speed;
+            }
+            else if (event.direction === Swipes.UP) {
+                this.velocity.y = -1 / height * this.speed;
+            }
+            else if (event.direction === Swipes.DOWN) {
+                this.velocity.y = 1 / height * this.speed;
             }
             this.fadeOutInstruction();
         }

@@ -17,9 +17,6 @@ const colors = {
     ui: undefined,
 };
 
-// Going to be using hammer
-let hammer = undefined;
-
 // Possible activities
 const activities = [Phoning]; //tos, Typing, Dating, Browsing];
 
@@ -36,6 +33,25 @@ const buttons = [];
 // Language data
 let lang = "en";
 let strings = undefined;
+
+const touchData = {
+    isDown: false,
+    start: {
+        x: 0,
+        y: 0,
+        t: 0
+    },
+    current: {
+        x: 0,
+        y: 0,
+        t: 0
+    },
+    end: {
+        x: 0,
+        y: 0,
+        t: 0
+    }
+};
 
 /**
  * Load media (JSON)
@@ -59,23 +75,12 @@ function setup() {
     colors.bg = color("#333333");
     colors.ui = color("#fc6c85");
 
-    // Setup swipes
-    hammer = new Hammer(document, {});
-    Hammer.SUPPORT_POINTER_EVENTS ? Hammer.PointerEventInput : Hammer.TouchInput;
+    addEventListener('touchstart', handleTouchStart);
+    addEventListener('touchmove', handleTouchMove);
+    addEventListener('touchend', (event) => {
+        handleTouchEnd(event);
+    });
 
-    hammer.get('tap').set();
-    hammer.on('tap', handleTap);
-
-    hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-    hammer.on('swipe', handleSwipe);
-
-    hammer.get('pan').set({ direction: Hammer.DIRECTION_ALL });
-    hammer.on('pan', handlePan);
-
-    hammer.get('press').set({ time: 10 });
-    hammer.on('press', handlePress);
-
-    addEventListener('touchend', handleTouchEnd);
     addEventListener('orientationchange', windowResized);
 
     state = new Menu();
@@ -143,22 +148,83 @@ function handleTap(event) {
     }
 }
 
-function handleSwipe(event) {
-    state.handleSwipe(event);
+function handleTouchStart(event) {
+    // console.log("main.handleTouchStart()")
+    touchData.isDown = true;
+    touchData.start.x = event.changedTouches[0].clientX;
+    touchData.start.y = event.changedTouches[0].clientY;
+    touchData.start.t = millis();
+
+    state.handlePress();
 }
 
-function handlePan(event) {
-    state.handlePan(event);
-}
+function handleTouchMove(event) {
+    // console.log("main.handleTouchMove()")
 
-function handlePress(event) {
-    state.handlePress(event);
+    touchData.current.x = event.changedTouches[0].clientX;
+    touchData.current.y = event.changedTouches[0].clientY;
+    touchData.current.t = millis();
+
+    if (touchData.isDown) {
+        state.handlePan();
+    }
 }
 
 function handleTouchEnd(event) {
-    state.handleTouchEnd(event);
+    // console.log(event)
+    touchData.end.x = event.changedTouches[0].clientX;
+    touchData.end.y = event.changedTouches[0].clientY;
+    touchData.end.t = millis();
+
+    const dt = millis() - touchData.start.t;
+
+    const d = dist(touchData.end.x, touchData.end.y, touchData.start.x, touchData.start.y);
+    if (d > width * 0.05) {
+        handleSwipe();
+    }
+    else if (d < width * 0.01 && dt < 300) {
+        state.handleTap();
+    }
+
+    state.handleTouchEnd();
 }
 
-function mouseReleased(event) {
-    state.handleMouseReleased(event);
+function handleSwipe(event) {
+    const dx = touchData.end.x - touchData.start.x;
+    const dy = touchData.end.y - touchData.start.y;
+
+    const swipeData = {
+        direction: undefined
+    };
+
+    if (abs(dx) > abs(dy)) {
+        if (dx < 0) {
+            swipeData.direction = Swipes.LEFT;
+        }
+        else {
+            swipeData.direction = Swipes.RIGHT
+        }
+    }
+    else {
+        if (dy < 0) {
+            swipeData.direction = Swipes.UP;
+        }
+        else {
+            swipeData.direction = Swipes.DOWN;
+        }
+    }
+
+    state.handleSwipe(swipeData);
 }
+
+function handlePan() {
+    state.handlePan();
+}
+
+function handlePress() {
+    state.handlePress();
+}
+
+// function mouseReleased() {
+//     state.handleMouseReleased();
+// }

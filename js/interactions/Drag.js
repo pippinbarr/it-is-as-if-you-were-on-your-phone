@@ -91,15 +91,15 @@ class Drag extends Interaction {
     handlePan(event) {
         if (this.state !== DragStates.DRAGGING) return;
 
-        this.source.x = event.center.x / width;
-        this.source.y = event.center.y / height;
+        this.source.x = touchData.current.x / width;
+        this.source.y = touchData.current.y / height;
     }
 
     handlePress(event) {
         if (this.state !== DragStates.READY) return;
 
-        const dx = abs(event.center.x / width - this.source.x);
-        const dy = abs(event.center.y / height - this.source.y);
+        const dx = abs(touchData.start.x / width - this.source.x);
+        const dy = abs(touchData.start.y / height - this.source.y);
 
         if (dx < touchableSizeRatio.x * 0.5 && dy < touchableSizeRatio.y * 0.5) {
             this.fadeOutInstruction();
@@ -114,7 +114,7 @@ class Drag extends Interaction {
             const dx = this.target.x - this.source.x;
             const dy = this.target.y - this.source.y;
 
-            if (dx < touchableSizeRatio.x * 0.5 && dy < touchableSizeRatio.y * 0.5) {
+            if (abs(dx) < touchableSizeRatio.x * 0.5 && abs(dy) < touchableSizeRatio.y * 0.5) {
                 this.source.x = this.target.x;
                 this.source.y = this.target.y;
                 this.state = DragStates.COMPLETE;

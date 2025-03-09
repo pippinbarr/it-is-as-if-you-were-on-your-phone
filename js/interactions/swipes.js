@@ -1,3 +1,10 @@
+const Swipes = {
+    LEFT: "Left",
+    RIGHT: "Right",
+    UP: "Up",
+    DOWN: "Down"
+};
+
 function randomSwipeData() {
     const generator = random([swipeLeftData, swipeRightData, swipeUpData, swipeDownData]);
     return generator();
@@ -8,7 +15,7 @@ function swipeLeftData() {
     swipe.emoji = "←";
     swipe.name = "Swipe left";
     swipe.instruction = strings.instructions.swipe.left[lang];
-    swipe.direction = Hammer.DIRECTION_LEFT;
+    swipe.direction = Swipes.LEFT;
     return swipe;
 }
 
@@ -17,7 +24,7 @@ function swipeRightData() {
     swipe.emoji = "→";
     swipe.name = "Swipe right";
     swipe.instruction = strings.instructions.swipe.right[lang];
-    swipe.direction = Hammer.DIRECTION_RIGHT;
+    swipe.direction = Swipes.RIGHT;
     return swipe;
 }
 
@@ -26,7 +33,7 @@ function swipeUpData() {
     swipe.emoji = "↑";
     swipe.name = "Swipe up";
     swipe.instruction = strings.instructions.swipe.up[lang];
-    swipe.direction = Hammer.DIRECTION_UP;
+    swipe.direction = Swipes.UP;
     return swipe;
 }
 
@@ -35,7 +42,7 @@ function swipeDownData() {
     swipe.emoji = "↓";
     swipe.name = "Swipe down";
     swipe.instruction = strings.instructions.swipe.down[lang];
-    swipe.direction = Hammer.DIRECTION_DOWN;
+    swipe.direction = Swipes.DOWN;
     return swipe;
 }
 
@@ -52,7 +59,7 @@ function swipeData() {
             x: 0,
             y: 0
         },
-        speed: 0.05,
+        speed: 0.1,
         active: true
     };
 }

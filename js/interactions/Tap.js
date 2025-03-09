@@ -68,13 +68,14 @@ class Tap extends Interaction {
     }
 
     handleTap(event) {
+        // console.log("Tapping...")
         if (this.state === InteractionStates.COMPLETE) return;
 
         // Splitting on x and y to avoid the insane-making issues
         // around using dist() when the two distances are relative to
         // different ratio something something something...
-        const dx = abs(event.center.x / width - this.x);
-        const dy = abs(event.center.y / height - this.y);
+        const dx = abs(touchData.end.x / width - this.x);
+        const dy = abs(touchData.end.y / height - this.y);
 
         if (dx < touchableSizeRatio.x * 0.5 && dy < touchableSizeRatio.y * 0.5) {
             // Tap achieved!

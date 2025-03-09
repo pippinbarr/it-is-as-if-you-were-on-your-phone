@@ -8,13 +8,7 @@ class Activity extends State {
     constructor(config) {
         super();
 
-        this.hammerEvents = config.hammerEvents;
         this.interactions = config.interactions;
-
-        // Enable events (set by subclass)
-        for (let e of this.hammerEvents) {
-            hammer.get(e).set({ enable: true });
-        }
 
         this.state = ActivityStates.ACTIVE;
 
@@ -35,7 +29,7 @@ class Activity extends State {
      */
     chooseNewInteraction() {
         let nextInteraction = random(this.interactions);
-        while (this.currentInteraction && nextInteraction.name === this.currentInteraction.name) {
+        while (this.interactions.length > 1 && this.currentInteraction && nextInteraction.name === this.currentInteraction.name) {
             nextInteraction = random(this.interactions)
         }
         this.currentInteraction = nextInteraction;
@@ -60,7 +54,6 @@ class Activity extends State {
 
         if (this.interaction && this.interaction.isComplete()) {
             this.currentInteraction.seen = true;
-            // this.currentInteraction = undefined;
             this.interaction = undefined;
             setTimeout(() => {
                 if (this.state === ActivityStates.ENDING) {

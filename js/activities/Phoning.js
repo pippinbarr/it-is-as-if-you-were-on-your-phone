@@ -2,7 +2,6 @@ class Phoning extends Activity {
     constructor(typeConfig) {
         // Set our events list based on the interactions
         const config = {
-            hammerEvents: [...Tap.events, ...Drag.events, ...Swipe.events],
             interactions: [
                 {
                     name: "Tap",

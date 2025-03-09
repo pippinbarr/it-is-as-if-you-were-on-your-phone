@@ -11,7 +11,6 @@ class Dating extends Activity {
     constructor() {
         // Set our events list based on the interactions
         const config = {
-            hammerEvents: [...Swipe.events],
             interactions: [{
                 class: Swipe,
                 probability: 0.7,

@@ -30,8 +30,8 @@ class Button {
     }
 
     handleTap(event) {
-        const dx = abs(event.center.x / width - this.x);
-        const dy = abs(event.center.y / height - this.y);
+        const dx = abs(touchData.end.x / width - this.x);
+        const dy = abs(touchData.end.y / height - this.y);
 
         if (dx < this.size * 0.5 && dy < this.size * 0.5) {
             this.callback();

@@ -6,7 +6,6 @@ class Photos extends Activity {
     constructor() {
         // Set our events list based on the interactions
         const config = {
-            hammerEvents: [...Tap.events, ...Scroll.events],
             interactions: [
                 {
                     class: Tap,

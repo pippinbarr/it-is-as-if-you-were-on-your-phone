@@ -6,13 +6,8 @@ const ActivityStates = {
 
 class Activity {
     constructor(config) {
-        this.hammerEvents = config.hammerEvents;
         this.interactions = config.interactions;
 
-        // Enable events (set by subclass)
-        for (let e of this.hammerEvents) {
-            hammer.get(e).set({ enable: true });
-        }
 
         // These will reflect our current action and act
         // which will both flow along in parallel
@@ -145,8 +140,6 @@ class Activity {
     }
 
     deconstruct() {
-        for (let e of this.hammerEvents) {
-            hammer.get(e).set({ enable: false });
-        }
+
     }
 }
