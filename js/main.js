@@ -150,7 +150,6 @@ function handleTap(event) {
 }
 
 function handleTouchStart(event) {
-    // console.log("main.handleTouchStart()")
     touchData.isDown = true;
     touchData.start.x = event.changedTouches[0].clientX;
     touchData.start.y = event.changedTouches[0].clientY;
@@ -160,7 +159,6 @@ function handleTouchStart(event) {
 }
 
 function handleTouchMove(event) {
-    // console.log("main.handleTouchMove()")
 
     touchData.current.x = event.changedTouches[0].clientX;
     touchData.current.y = event.changedTouches[0].clientY;
@@ -172,7 +170,6 @@ function handleTouchMove(event) {
 }
 
 function handleTouchEnd(event) {
-    // console.log(event)
     touchData.end.x = event.changedTouches[0].clientX;
     touchData.end.y = event.changedTouches[0].clientY;
     touchData.end.t = millis();

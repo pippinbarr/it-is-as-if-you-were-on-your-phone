@@ -68,7 +68,6 @@ class Tap extends Interaction {
     }
 
     handleTap(event) {
-        // console.log("Tapping...")
         if (this.state === InteractionStates.COMPLETE) return;
 
         // Splitting on x and y to avoid the insane-making issues

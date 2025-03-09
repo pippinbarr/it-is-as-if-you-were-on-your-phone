@@ -91,8 +91,11 @@ class Drag extends Interaction {
     handlePan(event) {
         if (this.state !== DragStates.DRAGGING) return;
 
-        this.source.x = touchData.current.x / width;
-        this.source.y = touchData.current.y / height;
+        const w = touchableSizeRatio.x;
+        const h = touchableSizeRatio.y;
+        this.source.x = constrain(touchData.current.x / width, w * 0.5, 1 - w * 0.5);
+        const yLimit = ACT_HEIGHT + h * 0.5;
+        this.source.y = constrain(touchData.current.y / height, yLimit, 1 - h * 0.5);
     }
 
     handlePress(event) {
