@@ -570,3 +570,47 @@ It's perhaps a bit sudden but I feel like I'm kind of done with it? I could prob
 I should probably revisit the Why stuff and make sure I'm still more or less aligned with the original vision for this (and I should write some kind of closing statement for the same reasons) but yeah I deel basically happy with this one and ready to send it out into the world (on Wednesday I guess? Do I bother to send it to any media? I mean I could... hard to feel like anyone would give any shits?)
 
 I'll make a press kit for now anyway. If nothing else, *I* find them useful.
+
+## The feeling of release; community; success (2025-03-09)
+
+### The release process
+
+Released the game last Wednesday (I feel like that's often the day I go for somehow?) to not a lot of fanfare. I did drag myself through the process of sending it out to my dwindling set of emails I write to for this, posted it to Reddit, etc. Watched it get downvoted to 0 on Reddit, ah yes, that's familiar. Watched it go unnoticed on Hackernews, yep, seen that before...
+
+Somehow Pocket Gamer got hold of it (not sure how that works) and wrote quite an appealing "hmm, this isn't very entertaining but it's weird and interesting" piece where I was listed as a "bonafide underground video game celeb" haha. But also not haha, that's genuinely nice... as a game making guy who has felt increasingly irrelevant (kind of coinciding with making games as a slower pace and the agonizing death of social media as a place to share) it's pretty meaningful to feel like someone knows who I am and what I'm up to in a big picture sense.
+
+I'd sent it to Jason Kottke as part of my short list of people to reach out to and he popped it on his site too which always makes me feel great because I think he reaches a group of people I really see as a key "audience" for this stuff - not necessarily game-folk, but interested in tech-creativity folk.
+
+And then a couple of days later - day before yesterday? Yeah, this timeline is so small - I remembered my idea of being on Bluesky and posted it there in my traditional "hey I made a thing" way. And it was lovely to see a bunch of people check it out and offer bits of feedback (note to self: I'd really like to capture all that stuff because it's such an interesting part of the process - plus such a privilege to get ANY feedback on your work from "the wild").
+
+### It's broken
+
+Anyway, a key point here: some of the feedback was around it being straight up broken for people on Android using Chrome. Which... well I still don't actually understand the reason, but I initially oscillated on caring because it just felt like there's not that much point in engaging deeply with maintenance, even this close to release. But my curiosity got the better of me and I remembered an old bug I kept seeing while building the game - if I ran it in emulation mode in Chrome then the drag interaction would always fail. And this was the error people were seeing, so I thought I could potentially track it down (looking for emulator solutions didn't yield anything I thought would help me out).
+
+So, while at home alone with a decent-sized headcold and a ridiculous sounding voice while Rilla and Felix were at Kalervo's birthday party, I spent a bit of time thinking about the problem. And I decided it was probably hammer.js because that project simply isn't maintained anymore and because the error was pretty clearly coming up on a touch interaction that works in other contexts. So, blame the touch library.
+
+Somehow - very, very against type for me - I decided to just reimplement the entire touch interaction part of the project from the plain javascript events myself instead. There's a happy story here because... it wasn't that hard! Took like an hour? In part because of all the snoozefest engineering stuff I was writing about earlier on - the project is (fairly) well organized and modular (and just simple of course) and I was able to excise hammer quite fast.
+
+Speaking of - one of the insights there I found interesting: in reimplementing swipes specifically I realized that I could afford really basic code because I wasn't trying to *test* the player's ability to swipe a specific direction, so false positives or just too-generous positives were a non issue. Thus the swipe implementation is really, really basic. And it works! It wouldn't be great for a real application, but in this situation a more forgiving version is appropriate because it doesn't break the flow.
+
+Anyway this change made it work well for some people, but I got a couple of comments about it being very laggy. I looked into that just earlier on today(???) wait 40 minutes ago??? Time, man. Anyway, I found somebody talking about lag in p5 on Chrome on Android and saying that pixel density can be an issue because the canvas can be rendered super large when it doesn't really need to be - the solution being to force pixel density to 1. Made that change and then -- community for the win -- was able to ask one of the people to take a look at it to see if it made a difference, and it did!
+
+So yeah there's a nice story there about a good side of social media for me; it gets at this sense of audience where you can kind of be "with" the audience for something and chat to them and have a conversation about it, rather than being an unknown game-producing-entity who is totally removed from the equation. In that way it's related to all the stuff about conversation with materials and the sort of "triangle" of "maker-game-player"... social media creates this thread that's directly maker-player but with "game" as the context. I'm sure this has all been written about properly, but it's a nice thing just to experience.
+
+### But wait, there's more
+
+The above is what I had in mind when I sat down to write this entry - I mostly just wanted to follow up on the release and point out the Bluesky stuff more than anything; that sense of community I really genuinely miss about making games in the context of old Twitter. The sense of a conversation, of having "access" to people who are inclined to be interested in what you're doing, want you to share it with them, want to try it and talk to you about it, or simply to offer words (or likes) of support.
+
+So that was a huge win for me in terms of putting a game out as I feel like lately it's been a bit of a struggle to feel like there's much interest in what I'm doing. (And of course now I do a little search to see if the previous game got any notice and it *did* - hilariously there's a post on slither.io which seems to be a site devoted to Snake games??? And they actually took a serious look at it, incredible.) Anyway I was feeling sad about it all and kind of resigned to just "well, I make things because I want to think about them while I make them" (which is true) and "nobody will really give any shits" (which is not as true, though it can be true because the internet if fickle as fuck).
+
+And *then* while I was fact checking my note above about it being on Hackernews and sinking to the bottom of the ocean I searched for it so I could see if it ever got beyond the 1 point posts get by default and...
+
+I see someone else called bookofjoe also posted it and it made it up to 250 points! That was four hours ago so it's actually sitting up really high on their site (second place after 5 hours is no joke) which is a nice shock... huh. And yeah in analytics there are apparently over 1000 people on my site looking at it at the moment so... cool. Over 4000 "active users" on my site today. The internet is so weird.
+
+Well, that said, I *do* think some of this is "predictable" in the sense that if you work on something that connects with internet/tech/game culture you're more likely to catch the wind of interest from people. But I also think if you try to do that explicitly you most of the time won't get anything out of it because it feels... pretty random to me. But it's true that my "biggest game" (Work) is of that nature too. I can imagine trying to fixate on how to have this kind of success again, but I've never wanted to put in the effort. There are some clear elements that come into play, but intentionally reproducing this level of interest (and let's be clear that by internet standards it remains tiny) is a fool's errand in my opinion.
+
+So, I'm really please the phone game got some traction our there in the wilderness. A bunch of people have now thought along with me about how we use our phones, how it feels to think about using your phone while using it, etc.
+
+Interesting to me, too, that there were numerous comments about the meditative qualities of the game the way it is now, which I think bodes well for a more targeted approach with the eventual meditation suite (I suppose I'm now thinking specifically about it as a meditation suite, which I also really like as I'm writing these words... different apps for different meditative approaches... mmmm, nice.)
+
+Well so yeah. One of those release processes that surprise you by not just being "well... it's out there now, the end".
