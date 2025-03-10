@@ -14,26 +14,26 @@ class Phoning extends Activity {
                     class: Drag,
                     generator: dragData,
                 },
-                // {
-                //     name: "Swipe",
-                //     class: Swipe,
-                //     generator: randomSwipeData,
-                // },
-                // {
-                //     name: "Type",
-                //     class: Type,
-                //     generator: typeData,
-                // },
-                // {
-                //     name: "Double tap",
-                //     class: DoubleTap,
-                //     generator: doubleTapData,
-                // },
-                // {
-                //     name: "Watch",
-                //     class: Watch,
-                //     generator: watchData,
-                // },
+                {
+                    name: "Swipe",
+                    class: Swipe,
+                    generator: randomSwipeData,
+                },
+                {
+                    name: "Type",
+                    class: Type,
+                    generator: typeData,
+                },
+                {
+                    name: "Double tap",
+                    class: DoubleTap,
+                    generator: doubleTapData,
+                },
+                {
+                    name: "Watch",
+                    class: Watch,
+                    generator: watchData,
+                },
             ]
         };
 
