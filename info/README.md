@@ -18,6 +18,7 @@
 - Jason Kottke. [A game called “It is as if you were on your phone” is designed to make you look like you’re on your phone.](https://also.kottke.org/25/03/0046409-a-game-called-it-is). Kottke.org. 7 March 2025.
 - Dan Q. [It is as if you were on your phone](https://danq.me/2025/03/10/it-is-as-if-you-were-on-your-phone/). Dan Q (Blog). 10 March 2025. (This guy recorded a video of him playing which I love!)
 - de Rochefort, Simone. [Finally, I can pretend I'm on my phone - And it's giving me an existential crisis!](https://www.polygon.com/mobile/537312/pippin-barr-phone-game). Polygon. 10 March 2025.
+- Stroili, Marine. [C'est quoi ce jeu vidéo qui vous permet de faire semblant d'être occupé sur votre téléphone ?](https://www.rtbf.be/article/c-est-quoi-ce-jeu-video-qui-vous-permet-de-faire-semblant-d-etre-occupe-sur-votre-telephone-11515920). RTBF Actus. 10 March 2025.
 
 Read the [Press Kit](../press) for press information.
 
