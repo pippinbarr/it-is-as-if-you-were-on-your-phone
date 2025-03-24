@@ -20,6 +20,7 @@
 - de Rochefort, Simone. [Finally, I can pretend I'm on my phone - And it's giving me an existential crisis!](https://www.polygon.com/mobile/537312/pippin-barr-phone-game). Polygon. 10 March 2025.
 - Stroili, Marine. [C'est quoi ce jeu vidéo qui vous permet de faire semblant d'être occupé sur votre téléphone ?](https://www.rtbf.be/article/c-est-quoi-ce-jeu-video-qui-vous-permet-de-faire-semblant-d-etre-occupe-sur-votre-telephone-11515920). RTBF Actus. 10 March 2025.
 - Web Curios. [Web Curios 14/03/25](https://webcurios.co.uk/webcurios-14-03-25/). Web Curios. 14 March 2025.
+- Hacker News. [It is as if you were on your phone](https://news.ycombinator.com/item?id=43308994). Hacker News front page. 9 March 2025.
 
 Read the [Press Kit](../press) for press information.
 
